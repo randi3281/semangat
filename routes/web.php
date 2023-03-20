@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::get('/semangat', 'SemangatController@index');
 Route::get('/belajar4', 'SemangatController@belajar4');
 Route::get('/belajar42', 'SemangatController@belajar42');
+Route::get('/belajar5/{nama}', 'SemangatController@belajar5');
+
 
 Auth::routes();
 

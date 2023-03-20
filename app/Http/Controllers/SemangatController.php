@@ -17,4 +17,8 @@ class SemangatController extends Controller
     public function belajar42(){
         return view('belajar42');
     }
+
+    public function belajar5($nama){
+        return view('belajar5', ["nama" => $nama]);
+    }
 }
