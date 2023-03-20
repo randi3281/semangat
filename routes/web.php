@@ -22,6 +22,8 @@ Route::get('/semangat', 'SemangatController@index');
 Route::get('/belajar4', 'SemangatController@belajar4');
 Route::get('/belajar42', 'SemangatController@belajar42');
 Route::get('/belajar5/{nama}', 'SemangatController@belajar5');
+Route::get('/inputan', 'SemangatController@inputan');
+Route::post('/inputan/hasil', 'SemangatController@hasil');
 
 
 Auth::routes();
