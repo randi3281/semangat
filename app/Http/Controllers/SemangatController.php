@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class SemangatController extends Controller
 {
@@ -30,5 +32,10 @@ class SemangatController extends Controller
         $nama = $request->nama;
         $nim = $request->nim;
         return view('hasil', ["nama" => $nama, "nim" => $nim]);
+    }
+
+    public function daftar(){
+        $data = DB::table('pegawai')->get();
+        return view('daftar', ["data" => $data]);
     }
 }
