@@ -15,7 +15,7 @@ class PegawaiSeeds extends Seeder
     public function run(): void
     {
         $faker = Faker::create('id_ID');
-        for($i = 1; $i <= 50; $i++){
+        for($i = 1; $i <= 500; $i++){
             DB::table('pegawai')->insert([
                 'Nama' => $faker->name,
                 'Alamat' => $faker->address

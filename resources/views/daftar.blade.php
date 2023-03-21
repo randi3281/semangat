@@ -22,11 +22,20 @@
                     </tr>
                     @foreach ($data as $da)
                         <tr>
-                            <td>{{$da->Nama}}</td>
-                            <td>{{$da->Alamat}}</td>
+                            <td>{{ $da->Nama }}</td>
+                            <td>{{ $da->Alamat }}</td>
                         </tr>
                     @endforeach
                 </table>
+                <div class="row">
+                    <div class="col-lg-4">hy</div>
+                    <div class="col-lg-7">
+
+                        <div class="">
+                            {{ $data->links() }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

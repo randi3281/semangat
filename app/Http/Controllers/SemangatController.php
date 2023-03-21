@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 
 class SemangatController extends Controller
@@ -35,7 +36,7 @@ class SemangatController extends Controller
     }
 
     public function daftar(){
-        $data = DB::table('pegawai')->get();
+        $data = DB::table('pegawai')->paginate(10);
         return view('daftar', ["data" => $data]);
     }
 }
