@@ -1,5 +1,5 @@
 <h1 class="text-center fs-4 mb-4"> Kelola Siswa</h1>
-<form action="/input" method="POST">
+<form action="/siswa/input" method="POST">
     {{ csrf_field() }}
     <div class="form-group mb-2">
         <label for="nama">Nama</label>
