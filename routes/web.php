@@ -29,3 +29,6 @@ Route::get('/daftarpegawai', 'SemangatController@daftar');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/siswa', 'SiswaController@index');
