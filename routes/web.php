@@ -35,4 +35,5 @@ Route::get('siswa', 'SiswaController@index');
 Route::get('siswa/hapus/{nim}', 'SiswaController@hapus');
 Route::get('siswa/update/{nim}', 'SiswaController@update');
 Route::post('siswa/input', 'SiswaController@input');
+Route::post('siswa/update/updatingdata', 'SiswaController@updating');
 // End Siswa
