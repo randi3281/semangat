@@ -13,11 +13,10 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// Belajar
 Route::get('/', function () {
-    return view('portofolio.portofolio');
+    return view('welcome');
 });
-
 Route::get('/semangat', 'SemangatController@index');
 Route::get('/belajar4', 'SemangatController@belajar4');
 Route::get('/belajar42', 'SemangatController@belajar42');
@@ -25,12 +24,14 @@ Route::get('/belajar5/{nama}', 'SemangatController@belajar5');
 Route::get('/inputan', 'SemangatController@inputan');
 Route::post('/inputan/hasil', 'SemangatController@hasil');
 Route::get('/daftarpegawai', 'SemangatController@daftar');
+// End Belajar
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+// Siswa
 Route::get('/siswa', 'SiswaController@index');
 Route::get('/siswa/hapus/{nim}', 'SiswaController@hapus');
 Route::post('/siswa/input', 'SiswaController@input');
+// End Siswa
