@@ -15,10 +15,10 @@
     <div class="container mt-5">
         <div class="row mt-5 justify-content-center">
             <div class="col-lg-3">
-                @include('kelolasiswa')
+                @include('siswa.kelolasiswa')
             </div>
             <div class="col-lg-9 pl-3">
-                @include('daftarsiswa')
+                @include('siswa.daftarsiswa')
                 {{$data->links()}}
             </div>
         </div>

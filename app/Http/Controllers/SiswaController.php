@@ -9,7 +9,7 @@ class SiswaController extends Controller
 {
     public function index(){
         $data = DB::table('daftarsiswa')->paginate(10);
-        return view('mainsiswa', ['data' => $data]);
+        return view('siswa.mainsiswa', ['data' => $data]);
     }
 
     public function input(Request $request){
