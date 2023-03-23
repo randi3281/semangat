@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 // Belajar
 Route::get('/', function () {
-    // return view('welcome');
-    return "hys";
+    return view('portofolio.portofolio');
 });
 Route::get('/semangat', 'SemangatController@index');
 Route::get('/belajar4', 'SemangatController@belajar4');
