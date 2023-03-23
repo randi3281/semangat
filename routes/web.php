@@ -37,3 +37,12 @@ Route::get('siswa/update/{nim}', 'SiswaController@update');
 Route::post('siswa/input', 'SiswaController@input');
 Route::post('siswa/update/updatingdata', 'SiswaController@updating');
 // End Siswa
+
+// Anficititate
+Route::get('anficititate', 'ACController@index');
+Route::get('anficititate/{jenis}/{penulis}', 'ACController@indexpenulis');
+Route::get('anficititate/hapus/{ft}', 'ACController@hapus');
+Route::get('anficititate/dapus/{jenis}/{penulis}', 'ACController@dapus');
+Route::get('anficititate/edit/{jenis}/{penulis}/{ft}', 'ACController@tampiledit');
+Route::post('anficititate/kelola', 'ACController@kelola');
+// End Anficititate
