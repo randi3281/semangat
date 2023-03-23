@@ -10,19 +10,19 @@ use Illuminate\Pagination\Paginator;
 class SemangatController extends Controller
 {
     public function index(){
-        return view('semangat');
+        return view('belajar.semangat');
     }
 
     public function belajar4(){
-        return view('belajar4');
+        return view('belajar.belajar4');
     }
 
     public function belajar42(){
-        return view('belajar42');
+        return view('belajar.belajar42');
     }
 
     public function belajar5($nama){
-        return view('belajar5', ["nama" => $nama]);
+        return view('belajar.belajar5', ["nama" => $nama]);
     }
 
     public function inputan(){
