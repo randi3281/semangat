@@ -10,8 +10,26 @@
     @vite('resources/sass/app.scss')
 </head>
 
-<body>
+<body class="bg-dark">
+    <div class="container">
+        <div class="row justify-content-center" style="margin-top: 100px;">
+            <div class="col-lg-5">
+                <div class="card" style=" height:450px;">
+                    <div class="card-body">
+                        @switch($mode)
+                            @case(1)
+                                @include('anficititate.login')
+                            @break
 
+                            @case(2)
+                                @include('anficititate.login')
+                            @break
+                        @endswitch
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

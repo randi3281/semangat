@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class ACController extends Controller
 {
     public function index(){
-        return view('anficititate.index');
+        $mode = 1;
+        return view('anficititate.index', ['mode' => $mode]);
     }
 }
