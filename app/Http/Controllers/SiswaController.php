@@ -20,12 +20,12 @@ class SiswaController extends Controller
             "kelas" => $request->kelas,
         ]);
 
-        return redirect('/siswa');
+        return redirect('siswa');
     }
 
     public function hapus($nim){
         DB::table('daftarsiswa')->where('nim', $nim)->delete();
-        return redirect('/siswa');
+        return redirect('siswa');
     }
 
     public function update($nim){
