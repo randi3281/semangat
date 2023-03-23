@@ -31,7 +31,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Siswa
-Route::get('/siswa', 'SiswaController@index');
-Route::get('/siswa/hapus/{nim}', 'SiswaController@hapus');
-Route::post('/siswa/input', 'SiswaController@input');
+Route::get('siswa', 'SiswaController@index');
+Route::get('siswa/hapus/{nim}', 'SiswaController@hapus');
+Route::get('siswa/update/{nim}', 'SiswaController@update');
+Route::post('siswa/input', 'SiswaController@input');
 // End Siswa

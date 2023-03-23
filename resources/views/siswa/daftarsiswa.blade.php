@@ -16,7 +16,7 @@
             <td class="text-white">
                 <a href="/siswa/hapus/{{ $siswa->nim }}" style="font-size: 8pt;">Hapus</a>
                 <a> | </a>
-                <a href="/siswa/update/{{$siswa->nim}}" style="font-size: 8pt;">Update</a>
+                <a href="/siswa/update/{{ $siswa->nim }}" style="font-size: 8pt;">Update</a>
             </td>
         </tr>
     @endforeach

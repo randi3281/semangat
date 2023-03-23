@@ -9,7 +9,8 @@ class SiswaController extends Controller
 {
     public function index(){
         $data = DB::table('daftarsiswa')->paginate(10);
-        return view('siswa.mainsiswa', ['data' => $data]);
+        $kelola = 1;
+        return view('siswa.mainsiswa', ['data' => $data, 'kelola' => $kelola]);
     }
 
     public function input(Request $request){
@@ -25,5 +26,12 @@ class SiswaController extends Controller
     public function hapus($nim){
         DB::table('daftarsiswa')->where('nim', $nim)->delete();
         return redirect('/siswa');
+    }
+
+    public function update($nim){
+        DB::table('daftarsiswa')->where('nim', $nim)->get();
+        $data = DB::table('daftarsiswa')->paginate(10);
+        $kelola = 2;
+        return view('siswa.mainsiswa', ['data' => $data, 'kelola' => $kelola]);
     }
 }
