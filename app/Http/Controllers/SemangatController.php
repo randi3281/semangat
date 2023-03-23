@@ -26,17 +26,17 @@ class SemangatController extends Controller
     }
 
     public function inputan(){
-        return view('inputan');
+        return view('belajar.inputan');
     }
 
     public function hasil(Request $request){
         $nama = $request->nama;
         $nim = $request->nim;
-        return view('hasil', ["nama" => $nama, "nim" => $nim]);
+        return view('belajar.hasil', ["nama" => $nama, "nim" => $nim]);
     }
 
     public function daftar(){
         $data = DB::table('pegawai')->paginate(10);
-        return view('daftar', ["data" => $data]);
+        return view('belajar.daftar', ["data" => $data]);
     }
 }
