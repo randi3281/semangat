@@ -1,0 +1,19 @@
+body{
+    background-color: aliceblue;
+}
+.container{
+    background-color: white;
+    padding: 50px;
+    margin: auto;
+    width: max-content;
+    margin-top: 200px;
+}
+
+table td {
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+h3{
+    padding-bottom: 20px;
+}

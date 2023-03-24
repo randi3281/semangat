@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('anficitatelogintable', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('username');
-            $table->string('password');
+        Schema::create('accaptcha', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anficitatelogintable');
+        Schema::dropIfExists('accaptcha');
     }
 };

@@ -22,7 +22,19 @@
                             @break
 
                             @case(2)
-                                @include('anficititate.login')
+                                @include('anficititate.register')
+                            @break
+
+                            @case(3)
+                                @include('anficititate.slc_repo')
+                            @break
+
+                            @case(4)
+                                @include('anficititate.del_repo')
+                            @break
+
+                            @case(5)
+                                @include('anficititate.upd_repo')
                             @break
                         @endswitch
                     </div>
