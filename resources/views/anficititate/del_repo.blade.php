@@ -3,21 +3,23 @@
     <div class="col-sm-8 ">
         <form action="pin" method="POST">
             <div class="form-group">
-                <label for="my-input">Repository</label>
+                <label for="repository">Repository</label>
                 {{-- <input id="my-input" class="form-control" type="text" name=""> --}}
                 <select class="form-select" name="repository" id="">
                     <option value="hy" selected>hy</option>
                 </select>
             </div>
-            <p  style="font-size: 7pt">Or want to <a href="slc_repo">Select Repository</a> or <a href="upd_repo">Update Repository</a></p>
+            <p style="font-size: 7pt">Or want to <a href="slc_repo">Select Repository</a> or <a href="upd_repo">Update
+                    Repository</a></p>
             <div class="form-group mt-3">
-                <label for="my-input">PIN</label>
-                <input id="my-input" class="form-control" type="password" name="">
+                <label for="pin">PIN</label>
+                <input id="pin" class="form-control" type="password" name="pin">
             </div>
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-danger w-50" value="DELETE">
-                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="login">Login again Here</a></p>
+                    class="btn btn-danger w-50" name="delete" value="DELETE">
+                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="login">Login again Here</a>
+                </p>
             </div>
         </form>
     </div>
