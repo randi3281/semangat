@@ -33,7 +33,7 @@
             <div class="text-center mt-4">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
                     class="btn btn-primary w-50" value="ENTER">
-                <p class="mt-2" style="font-size: 7pt">Not Have Account? <a href="anficititate/daftar">Register
+                <p class="mt-2" style="font-size: 7pt">Not Have Account? <a href="/anficititate/daftar">Register
                         Here</a></p>
             </div>
         </form>

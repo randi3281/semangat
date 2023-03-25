@@ -47,7 +47,7 @@ class ACController extends Controller
                 'pin' => $request->pin,
                 'keslog' => 3
             ]);
-            return redirect('anficititate/selamat');
+            return redirect('anficititate/ket/selamat');
         }else{
             $mode = 2;
             $pesan = "Maaf, Username sudah ada";
