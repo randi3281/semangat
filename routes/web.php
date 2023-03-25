@@ -40,14 +40,16 @@ Route::post('siswa/update/updatingdata', 'SiswaController@updating');
 
 // Anficititate
 Route::get('anficititate', 'ACController@index');
-Route::get('anficititate/register', 'ACController@register');
+Route::get('anficititate/{ucapan}', 'ACController@ucapan');
+Route::get('anficititate/daftar', 'ACController@daftar');
 Route::get('anficititate/login', 'ACController@login');
 Route::post('anficititate/login', 'ACController@login');
+Route::post('anficititate/daftarakun', 'ACController@daftarakun');
 Route::get('anficititate/del_repo', 'ACController@del_repo');
 Route::get('anficititate/upd_repo', 'ACController@upd_repo');
 Route::get('anficititate/slc_repo', 'ACController@slc_repo');
 Route::post('anficititate/slc_repo', 'ACController@slc_repo');
-Route::post('anficititate/footnote', 'ACController@footnote');
+Route::post('anficititate/home', 'ACController@home');
 // Route::get('anficititate/{jenis}/{penulis}', 'ACController@indexpenulis');
 // Route::get('anficititate/hapus/{ft}', 'ACController@hapus');
 // Route::get('anficititate/dapus/{jenis}/{penulis}', 'ACController@dapus');

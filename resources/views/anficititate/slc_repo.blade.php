@@ -1,7 +1,7 @@
 <h1 class="text-center fs-3 mt-5 mb-5" style="font-family: 'Times New Roman', Times, serif">SELECT REPOSITORY</h1>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
-        <form action="footnote" method="POST">
+        <form action="home" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="repository">Repository</label>

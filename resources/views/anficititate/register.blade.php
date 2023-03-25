@@ -1,7 +1,18 @@
-<h1 class="text-center fs-3 mt-4 mb-4" style="font-family: 'Times New Roman', Times, serif">REGISTER</h1>
+<h1 class="text-center fs-3 mt-4 mb-3" style="font-family: 'Times New Roman', Times, serif">REGISTER</h1>
+<div class="row text-center justify-content-center" style="font-size: 9pt; margin-bottom: -10px">
+    <p>
+        <a class="text-white">-</a><a class="text-danger" style="text-decoration: none">
+            @if (isset($pesan))
+                @php
+                    echo $pesan;
+                @endphp
+            @endif
+        </a><a class="text-white">-</a>
+    </p>
+</div>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
-        <form action="login" method="POST">
+        <form action="daftarakun" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>

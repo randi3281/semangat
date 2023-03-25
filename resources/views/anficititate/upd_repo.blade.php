@@ -1,10 +1,16 @@
-<h1 class="text-center fs-3 mt-5 mb-4" style="font-family: 'Times New Roman', Times, serif">UPDATE REPOSITORY</h1>
+<h1 class="text-center fs-3 mt-5 mb-2" style="font-family: 'Times New Roman', Times, serif">UPDATE REPOSITORY</h1>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
         <form action="pin" method="POST">
             <div class="form-group">
+                <div class="row text-center justify-content-center" style="font-size: 9pt; margin-bottom: -20px">
+                    <p>
+                        <a class="text-white">-</a><a class="text-danger" style="text-decoration: none">s</a><a
+                            class="text-white">-</a>
+                    </p>
+                </div>
                 <label for="repository">Repository</label>
-                {{-- <input id="my-input" class="form-control" type="text" name=""> --}}
+
                 <select class="form-select" name="repository" id="">
                     <option value="hy" selected>hy</option>
                 </select>
