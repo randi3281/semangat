@@ -74,7 +74,7 @@ class ACController extends Controller
 
     public function slc_repop(Request $request){
         session_start();
-        $acdcaptcha = DB::table('accaptcha')->get();
+        // $acdcaptcha = DB::table('accaptcha')->get();
         $acdlogin = DB::table('aclogin')->where('username', $request->username)->get();
 
         // Variabel
