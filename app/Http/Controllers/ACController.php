@@ -18,6 +18,8 @@ class ACController extends Controller
         $pesan = "";
         if($ucapan == "selamat"){
             $pesan = "Selamat, akun Anda berhasil dibuat";
+        }else if($ucapan == "captcha"){
+            $pesan = "Maaf, Captcha salah";
         }
         return view('anficititate.index', ['mode' => $mode, 'pesan' => $pesan]);
     }
@@ -61,9 +63,45 @@ class ACController extends Controller
         return view('anficititate.index', ['mode' => $mode]);
     }
 
-    public function slc_repo(){
+    public function slc_repoe(){
+        return redirect('/anficititate');
+    }
+
+    public function slc_repog(){
         $mode = 3;
         return view('anficititate.index', ['mode' => $mode]);
+    }
+
+    public function slc_repop(Request $request){
+        session_start();
+        $acdcaptcha = DB::table('accaptcha')->get();
+        $acdlogin = DB::table('aclogin')->where('username', $request->username)->get();
+
+        // Variabel
+        $cekcaptcha = $_SESSION['Captcha'];
+        $captcha = 0;
+        $keslog = "";
+        $username = "";
+        $password = "";
+        // End Variabel
+
+        // Captcha
+        if($request->captcha == $cekcaptcha){
+            $captcha = 1;
+        }
+
+        // foreach($acdcaptcha as $datacaptcha){
+        //     if($request->captcha == $datacaptcha->captcha){
+        //         $captcha = 1;
+        //         DB::table('accaptcha')->where('captcha', $request->captcha)->delete();
+        //     }
+        // }
+
+        if($captcha == 0){
+            return redirect('/anficititate/ket/captcha');
+        }
+        // End Captpcha
+
     }
 
     public function del_repo(){

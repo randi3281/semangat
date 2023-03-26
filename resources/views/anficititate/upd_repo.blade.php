@@ -15,8 +15,8 @@
                     <option value="hy" selected>hy</option>
                 </select>
             </div>
-            <p style="font-size: 7pt; margin-bottom:-5px;">Or want to <a href="del_repo" class="text-danger">Delete
-                    Repository</a> or <a href="slc_repo">Select Repository</a></p>
+            <p style="font-size: 7pt; margin-bottom:-5px;">Or want to <a href="/anficititate/del_repo" class="text-danger">Delete
+                    Repository</a> or <a href="/anficititate/slc_repo">Select Repository</a></p>
             <div class="form-group mt-2">
                 <input id="namabaru" class="form-control" type="text" name="namabaru"
                     placeholder="Input new name here ...">
@@ -28,7 +28,8 @@
             <div class="text-center mt-4">
                 <input type="submit" name="enter" style="height: 38px; font-size: 12px; font-weight: bold"
                     class="btn btn-primary w-50" value="ENTER">
-                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="login">Login again Here</a>
+                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="/anficititate">Login again
+                        Here</a>
                 </p>
             </div>
         </form>

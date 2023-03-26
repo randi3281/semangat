@@ -11,8 +11,8 @@
                     <option value="hy">Create New Repository</option>
                 </select>
             </div>
-            <p style="font-size: 7pt">Or want to <a href="del_repo" class="text-danger">Delete Repository</a> or <a
-                    href="upd_repo">Update
+            <p style="font-size: 7pt">Or want to <a href="/anficititate/del_repo" class="text-danger">Delete Repository</a> or <a
+                    href="/anficititate/upd_repo">Update
                     Repository</a></p>
             <div class="form-group mt-3">
                 <label for="pin">PIN</label>
@@ -21,7 +21,7 @@
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
                     class="btn btn-primary w-50" name="enter" value="ENTER">
-                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="login">Login again Here</a>
+                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="/anficititate/login">Login again Here</a>
                 </p>
             </div>
         </form>

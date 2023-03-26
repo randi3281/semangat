@@ -16,15 +16,15 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" class="form-control" type="text" name="username">
+                <input id="username" class="form-control" type="text" name="username" required>
             </div>
             <div class="form-group mt-1">
                 <label for="password">Password</label>
-                <input id="password" class="form-control" type="text" name="password">
+                <input id="password" class="form-control" type="text" name="password" required>
             </div>
             <div class="form-group mt-1">
                 <label for="pin">PIN</label>
-                <input id="pin" class="form-control" type="text" name="pin">
+                <input id="pin" class="form-control" type="text" name="pin" required>
             </div>
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"

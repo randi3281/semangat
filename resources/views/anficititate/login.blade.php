@@ -13,7 +13,7 @@
 
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
-        <form action="anficititate/slc_repo" method="POST">
+        <form action="/anficititate/slc_repo" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
@@ -28,7 +28,7 @@
                 <img src="/captcha/anficititate/captcha.php" alt="gambar">
             </div>
             <div class="form-group mt-3">
-                <input id="captcha" class="form-control" type="text" name="captcha" placeholder="Isi Captcha ...">
+                <input id="captcha" class="form-control" type="text" name="captcha" placeholder="Isi Captcha ..." maxlength="6" value="">
             </div>
             <div class="text-center mt-4">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
