@@ -80,6 +80,8 @@ class ACController extends Controller
         }
         if($bisamasuk == 1){
             echo "hy";
+        }else{
+            return redirect('/anficititate');
         }
     }
 
