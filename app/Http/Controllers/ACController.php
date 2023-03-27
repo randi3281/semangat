@@ -79,7 +79,8 @@ class ACController extends Controller
             }
         }
         if($bisamasuk == 1){
-            echo "hy";
+            $mode = 3;
+            return view('anficititate.index', ['mode' => $mode]);
         }else{
             return redirect('/anficititate');
         }
@@ -140,7 +141,7 @@ class ACController extends Controller
                     $user = $datalogin->username;
                 }
 
-                $ceksesi = DB::table('acsession')->where('username', $user)->get();
+                $ceksesi = DB::table('acsession')->where('username', $request->username)->get();
                 $bisasesi = 0;
                 $jumlahsesi = 0;
                 foreach($ceksesi as $checksesi){
@@ -150,21 +151,36 @@ class ACController extends Controller
                 if($jumlahsesi > 2){
                     $sisi = DB::table('acsession')->where('username', $user)->get();
                     foreach($sisi as $checksisi){
-                        DB::table('acsession')->where('urutansesi', 1)->delete();
+                        DB::table('acsession')->where('urutansesi', 1)->where('username', $user)->delete();
                     }
                     foreach($sisi as $checksisi){
                         if($checksisi->urutansesi == 2){
-                            DB::table('acsession')->where('urutansesi', 2)->update([
+                            DB::table('acsession')->where('urutansesi', 2)->where('username', $user)->update([
                                 'urutansesi' => 1
                             ]);
                         }else if($checksisi->urutansesi == 3){
-                            DB::table('acsession')->where('urutansesi', 3)->update([
+                            DB::table('acsession')->where('urutansesi', 3)->where('username', $user)->update([
                                 'urutansesi' => 2
                             ]);
                         }
                     }
                     $bisasesi = 1;
                 }else{
+                    $sisi = DB::table('acsession')->where('username', $user)->get();
+                    foreach($sisi as $checksisi){
+                        DB::table('acsession')->where('urutansesi', 1)->where('username', $user)->delete();
+                    }
+                    foreach($sisi as $checksisi){
+                        if($checksisi->urutansesi == 2){
+                            DB::table('acsession')->where('urutansesi', 2)->where('username', $user)->update([
+                                'urutansesi' => 1
+                            ]);
+                        }else if($checksisi->urutansesi == 3){
+                            DB::table('acsession')->where('urutansesi', 3)->where('username', $user)->update([
+                                'urutansesi' => 2
+                            ]);
+                        }
+                    }
                     $bisasesi = 1;
                 }
 
