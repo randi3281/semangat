@@ -9,8 +9,24 @@ class ACController extends Controller
 {
     // Start Login
     public function index(){
+        session_start();
+        $acdsession = DB::table('acsession')->get();
+        $bisamasuk = 0;
+        foreach($acdsession as $datasession){
+            if($_SESSION['kode'] == $datasession->sessionlog1){
+                $bisamasuk = 1;
+            }
+        }
+        if($bisamasuk == 1){
+            return redirect('/anficititate/slc_repo');
+        }
         $mode = 1;
         return view('anficititate.index', ['mode' => $mode]);
+    }
+    public function back(){
+        session_start();
+        $_SESSION['kode'] = "";
+        return redirect('/anficititate');
     }
     // Start Login
     public function ucapan($ucapan){

@@ -40,6 +40,7 @@ Route::post('siswa/update/updatingdata', 'SiswaController@updating');
 
 // Anficititate
 Route::get('anficititate', 'ACController@index');
+Route::get('anficititate/back', 'ACController@back');
 Route::get('anficititate/ket/{ucapan}', 'ACController@ucapan');
 Route::get('anficititate/daftar', 'ACController@daftar');
 Route::get('anficititate/login', 'ACController@login');

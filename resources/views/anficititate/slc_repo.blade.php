@@ -21,7 +21,7 @@
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
                     class="btn btn-primary w-50" name="enter" value="ENTER">
-                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="/anficititate/login">Login again Here</a>
+                <p class="mt-2" style="font-size: 7pt">Want to change account? <a href="/anficititate/back">Login again Here</a>
                 </p>
             </div>
         </form>
