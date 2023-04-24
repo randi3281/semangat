@@ -36,6 +36,10 @@
                             @case(5)
                                 @include('anficititate.upd_repo')
                             @break
+
+                            @case(6)
+                                @include('anficititate.new_repo')
+                            @break
                         @endswitch
                     </div>
                 </div>

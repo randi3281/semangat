@@ -12,7 +12,9 @@ class ACController extends Controller
         session_start();
         $acdsession = DB::table('acsession')->get();
         $bisamasuk = 0;
-        $_SESSION['kode']=0;
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         foreach($acdsession as $datasession){
             if($_SESSION['kode'] == $datasession->sessionlog1){
                 $bisamasuk = 1;
@@ -33,6 +35,9 @@ class ACController extends Controller
     public function ucapan($ucapan){
         $mode = 1;
         $pesan = "";
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         if($ucapan == "selamat"){
             $pesan = "Selamat, akun Anda berhasil dibuat";
         }else if($ucapan == "captcha"){
@@ -53,13 +58,15 @@ class ACController extends Controller
     }
 
     public function login(){
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         return redirect('anficititate');
     }
 
     public function daftarakun(Request $request){
         $acdlogin =  DB::table('aclogin')->get();
         $bisa = 1;
-        $pesan = "";
         foreach($acdlogin as $datalogin){
             if($request->username == $datalogin->username){
                 $bisa=0;
@@ -83,6 +90,9 @@ class ACController extends Controller
 
     public function cek(Request $request){
         $mode = 3;
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         return view('anficititate.index', ['mode' => $mode]);
     }
 
@@ -90,6 +100,9 @@ class ACController extends Controller
         session_start();
         $acdsession = DB::table('acsession')->get();
         $bisamasuk = 0;
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         foreach($acdsession as $datasession){
             if($_SESSION['kode'] == $datasession->sessionlog1){
                 $bisamasuk = 1;
@@ -105,12 +118,17 @@ class ACController extends Controller
 
     public function slc_repog(){
         $mode = 3;
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         return view('anficititate.index', ['mode' => $mode]);
     }
 
     public function slc_repop(Request $request){
         session_start();
-
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         $_SESSION['kode'] = "";
         // $acdcaptcha = DB::table('accaptcha')->get();
         $acd1login = DB::table('aclogin')->get();
@@ -226,19 +244,53 @@ class ACController extends Controller
     }
 
     public function del_repo(){
+        session_start();
         $mode = 4;
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         return view('anficititate.index', ['mode' => $mode]);
     }
 
     public function upd_repo(){
+        session_start();
         $mode = 5;
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
         return view('anficititate.index', ['mode' => $mode]);
     }
     // End Login
 
     // Start Footnote
     public function home(Request $request){
-        return view('anficititate.home');
+        session_start();
+
+        if(isset($request->enter)){
+            if(!isset($_SESSION['kode'])){
+                return redirect('/anficititate');
+            }
+            return view('anficititate.home');
+        }
+
+        if(isset($request->new)){
+            $mode = 6;
+            return view('anficititate.index', ['mode' => $mode]);
+        }
+    }
+
+    public function new_repo(Request $request){
+        session_start();
+
+        if(isset($request->enter)){
+            if(!isset($_SESSION['kode'])){
+                return redirect('/anficititate/slc_repo');
+            }
+            return redirect('/anficititate/slc_repo');
+        }
+
+        if(isset($request->new)){
+        }
     }
     // End Footnote
 }
