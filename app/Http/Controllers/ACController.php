@@ -33,9 +33,6 @@ class ACController extends Controller
     public function ucapan($ucapan){
         $mode = 1;
         $pesan = "";
-        if(!isset($_SESSION['kode'])){
-            return redirect('/anficititate');
-        }
         if($ucapan == "selamat"){
             $pesan = "Selamat, akun Anda berhasil dibuat";
         }else if($ucapan == "captcha"){
