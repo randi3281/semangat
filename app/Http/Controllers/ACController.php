@@ -12,8 +12,7 @@ class ACController extends Controller
         session_start();
         $acdsession = DB::table('acsession')->get();
         $bisamasuk = 0;
-        if(!isset($_SESSION['kode'])){
-            return redirect('/anficititate');
+        $_SESSION['kode'] = 0;
         }
         foreach($acdsession as $datasession){
             if($_SESSION['kode'] == $datasession->sessionlog1){
