@@ -52,6 +52,8 @@ Route::post('anficititate/slc_repo', 'ACController@slc_repop');
 Route::get('anficititate/slc_repo', 'ACController@slc_repo');
 Route::post('anficititate/home', 'ACController@home');
 Route::post('anficititate/new_repo', 'ACController@new_repo');
+Route::get('anficititate/lupa_sandi', 'ACController@lupa_sandi');
+Route::post('anficititate/lupa_kata_sandi', 'ACController@lupa_kata_sandi');
 // Route::get('anficititate/{jenis}/{penulis}', 'ACController@indexpenulis');
 // Route::get('anficititate/hapus/{ft}', 'ACController@hapus');
 // Route::get('anficititate/dapus/{jenis}/{penulis}', 'ACController@dapus');

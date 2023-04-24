@@ -40,6 +40,10 @@
                             @case(6)
                                 @include('anficititate.new_repo')
                             @break
+
+                            @case(7)
+                                @include('anficititate.lupa_sandi')
+                            @break
                         @endswitch
                     </div>
                 </div>

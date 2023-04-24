@@ -16,11 +16,11 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" class="form-control" type="text" name="username" required autofocus>
+                <input id="username" class="form-control" type="text" name="username" required autofocus placeholder="Contoh : anfi123">
             </div>
             <div class="form-group mt-1">
                 <label for="password">Kata Sandi</label>
-                <input id="password" class="form-control" type="text" name="password" required>
+                <input id="password" class="form-control" type="text" name="password" required placeholder="Minimal 8 digit ya">
             </div>
             <div class="form-group mt-1">
                 <label for="pin">PIN</label>
