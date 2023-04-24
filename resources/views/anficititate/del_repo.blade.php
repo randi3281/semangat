@@ -11,7 +11,7 @@
             </div>
             <p style="font-size: 7pt">Atau ingin untuk <a href="slc_repo">Pilih Repository</a> atau <a class="text-danger" href="upd_repo">Perbarui
                     Repositori</a></p>
-            <div class="form-group mt-3">
+            <div class="form-group mt-3" style="margin-bottom: -0px">
                 <label for="pin">PIN</label>
                 <input id="pin" class="form-control" type="password" maxlength="6" name="pin" autofocus required>
             </div>

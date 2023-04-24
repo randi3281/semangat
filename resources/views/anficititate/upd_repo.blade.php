@@ -1,4 +1,4 @@
-<h1 class="text-center fs-3 mt-5 mb-2" style="font-family: 'Times New Roman', Times, serif">PERBARUI REPOSITORI</h1>
+<h1 class="text-center fs-3 mt-5 mb-3" style="font-family: 'Times New Roman', Times, serif">PERBARUI REPOSITORI</h1>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
         <form action="pin" method="POST">
