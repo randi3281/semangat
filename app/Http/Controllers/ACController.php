@@ -202,7 +202,7 @@ class ACController extends Controller
                 if($bisasesi == 1){
                     $kode = 0;
                     for($i = 0; $i < 7; $i++){
-                        $kode .= rand(0, 9);
+                        $kode .= rand(1, 9);
                     }
                     $_SESSION['kode'] = $kode;
                     DB::table('acsession')->insert([
