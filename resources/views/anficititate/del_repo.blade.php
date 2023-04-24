@@ -13,7 +13,7 @@
                     Repositori</a></p>
             <div class="form-group mt-3">
                 <label for="pin">PIN</label>
-                <input id="pin" class="form-control" type="password" maxlength="6" name="pin">
+                <input id="pin" class="form-control" type="password" maxlength="6" name="pin" autofocus required>
             </div>
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"

@@ -5,17 +5,17 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="pin">Nama Repositori</label>
-                <input type="text" class="form-control" name="nama_repo">
+                <input type="text" class="form-control" name="nama_repo" autofocus>
             </div>
-            <div class="form-group mt-3">
+            <div class="form-group mt-3 pb-3">
                 <label for="pin">PIN</label>
                 <input id="pin" class="form-control" type="password" maxlength="6" name="pin">
             </div>
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-secondary w-25" name="enter" value="MASUK">
-                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
                     class="btn btn-primary w-50" name="new" value="BUAT BARU">
+                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
+                    class="btn btn-secondary w-25" name="enter" value="MASUK">
                 <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="/anficititate/back">Login
                         Kembali Disini</a>
                 </p>

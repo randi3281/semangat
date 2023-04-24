@@ -16,7 +16,7 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" class="form-control" type="text" name="username" required>
+                <input id="username" class="form-control" type="text" name="username" required autofocus>
             </div>
             <div class="form-group mt-1">
                 <label for="password">Kata Sandi</label>

@@ -19,11 +19,11 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" class="form-control" type="text" name="username">
+                <input id="username" class="form-control" type="text" name="username" autofocus required>
             </div>
             <div class="form-group mt-1">
                 <label for="password">Kata Sandi</label>
-                <input id="password" class="form-control" type="password" name="password">
+                <input id="password" class="form-control" type="password" name="password" required>
             </div>
             <div class="form-group mt-3">
                 <label style="margin-right: 12px">Captcha</label>
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group mt-3">
                 <input id="captcha" class="form-control" type="text" name="captcha" placeholder="Isi Captcha ..."
-                    maxlength="6" value="">
+                    maxlength="6" value="" required>
             </div>
             <div class="text-center mt-4">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
