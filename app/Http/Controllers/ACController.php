@@ -184,10 +184,9 @@ class ACController extends Controller
                 }else{
                     $sisi = DB::table('acsession')->where('username', $user)->get();
                     foreach($sisi as $checksisi){
-                        DB::table('acsession')->where('urutansesi', 1)->where('username', $user)->delete();
-                    }
-                    foreach($sisi as $checksisi){
-                        if($checksisi->urutansesi == 2){
+                        if($checksisi->urutansesi == 1){
+                            DB::table('acsession')->where('urutansesi', 1)->where('username', $user)->delete();
+                        } else if($checksisi->urutansesi == 2){
                             DB::table('acsession')->where('urutansesi', 2)->where('username', $user)->update([
                                 'urutansesi' => 1
                             ]);
