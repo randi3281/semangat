@@ -45,7 +45,7 @@ Route::get('anficititate/ket/{ucapan}', 'ACController@ucapan');
 Route::get('anficititate/daftar', 'ACController@daftar');
 Route::get('anficititate/login', 'ACController@login');
 Route::post('anficititate/login', 'ACController@login');
-Route::post('anficititate/daftarakun', 'ACController@daftarakun');
+Route::post('anficititate/daf4tarakun', 'ACController@daftarakun');
 Route::get('anficititate/del_repo', 'ACController@del_repo');
 Route::get('anficititate/upd_repo', 'ACController@upd_repo');
 Route::post('anficititate/slc_repo', 'ACController@slc_repop');
