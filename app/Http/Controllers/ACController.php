@@ -281,7 +281,7 @@ class ACController extends Controller
             if(!isset($_SESSION['kode'])){
                 return redirect('/anficititate');
             }
-            return view('anficititate.home');
+            return redirect('/anficititate/homee');
         }
 
         if(isset($request->new)){

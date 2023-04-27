@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class FootnoteController extends Controller
 {
     public function index(){
-        return redirect('/1/1');
+        return redirect('anficititate/1/1');
     }
 
     public function indexpenulis($jenis, $jumlahpenulis){
