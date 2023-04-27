@@ -85,58 +85,88 @@ class ACController extends Controller
 
     }
 
-    public function cek(Request $request){
-        $mode = 3;
-        if(!isset($_SESSION['kode'])){
-            return redirect('/anficititate');
-        }
+    public function lupa_sandi(){
+        $mode = 7;
+
         return view('anficititate.index', ['mode' => $mode]);
     }
 
-    public function slc_repo(){
-        session_start();
-        $acdsession = DB::table('acsession')->get();
-        $bisamasuk = 0;
-        if(!isset($_SESSION['kode'])){
-            return redirect('/anficititate');
+    public function lupa_sandi_error($error){
+        $mode = 7;
+        $pesan = "";
+        if($error == "kodeerror"){
+            $pesan = "Maaf, kode konfirmasi Kamu salah";
+        } elseif ($error == "usernamesalah"){
+            $pesan = "Maaf, username Kamu tidak ditemukan";
+        } elseif ($error == "tidaksama"){
+            $pesan = "Maaf, Konfirmasi kata sandi baru Kamu tidak sama";
+        } elseif ($error == "selamat"){
+            $pesan = "Selamat, Kata Sandi Kamu berhasil diubah!";
         }
-        foreach($acdsession as $datasession){
-            if($_SESSION['kode'] == $datasession->sessionlog1){
-                $bisamasuk = 1;
+        return view('anficititate.index', ['mode' => $mode, 'pesan' => $pesan]);
+    }
+
+    public function lupa_kata_sandi(Request $request){
+        if(isset($request->minkode)){
+            return redirect('https://wa.me/6285314410358?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20kata%20sandi%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
+        }
+
+        if(isset($request->enter)){
+            $datausern = DB::table('aclogin')->get();
+            $adausername = 0;
+            foreach($datausern as $data){
+                if($data->username == $request->username){
+                    $adausername = 1;
+                }
             }
-        }
-        if($bisamasuk == 1){
-            $mode = 3;
-            return view('anficititate.index', ['mode' => $mode]);
-        }else{
-            return redirect('/anficititate');
+            if($adausername == 0){
+                return redirect('anficititate/lupa_sandi/usernamesalah');
+            }else{
+
+            }
+            $datauser = DB::table('aclogin')->where('username', $request->username)->get();
+            foreach($datauser as $data){
+                if($data->minkode == $request->kodekonfir){
+                    if($request->new_pass == $request->confirm_new_pass){
+                        DB::table('aclogin')->where('username', $request->username)->update([
+                            'password' => $request->new_pass,
+                            'minkode' => null
+                        ]);
+                    } else{
+                        return redirect('anficititate/lupa_sandi/tidaksama');
+                    }
+                }else{
+                    return redirect('anficititate/lupa_sandi/kodeerror');
+                }
+            }
+            return redirect("anficititate/ket/sandidiubah");
         }
     }
 
-    public function slc_repog(){
-        $mode = 3;
-        if(!isset($_SESSION['kode'])){
-            return redirect('/anficititate');
-        }
-        return view('anficititate.index', ['mode' => $mode]);
-    }
+    // public function cek(Request $request){
+    //     $mode = 3;
+    //     if(!isset($_SESSION['kode'])){
+    //         return redirect('/anficititate');
+    //     }
+    //     return view('anficititate.index', ['mode' => $mode]);
+    // }
+
+    // public function slc_repog(){
+    //     $mode = 3;
+    //     if(!isset($_SESSION['kode'])){
+    //         return redirect('/anficititate');
+    //     }
+    //     return view('anficititate.index', ['mode' => $mode]);
+    // }
 
     public function slc_repop(Request $request){
         session_start();
-        if(!isset($_SESSION['kode'])){
-            return redirect('/anficititate');
-        }
-        $_SESSION['kode'] = "";
-        // $acdcaptcha = DB::table('accaptcha')->get();
         $acd1login = DB::table('aclogin')->get();
         $acdlogin = DB::table('aclogin')->where('username', $request->username)->get();
 
         // Variabel
+        $_SESSION['kode'] = "";
         $cekcaptcha = $_SESSION['Captcha'];
-        $captcha = 0;
-        $keslog = "";
-        $username = "";
-        $password = "";
         $adausername = 0;
         $adapassword = 0;
         // End Variabel
@@ -145,15 +175,8 @@ class ACController extends Controller
         if($request->captcha !== $cekcaptcha){
             return redirect('/anficititate/ket/captcha');
         }
-        // foreach($acdcaptcha as $datacaptcha){
-        //     if($request->captcha == $datacaptcha->captcha){
-        //         $captcha = 1;
-        //         DB::table('accaptcha')->where('captcha', $request->captcha)->delete();
-        //     }
-        // }
-        // End Captpcha
+        // End Captcha
 
-        // Keslog
         foreach($acd1login as $data1login){
             if($data1login->username == $request->username){
                 $adausername = 1;
@@ -228,96 +251,66 @@ class ACController extends Controller
                     ]);
                     return redirect('/anficititate/slc_repo');
                 }
-                // return redirect('/anficititate/slc_repo');
             } else{
                 return redirect('/anficititate/ket/takadapass');
             }
-            // echo $request->username;
         }else{
             return redirect('/anficititate/ket/takada');
-            // echo $request->username;
         }
-        // End Keslog
+    }
+
+    public function slc_repo(){
+        session_start();
+        $acdsession = DB::table('acsession')->get();
+
+        $bisamasuk = 0;
+
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
+
+        foreach($acdsession as $datasession){
+            if($_SESSION['kode'] == $datasession->sessionlog1){
+                $bisamasuk = 1;
+            }
+        }
+
+        if($bisamasuk == 1){
+            $mode = 3;
+            return view('anficititate.index', ['mode' => $mode]);
+        }else{
+            return redirect('/anficititate');
+        }
+
     }
 
     public function del_repo(){
         session_start();
-        $mode = 4;
+
         if(!isset($_SESSION['kode'])){
             return redirect('/anficititate');
+        } elseif ($_SESSION['kode'] == ""){
+            return redirect('/anficititate');
         }
+
+        $mode = 4;
+
         return view('anficititate.index', ['mode' => $mode]);
     }
 
-    public function lupa_sandi(){
-        $mode = 7;
-        return view('anficititate.index', ['mode' => $mode]);
-    }
-
-    public function lupa_sandi_error($error){
-        $mode = 7;
-        $pesan = "";
-        if($error == "kodeerror"){
-            $pesan = "Maaf, kode konfirmasi Kamu salah";
-        } elseif ($error == "usernamesalah"){
-            $pesan = "Maaf, username Kamu tidak ditemukan";
-        } elseif ($error == "tidaksama"){
-            $pesan = "Maaf, Konfirmasi kata sandi baru Kamu tidak sama";
-        } elseif ($error == "selamat"){
-            $pesan = "Selamat, Kata Sandi Kamu berhasil diubah!";
-        }
-        return view('anficititate.index', ['mode' => $mode, 'pesan' => $pesan]);
-    }
-
-    public function lupa_kata_sandi(Request $request){
-        if(isset($request->minkode)){
-            return redirect('https://wa.me/6285314410358?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20kata%20sandi%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
-        }
-
-        if(isset($request->enter)){
-            $datausern = DB::table('aclogin')->get();
-            $adausername = 0;
-            foreach($datausern as $data){
-                if($data->username == $request->username){
-                    $adausername = 1;
-                }
-            }
-            if($adausername == 0){
-                return redirect('anficititate/lupa_sandi/usernamesalah');
-            }else{
-
-            }
-            $datauser = DB::table('aclogin')->where('username', $request->username)->get();
-            foreach($datauser as $data){
-                if($data->minkode == $request->kodekonfir){
-                    if($request->new_pass == $request->confirm_new_pass){
-                        DB::table('aclogin')->where('username', $request->username)->update([
-                            'password' => $request->new_pass,
-                            'minkode' => null
-                        ]);
-                    } else{
-                        return redirect('anficititate/lupa_sandi/tidaksama');
-                    }
-                }else{
-                    return redirect('anficititate/lupa_sandi/kodeerror');
-                }
-            }
-            return redirect("anficititate/ket/sandidiubah");
-        }
-    }
 
     public function upd_repo(){
         session_start();
+
         $mode = 5;
+
         if(!isset($_SESSION['kode'])){
             return redirect('/anficititate');
         }
+
         return view('anficititate.index', ['mode' => $mode]);
     }
 
-    // End Login
-
-    // Start Footnote
     public function home(Request $request){
         session_start();
 
@@ -329,22 +322,33 @@ class ACController extends Controller
         }
 
         if(isset($request->new)){
-            $mode = 6;
-            return view('anficititate.index', ['mode' => $mode]);
+            return redirect('/anficititate/new_repo_home');
         }
+    }
+
+    public function new_repo_home(){
+        session_start();
+
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
+
+        $mode = 6;
+        return view('anficititate.index', ['mode' => $mode]);
     }
 
     public function new_repo(Request $request){
         session_start();
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate/slc_repo');
+        }
+        return redirect('/anficititate/slc_repo');
 
         if(isset($request->enter)){
-            if(!isset($_SESSION['kode'])){
-                return redirect('/anficititate/slc_repo');
-            }
-            return redirect('/anficititate/slc_repo');
         }
 
         if(isset($request->new)){
+
         }
     }
     // End Footnote
