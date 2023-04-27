@@ -60,3 +60,10 @@ Route::post('anficititate/lupa_kata_sandi', 'ACController@lupa_kata_sandi');
 // Route::get('anficititate/edit/{jenis}/{penulis}/{ft}', 'ACController@tampiledit');
 // Route::post('anficititate/kelola', 'ACController@kelola');
 // End Anficititate
+
+Route::get('anficititate/home', 'FootnoteController@index');
+Route::get('anficititate/hapus/{ft}', 'FootnoteController@hapus');
+Route::get('anficititate/dapus/{jenis}/{penulis}', 'FootnoteController@dapus');
+Route::get('anficititate/{jenis}/{penulis}', 'FootnoteController@indexpenulis');
+Route::get('anficititate/edit/{jenis}/{penulis}/{ft}', 'FootnoteController@tampiledit');
+Route::post('anficititate/kelola', 'FootnoteController@kelola');
