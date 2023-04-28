@@ -11,8 +11,10 @@
                 </div>
                 <label for="repository">Repositori</label>
 
-                <select class="form-select" name="repository" id="">
-                    <option value="hy" selected>hy</option>
+                <select class="form-select" name="repository">
+                    @foreach ($datarepo as $repodata)
+                        <option value="{{$repodata->repositori}}">{{$repodata->repositori}}</option>
+                    @endforeach
                 </select>
             </div>
             <p style="font-size: 7pt; margin-bottom:-5px;">Atau ingin untuk <a href="/anficititate/slc_repo">Pilih

@@ -7,8 +7,9 @@
                 <label for="repository">Repositori</label>
                 {{-- <input id="my-input" class="form-control" type="text" name=""> --}}
                 <select class="form-select" name="repository">
-                    <option value="hy" selected>hy</option>
-                    <option value="hy">Buat Repositori baru</option>
+                    @foreach ($datarepo as $repodata)
+                        <option value="{{$repodata->repositori}}">{{$repodata->repositori}}</option>
+                    @endforeach
                 </select>
             </div>
             <p style="font-size: 7pt">Atau ingin untuk <a href="/anficititate/del_repo" class="text-danger">Hapus

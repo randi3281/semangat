@@ -15,7 +15,7 @@
 </div>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
-        <form action="new_repo" method="POST">
+        <form action="/anficititate/new_repo" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="pin">Nama Repositori</label>

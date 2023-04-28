@@ -166,6 +166,7 @@ class ACController extends Controller
 
         // Variabel
         $_SESSION['kode'] = "";
+        $_SESSION['username'] = "";
         $cekcaptcha = $_SESSION['Captcha'];
         $adausername = 0;
         $adapassword = 0;
@@ -242,7 +243,20 @@ class ACController extends Controller
                     for($i = 0; $i < 7; $i++){
                         $kode .= rand(1, 9);
                     }
+                    // cek Kode
+                    $kodecek = DB::table('acsession')->get();
+                    foreach($kodecek as $cekkode){
+                        if($cekkode->sessionlog1 == $kode){
+                            $kode = 0;
+                            for($i = 0; $i < 7; $i++){
+                                $kode .= rand(1, 9);
+                            }
+                        }
+                    }
+                    // End Cek Kode
+
                     $_SESSION['kode'] = $kode;
+                    $_SESSION['username'] = $request->username;
                     DB::table('acsession')->insert([
                         'sessionlog1' => $kode,
                         'sessionlog2' => 0,
@@ -262,6 +276,7 @@ class ACController extends Controller
     public function slc_repo(){
         session_start();
         $acdsession = DB::table('acsession')->get();
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
 
         $bisamasuk = 0;
 
@@ -277,7 +292,7 @@ class ACController extends Controller
 
         if($bisamasuk == 1){
             $mode = 3;
-            return view('anficititate.index', ['mode' => $mode]);
+            return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
         }else{
             return redirect('/anficititate');
         }
@@ -288,6 +303,7 @@ class ACController extends Controller
         session_start();
 
         $acdsession = DB::table('acsession')->get();
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         $acc = 1;
 
 
@@ -307,7 +323,7 @@ class ACController extends Controller
 
         $mode = 4;
 
-        return view('anficititate.index', ['mode' => $mode]);
+        return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
     }
 
 
@@ -315,6 +331,7 @@ class ACController extends Controller
         session_start();
 
         $acdsession = DB::table('acsession')->get();
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         $acc = 1;
 
 
@@ -334,7 +351,7 @@ class ACController extends Controller
 
         $mode = 5;
 
-        return view('anficititate.index', ['mode' => $mode]);
+        return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
     }
 
     public function home(Request $request){
@@ -377,19 +394,140 @@ class ACController extends Controller
         return view('anficititate.index', ['mode' => $mode]);
     }
 
+    public function new_repo_home_ket($ket){
+        session_start();
+
+        $acdsession = DB::table('acsession')->get();
+        $acc = 1;
+
+
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        } else {
+            foreach($acdsession as $acsession){
+                if($_SESSION['kode'] == $acsession->sessionlog1){
+                    $acc = 0;
+                }
+            }
+
+            if($acc == 1){
+                return redirect('/anficititate');
+            }
+        }
+
+        $mode = 6;
+        $pesan = "";
+
+        if($ket == "repoada"){
+            $pesan = "Maaf, nama repositori itu sudah ada";
+        }elseif($ket == "berhasil"){
+            $pesan = "Selamat, repositori Kamu berhasil dibuat!";
+        }elseif($ket == "pinsalah"){
+            $pesan = "Pin Kamu salah, ayo ulangi lagi!";
+        }
+
+        return view('anficititate.index', ['mode' => $mode, 'pesan' =>$pesan]);
+    }
+
     public function new_repo(Request $request){
         session_start();
-        if(!isset($_SESSION['kode'])){
-            return redirect('/anficititate/slc_repo');
-        }
-        return redirect('/anficititate/slc_repo');
-
-        if(isset($request->enter)){
-        }
 
         if(isset($request->new)){
+            $repodata = DB::table('acrepo')->get();
+            $logindata = DB::table('aclogin')->where('username', $_SESSION['username'])->get();
 
+            $pinbenar = 0;
+            $bisamasuk = 1;
+
+            foreach($logindata as $datalogin){
+                if($datalogin->pin == $request->pin){
+                    $pinbenar = 1;
+                }
+            }
+
+            if($pinbenar == 1){
+                foreach($repodata as $datarepo){
+                    if($request->nama_repo == $datarepo->repositori){
+                        $bisamasuk = 0;
+                    }
+                }
+
+                if($bisamasuk == 0){
+                    return redirect('/anficititate/new_repo_home/repoada');
+                }
+
+                DB::table('acrepo')->insert([
+                    'repositori' => $request->nama_repo,
+                    'username' => $_SESSION['username']
+                ]);
+                return redirect('/anficititate/new_repo_home/berhasil');
+            }
+
+            return redirect('/anficititate/new_repo_home/pinsalah');
         }
+
+        if(isset($request->enter)){
+            return redirect("/anficititate/slc_repo");
+        }
+
+    }
+
+    public function delete_repo(Request $request){
+        session_start();
+
+        if(isset($request->delete)){
+            $logindata = DB::table('aclogin')->where('username', $_SESSION['username'])->get();
+
+            $pinbenar = 0;
+
+            foreach($logindata as $datalogin){
+                if($datalogin->pin == $request->pin){
+                    $pinbenar = 1;
+                }
+            }
+
+            if($pinbenar == 1){
+                DB::table('acrepo')->where('repositori', $request->repository)->delete();
+                return redirect('/anficititate/del_repo/berhasil');
+            }
+
+            return redirect('/anficititate/del_repo/pinsalah');
+        }
+
+    }
+
+    public function del_repo_ket($ket){
+        session_start();
+
+        $acdsession = DB::table('acsession')->get();
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
+        $acc = 1;
+
+
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        } else {
+            foreach($acdsession as $acsession){
+                if($_SESSION['kode'] == $acsession->sessionlog1){
+                    $acc = 0;
+                }
+            }
+
+            if($acc == 1){
+                return redirect('/anficititate');
+            }
+        }
+
+        $mode = 4;
+        $pesan = "";
+
+        if($ket == "berhasil"){
+            $pesan = "Selamat, repositori Kamu berhasil dihapus!";
+        }elseif($ket == "pinsalah"){
+            $pesan = "Pin Kamu salah, ayo ulangi lagi!";
+        }
+
+        return view('anficititate.index', ['mode' => $mode, 'pesan' =>$pesan, 'datarepo' =>  $acdrepo]);
     }
     // End Footnote
 }
