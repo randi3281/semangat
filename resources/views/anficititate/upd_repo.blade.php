@@ -1,7 +1,22 @@
 <h1 class="text-center fs-3 mt-5 mb-3" style="font-family: 'Times New Roman', Times, serif">PERBARUI REPOSITORI</h1>
+<div class="row text-center justify-content-center" style="font-size: 9pt; margin-top: -15px; margin-bottom: -20px">
+    <p>
+        <a class="text-white">-</a>
+        <a class="text-danger" style="text-decoration: none">
+            @if (isset($pesan))
+                @php
+                    echo $pesan;
+                @endphp
+            @endif
+
+        </a>
+        <a class="text-white">-</a>
+    </p>
+</div>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
-        <form action="pin" method="POST">
+        <form action="/anficititate/upd_repo" method="POST">
+            {{ csrf_field() }}
             <div class="form-group">
                 <div class="row text-center justify-content-center" style="font-size: 9pt; margin-bottom: -20px">
                     <p>

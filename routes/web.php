@@ -60,6 +60,8 @@ Route::get('anficititate/new_repo_home/{ket}', 'ACController@new_repo_home_ket')
 Route::post('anficititate/new_repo', 'ACController@new_repo');
 Route::post('anficititate/delete_repo', 'ACController@delete_repo');
 Route::get('anficititate/del_repo/{ket}', 'ACController@del_repo_ket');
+Route::post('anficititate/upd_repo', 'ACController@update_repo');
+Route::get('anficititate/upd_repo/{ket}', 'ACController@upd_repo_ket');
 // Route::get('anficititate/{jenis}/{penulis}', 'ACController@indexpenulis');
 // Route::get('anficititate/hapus/{ft}', 'ACController@hapus');
 // Route::get('anficititate/dapus/{jenis}/{penulis}', 'ACController@dapus');

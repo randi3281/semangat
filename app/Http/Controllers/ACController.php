@@ -529,5 +529,64 @@ class ACController extends Controller
 
         return view('anficititate.index', ['mode' => $mode, 'pesan' =>$pesan, 'datarepo' =>  $acdrepo]);
     }
+    public function update_repo(Request $request){
+        session_start();
+
+        if(isset($request->enter)){
+            $logindata = DB::table('aclogin')->where('username', $_SESSION['username'])->get();
+
+            $pinbenar = 0;
+
+            foreach($logindata as $datalogin){
+                if($datalogin->pin == $request->pin){
+                    $pinbenar = 1;
+                }
+            }
+
+            if($pinbenar == 1){
+                DB::table('acrepo')->where('repositori', $request->repository)->update([
+                    'repositori' => $request->namabaru
+                ]);
+                return redirect('/anficititate/upd_repo/berhasil');
+            }
+
+            return redirect('/anficititate/upd_repo/pinsalah');
+        }
+
+    }
+
+    public function upd_repo_ket($ket){
+        session_start();
+
+        $acdsession = DB::table('acsession')->get();
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
+        $acc = 1;
+
+
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        } else {
+            foreach($acdsession as $acsession){
+                if($_SESSION['kode'] == $acsession->sessionlog1){
+                    $acc = 0;
+                }
+            }
+
+            if($acc == 1){
+                return redirect('/anficititate');
+            }
+        }
+
+        $mode = 5;
+        $pesan = "";
+
+        if($ket == "berhasil"){
+            $pesan = "Selamat, repositori Kamu berhasil diubah!";
+        }elseif($ket == "pinsalah"){
+            $pesan = "Pin Kamu salah, ayo ulangi lagi!";
+        }
+
+        return view('anficititate.index', ['mode' => $mode, 'pesan' =>$pesan, 'datarepo' =>  $acdrepo]);
+    }
     // End Footnote
 }
