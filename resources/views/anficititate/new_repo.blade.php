@@ -23,7 +23,7 @@
             </div>
             <div class="form-group mt-3 pb-3">
                 <label for="pin">PIN</label>
-                <input id="pin" class="form-control" type="password" maxlength="6" name="pin" placeholder="Masukin PIN kamu disini ya">
+                <input id="pin" class="form-control" type="password" maxlength="6" name="pin" minlength="6" placeholder="Masukin PIN kamu disini ya">
             </div>
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"

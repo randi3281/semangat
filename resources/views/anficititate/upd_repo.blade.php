@@ -41,7 +41,7 @@
             </div>
             <div class="form-group mt-3">
                 <label for="pin">PIN</label>
-                <input id="pin" class="form-control" maxlength="6" type="password" name="pin" autofocus required placeholder="Masukin PIN kamu disini ya">
+                <input id="pin" class="form-control" maxlength="6" minlength="6" type="password" name="pin" autofocus required placeholder="Masukin PIN kamu disini ya">
             </div>
             <div class="text-center mt-4">
                 <input type="submit" name="enter" style="height: 38px; font-size: 12px; font-weight: bold"
