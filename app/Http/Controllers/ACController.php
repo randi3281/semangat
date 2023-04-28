@@ -287,10 +287,22 @@ class ACController extends Controller
     public function del_repo(){
         session_start();
 
+        $acdsession = DB::table('acsession')->get();
+        $acc = 1;
+
+
         if(!isset($_SESSION['kode'])){
             return redirect('/anficititate');
-        } elseif ($_SESSION['kode'] == ""){
-            return redirect('/anficititate');
+        } else {
+            foreach($acdsession as $acsession){
+                if($_SESSION['kode'] == $acsession->sessionlog1){
+                    $acc = 0;
+                }
+            }
+
+            if($acc == 1){
+                return redirect('/anficititate');
+            }
         }
 
         $mode = 4;
@@ -302,11 +314,25 @@ class ACController extends Controller
     public function upd_repo(){
         session_start();
 
-        $mode = 5;
+        $acdsession = DB::table('acsession')->get();
+        $acc = 1;
+
 
         if(!isset($_SESSION['kode'])){
             return redirect('/anficititate');
+        } else {
+            foreach($acdsession as $acsession){
+                if($_SESSION['kode'] == $acsession->sessionlog1){
+                    $acc = 0;
+                }
+            }
+
+            if($acc == 1){
+                return redirect('/anficititate');
+            }
         }
+
+        $mode = 5;
 
         return view('anficititate.index', ['mode' => $mode]);
     }
@@ -329,8 +355,22 @@ class ACController extends Controller
     public function new_repo_home(){
         session_start();
 
+        $acdsession = DB::table('acsession')->get();
+        $acc = 1;
+
+
         if(!isset($_SESSION['kode'])){
             return redirect('/anficititate');
+        } else {
+            foreach($acdsession as $acsession){
+                if($_SESSION['kode'] == $acsession->sessionlog1){
+                    $acc = 0;
+                }
+            }
+
+            if($acc == 1){
+                return redirect('/anficititate');
+            }
         }
 
         $mode = 6;
