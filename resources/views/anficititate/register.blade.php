@@ -16,15 +16,18 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" class="form-control" type="text" name="username" required autofocus placeholder="Contoh : anfi123">
+                <input id="username" class="form-control" type="text" name="username" required autofocus
+                    placeholder="Contoh : anfi123">
             </div>
             <div class="form-group mt-1">
                 <label for="password">Kata Sandi</label>
-                <input id="password" class="form-control" type="text" name="password" required placeholder="Minimal 8 digit ya">
+                <input id="password" class="form-control" type="text" name="password" required
+                    placeholder="Minimal 8 digit ya" minlength="8">
             </div>
             <div class="form-group mt-1">
                 <label for="pin">PIN</label>
-                <input id="pin" class="form-control" type="text" name="pin" placeholder="Masukkan 6 digit angka" maxlength="6" required>
+                <input id="pin" class="form-control" type="text" name="pin"
+                    placeholder="Masukkan 6 digit angka" maxlength="6" minlength="6" required>
             </div>
             <div class="text-center mt-5">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"

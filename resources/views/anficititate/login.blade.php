@@ -23,7 +23,7 @@
             </div>
             <div class="form-group mt-1">
                 <label for="password">Kata Sandi</label>
-                <input id="password" class="form-control" type="password" name="password" required placeholder="Inget kan kata sandinya?">
+                <input id="password" class="form-control" type="password" name="password" required placeholder="Inget kan kata sandinya?" minlength="8">
             </div>
             <p style="font-size: 7pt">Kalau kamu lupa kata sandinya, <a href="/anficititate/lupa_sandi">Klik Disini</a></p>
             <div class="form-group mt-3">
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group mt-3">
                 <input id="captcha" class="form-control" type="text" name="captcha" placeholder="Masukin captcha di atas kesini ...."
-                    maxlength="6" value="" required>
+                    maxlength="6" value="" minlength="6" required>
             </div>
             <div class="text-center mt-3">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
