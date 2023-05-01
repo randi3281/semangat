@@ -276,14 +276,14 @@ class ACController extends Controller
     public function slc_repo(){
         session_start();
         $acdsession = DB::table('acsession')->get();
-        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
+
 
         $bisamasuk = 0;
 
         if(!isset($_SESSION['kode'])){
             return redirect('/anficititate');
         }
-
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         foreach($acdsession as $datasession){
             if($_SESSION['kode'] == $datasession->sessionlog1){
                 $bisamasuk = 1;
@@ -303,7 +303,6 @@ class ACController extends Controller
         session_start();
 
         $acdsession = DB::table('acsession')->get();
-        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         $acc = 1;
 
 
@@ -321,6 +320,7 @@ class ACController extends Controller
             }
         }
 
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         $mode = 4;
 
         return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
@@ -331,7 +331,6 @@ class ACController extends Controller
         session_start();
 
         $acdsession = DB::table('acsession')->get();
-        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         $acc = 1;
 
 
@@ -349,6 +348,7 @@ class ACController extends Controller
             }
         }
 
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         $mode = 5;
 
         return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
