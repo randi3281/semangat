@@ -49,6 +49,9 @@ Route::post('anficititate/daftarakun', 'ACController@daftarakun');
 Route::get('anficititate/lupa_sandi', 'ACController@lupa_sandi');
 Route::get('anficititate/lupa_sandi/{error}', 'ACController@lupa_sandi_error');
 Route::post('anficititate/lupa_kata_sandi', 'ACController@lupa_kata_sandi');
+Route::get('anficititate/lupa_pin', 'ACController@lupa_pin');
+Route::get('anficititate/lupa_pin/{error}', 'ACController@lupa_pin_error');
+Route::post('anficititate/lupa_pin_nya', 'ACController@lupa_pin_nya');
 
 Route::post('anficititate/slc_repo', 'ACController@slc_repop');
 Route::get('anficititate/slc_repo', 'ACController@slc_repo');

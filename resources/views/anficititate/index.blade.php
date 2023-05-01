@@ -44,6 +44,10 @@
                             @case(7)
                                 @include('anficititate.lupa_sandi')
                             @break
+
+                            @case(8)
+                                @include('anficititate.lupa_pin')
+                            @break
                         @endswitch
                     </div>
                 </div>

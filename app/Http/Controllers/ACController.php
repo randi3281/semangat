@@ -142,7 +142,63 @@ class ACController extends Controller
             return redirect("anficititate/ket/sandidiubah");
         }
     }
+    public function lupa_pin(){
+        $mode = 8;
 
+        return view('anficititate.index', ['mode' => $mode]);
+    }
+
+    public function lupa_pin_error($error){
+        $mode = 7;
+        $pesan = "";
+        if($error == "kodeerror"){
+            $pesan = "Maaf, kode konfirmasi Kamu salah";
+        } elseif ($error == "usernamesalah"){
+            $pesan = "Maaf, username Kamu tidak ditemukan";
+        } elseif ($error == "tidaksama"){
+            $pesan = "Maaf, Konfirmasi kata sandi baru Kamu tidak sama";
+        } elseif ($error == "selamat"){
+            $pesan = "Selamat, Kata Sandi Kamu berhasil diubah!";
+        }
+        return view('anficititate.index', ['mode' => $mode, 'pesan' => $pesan]);
+    }
+
+    public function lupa_pin_nya(Request $request){
+        if(isset($request->minkode)){
+            return redirect('https://wa.me/6285314410358?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20kata%20sandi%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
+        }
+
+        if(isset($request->enter)){
+            $datausern = DB::table('aclogin')->get();
+            $adausername = 0;
+            foreach($datausern as $data){
+                if($data->username == $request->username){
+                    $adausername = 1;
+                }
+            }
+            if($adausername == 0){
+                return redirect('anficititate/lupa_sandi/usernamesalah');
+            }else{
+
+            }
+            $datauser = DB::table('aclogin')->where('username', $request->username)->get();
+            foreach($datauser as $data){
+                if($data->minkode == $request->kodekonfir){
+                    if($request->new_pass == $request->confirm_new_pass){
+                        DB::table('aclogin')->where('username', $request->username)->update([
+                            'password' => $request->new_pass,
+                            'minkode' => null
+                        ]);
+                    } else{
+                        return redirect('anficititate/lupa_sandi/tidaksama');
+                    }
+                }else{
+                    return redirect('anficititate/lupa_sandi/kodeerror');
+                }
+            }
+            return redirect("anficititate/ket/sandidiubah");
+        }
+    }
     // public function cek(Request $request){
     //     $mode = 3;
     //     if(!isset($_SESSION['kode'])){
@@ -158,6 +214,7 @@ class ACController extends Controller
     //     }
     //     return view('anficititate.index', ['mode' => $mode]);
     // }
+
 
     public function slc_repop(Request $request){
         session_start();
