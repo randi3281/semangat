@@ -12,7 +12,7 @@
 </div>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
-        <form action="daftarakun" method="POST">
+        <form action="/anficititate/daftarakun" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>

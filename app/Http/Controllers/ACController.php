@@ -62,10 +62,13 @@ class ACController extends Controller
     }
 
     public function daftarakun(Request $request){
-        $acdlogin =  DB::table('aclogin')->get();
+        $acdlogin =  DB::table('aclogin')->where('username', $request->username)->get();
         $bisa = 1;
+        $ceknama = strtolower($request->username);
+
         foreach($acdlogin as $datalogin){
-            if($request->username == $datalogin->username){
+            $ceknamadata = strtolower($datalogin->username);
+            if($ceknamadata == $ceknama){
                 $bisa=0;
             }
         }
@@ -248,7 +251,7 @@ class ACController extends Controller
             if($adapassword == 1){
                 $user = "";
                 foreach($acdlogin as $datalogin){
-                    if($datalogin->keslog == 0){
+                    if($datalogin->keslog < 1){
                         return redirect('/anficititate/ket/terancam');
                     }
                     $user = $datalogin->username;

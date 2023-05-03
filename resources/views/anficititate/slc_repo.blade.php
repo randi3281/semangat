@@ -40,7 +40,7 @@
                 <input id="pin" class="form-control" type="password" maxlength="6" name="pin" minlength="6"
                     autofocus placeholder="Masukin PIN kamu disini ya">
             </div>
-            <p style="font-size: 7pt">Kalau kamu lupa PIN, <a href="/anficititate/lupa_pin">Klik Disini</a></p>
+            <p style="font-size: 7pt">Kalau kamu mau ubah PIN, <a href="/anficititate/lupa_pin">Klik Disini</a></p>
             <div class="text-center mt-4">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
                     class="btn btn-primary w-25" name="enter" value="MASUK">

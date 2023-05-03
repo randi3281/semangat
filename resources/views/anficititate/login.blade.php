@@ -25,7 +25,7 @@
                 <label for="password">Kata Sandi</label>
                 <input id="password" class="form-control" type="password" name="password" required placeholder="Inget kan kata sandinya?" minlength="8">
             </div>
-            <p style="font-size: 7pt">Kalau kamu lupa kata sandinya, <a href="/anficititate/lupa_sandi">Klik Disini</a></p>
+            <p style="font-size: 7pt">Kalau kamu mau ubah kata sandinya, <a href="/anficititate/lupa_sandi">Klik Disini</a></p>
             <div class="form-group mt-3">
                 <label style="margin-right: 12px">Captcha</label>
                 <img src="/captcha/anficititate/captcha.php" alt="gambar">

@@ -34,12 +34,12 @@
             <div class="form-group mt-1">
                 <label for="password">Kata PIN Baru</label>
                 <input id="password" class="form-control" type="password" name="new_pin"
-                    placeholder="Masukin kata sandi barumu disini" minlength="6">
+                    placeholder="Masukin kata sandi barumu disini" minlength="6" maxlength="6">
             </div>
             <div class="form-group mt-1">
                 <label for="password">Konfirmasi PIN Baru</label>
                 <input id="password" class="form-control" type="password" name="confirm_new_pin"
-                    placeholder="Masukin ulang kata sandi barumu" minlength="6">
+                    placeholder="Masukin ulang kata sandi barumu" minlength="6" maxlength="6">
             </div>
             <div class="text-center mt-3">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
