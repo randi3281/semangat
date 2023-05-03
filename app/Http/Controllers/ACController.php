@@ -708,7 +708,8 @@ class ACController extends Controller
 
                     $_SESSION['kode2'] = $kode;
                     DB::table('acsession')->where('username', $_SESSION['username'])->where('sessionlog1', $_SESSION['kode'])->update([
-                        'sessionlog2' => $kode
+                        'sessionlog2' => $kode,
+                        'repo' => $_SESSION['repo']
                     ]);
             }
 
