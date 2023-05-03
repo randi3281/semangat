@@ -7,6 +7,7 @@
                         <form action="/kelola" method="POST">
                             <input type="hidden" name="urut" value="{{ $nomor }}">
                             {{ csrf_field() }}
+                            <input type="submit" name="rapi" value="Keluar" class="btn btn-secondary">
                             <input type="submit" name="rapi" value="Daftar Footnote" class="btn btn-success">
                             <input type="submit" name="dapus" value="Daftar Pustaka" class="btn btn-danger">
                         </form>

@@ -10,16 +10,43 @@ class FootnoteController extends Controller
     public function index(){
         session_start();
 
-        $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
-        $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
+        // Validasi
+        if(isset($_SESSION['username'])){
+                // Session
+                    $datasession = DB::table('acsession')->where('username', $_SESSION['username'])->get();
+                    $bisamasuk = 0;
+                    $ceksesi1 = 0;
+                    foreach($datasession as $sessiondata){
+                        if($_SESSION['kode'] == $sessiondata->sessionlog1){
+                            $ceksesi1 = 1;
+                        }
+                        if($ceksesi1 == 1){
+                            if($_SESSION['kode2'] == $sessiondata->sessionlog2){
+                                $bisamasuk = 1;
+                            }
+                        }
+                    }
+                    if($bisamasuk == 0){
+                        return redirect('/anficititate');
+                    }
+                // End Session
 
-        $nomo = 1;
-        if(isset($nom)){
-            foreach($nom as $mon){
-                    $nomo = $nom->id + 1;
+
+
+            $data = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->paginate(10);
+            $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
+
+            $nomo = 1;
+            if(isset($nom)){
+                foreach($nom as $mon){
+                        $nomo = $nom->id + 1;
+                }
             }
+            return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel']]);
+        } else {
+            return redirect('/anficititate');
         }
-        return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel']]);
+        // End Validasi
     }
     public function dapus($jenis, $jumlahpenulis){
         $data = DB::table('footnote')->get();
