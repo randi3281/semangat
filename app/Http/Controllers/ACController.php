@@ -300,16 +300,17 @@ class ACController extends Controller
                 }
 
                 if($bisasesi == 1){
+                    $_SESSION['username'] = $request->username;
                     $kode = 0;
-                    for($i = 0; $i < 7; $i++){
+                    for($i = 0; $i < 9; $i++){
                         $kode .= rand(1, 9);
                     }
                     // cek Kode
-                    $kodecek = DB::table('acsession')->get();
+                    $kodecek = DB::table('acsession')->where('username', $_SESSION['username'])->get();
                     foreach($kodecek as $cekkode){
                         if($cekkode->sessionlog1 == $kode){
                             $kode = 0;
-                            for($i = 0; $i < 7; $i++){
+                            for($i = 0; $i < 9; $i++){
                                 $kode .= rand(1, 9);
                             }
                         }
@@ -317,7 +318,6 @@ class ACController extends Controller
                     // End Cek Kode
 
                     $_SESSION['kode'] = $kode;
-                    $_SESSION['username'] = $request->username;
 
                     DB::table('acsession')->insert([
                         'sessionlog1' => $kode,
@@ -686,6 +686,30 @@ class ACController extends Controller
                     ]);
                     return redirect('/anficititate/slc_repo_err/pinerror');
                 }
+            }
+
+            if($cekpin == 1){
+                $_SESSION['repo'] = $request->repository;
+                $kode = 0;
+                    for($i = 0; $i < 9; $i++){
+                        $kode .= rand(1, 9);
+                    }
+                    // cek Kode
+                    $kodecek = DB::table('acsession')->where('username', $_SESSION['username'])->get();
+                    foreach($kodecek as $cekkode){
+                        if($cekkode->sessionlog1 == $kode){
+                            $kode = 0;
+                            for($i = 0; $i < 9; $i++){
+                                $kode .= rand(1, 9);
+                            }
+                        }
+                    }
+                    // End Cek Kode
+
+                    $_SESSION['kode2'] = $kode;
+                    DB::table('acsession')->where('username', $_SESSION['username'])->where('sessionlog1', $_SESSION['kode'])->update([
+                        'sessionlog2' => $kode
+                    ]);
             }
 
             return redirect('/anficititate/repo_core');
