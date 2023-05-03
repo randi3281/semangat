@@ -72,7 +72,7 @@
     </script>
 
     {{-- Tombol Kelola --}}
-    <div class="card" style="height:75px;">
+    <div class="card" style="height:75px; margin-top:-10px;">
         <div class="card-body">
             <div class="text-center">
                 <form action="/kelola" method="POST">
@@ -85,7 +85,8 @@
     </div>
     {{-- End Tombol Kelola --}}
 
-
     {{-- End Form Kelola --}}
+
+    <footer><p class="text-center text-white mt-2" style="font-family: arial; margin-bottom:-20px;">&copy; 2023 Anficititate | Created with &hearts; by Anfi</p></footer>
 
 </div>

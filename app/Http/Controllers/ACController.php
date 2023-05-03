@@ -12,14 +12,16 @@ class ACController extends Controller
         session_start();
         $acdsession = DB::table('acsession')->get();
         $bisamasuk = 0;
-        $_SESSION['kode'] = 0;
-        foreach($acdsession as $datasession){
-            if($_SESSION['kode'] == $datasession->sessionlog1){
-                $bisamasuk = 1;
+        // $_SESSION['kode'] = 0;
+        if(isset($_SESSION['kode'])){
+            foreach($acdsession as $datasession){
+                if($_SESSION['kode'] == $datasession->sessionlog1){
+                    $bisamasuk = 1;
+                }
             }
-        }
-        if($bisamasuk == 1){
-            return redirect('/anficititate/slc_repo');
+            if($bisamasuk == 1){
+                return redirect('/anficititate/slc_repo');
+            }
         }
         $mode = 1;
         return view('anficititate.index', ['mode' => $mode]);
@@ -714,6 +716,10 @@ class ACController extends Controller
                     DB::table('aclogin')->where('username', $_SESSION['username'])->update([
                         'keslog' => 3
                     ]);
+                    $_SESSION['jenis'] = 1;
+                    $_SESSION['jumlahpenulis'] = 1;
+                    $_SESSION['apakahedit'] = 0;
+                    $_SESSION['jenistabel'] = 0;
             }
 
             return redirect('/anficititate/repo_core');

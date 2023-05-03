@@ -8,16 +8,18 @@ use Illuminate\Support\Facades\DB;
 class FootnoteController extends Controller
 {
     public function index(){
-        return redirect('anficititate/1/1');
-    }
+        session_start();
 
-    public function indexpenulis($jenis, $jumlahpenulis){
         $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
         $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
-        $nomo = $nom->id + 1;
-        $apakahedit = 0;
-        $dapus = 0;
-        return view('anficititate.footnote', ['jenis' => $jenis, 'jumlahpenulis' => $jumlahpenulis, 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $apakahedit, 'dapus' => $dapus]);
+
+        $nomo = 1;
+        if(isset($nom)){
+            foreach($nom as $mon){
+                    $nomo = $nom->id + 1;
+            }
+        }
+        return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel']]);
     }
     public function dapus($jenis, $jumlahpenulis){
         $data = DB::table('footnote')->get();

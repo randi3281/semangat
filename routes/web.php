@@ -74,7 +74,6 @@ Route::post('anficititate/home', 'ACController@home');
 // End Anficititate
 
 Route::get('anficititate/repo_core', 'FootnoteController@index');
-Route::get('anficititate/{jenis}/{penulis}', 'FootnoteController@indexpenulis');
 Route::get('anficititate/hapus/{ft}', 'FootnoteController@hapus');
 Route::get('anficititate/dapus/{jenis}/{penulis}', 'FootnoteController@dapus');
 Route::get('anficititate/edit/{jenis}/{penulis}/{ft}', 'FootnoteController@tampiledit');
