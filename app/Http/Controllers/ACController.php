@@ -711,6 +711,9 @@ class ACController extends Controller
                         'sessionlog2' => $kode,
                         'repo' => $_SESSION['repo']
                     ]);
+                    DB::table('aclogin')->where('username', $_SESSION['username'])->update([
+                        'keslog' => 3
+                    ]);
             }
 
             return redirect('/anficititate/repo_core');
