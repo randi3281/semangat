@@ -65,6 +65,7 @@ Route::post('anficititate/delete_repo', 'ACController@delete_repo');
 Route::get('anficititate/del_repo/{ket}', 'ACController@del_repo_ket');
 Route::post('anficititate/upd_repo', 'ACController@update_repo');
 Route::get('anficititate/upd_repo/{ket}', 'ACController@upd_repo_ket');
+Route::post('anficititate/home', 'ACController@home');
 // Route::get('anficititate/{jenis}/{penulis}', 'ACController@indexpenulis');
 // Route::get('anficititate/hapus/{ft}', 'ACController@hapus');
 // Route::get('anficititate/dapus/{jenis}/{penulis}', 'ACController@dapus');
@@ -72,7 +73,6 @@ Route::get('anficititate/upd_repo/{ket}', 'ACController@upd_repo_ket');
 // Route::post('anficititate/kelola', 'ACController@kelola');
 // End Anficititate
 
-Route::post('anficititate/home', 'ACController@home');
 Route::get('anficititate/repo_core', 'FootnoteController@index');
 Route::get('anficititate/hapus/{ft}', 'FootnoteController@hapus');
 Route::get('anficititate/dapus/{jenis}/{penulis}', 'FootnoteController@dapus');
