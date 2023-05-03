@@ -1,4 +1,4 @@
-<h1 class="text-center fs-3 mt-4 mb-3" style="font-family: 'Times New Roman', Times, serif">LUPA KATA SANDI</h1>
+<h1 class="text-center fs-3 mt-4 mb-3" style="font-family: 'Times New Roman', Times, serif">LUPA PIN</h1>
 <div class="row text-center justify-content-center" style="font-size: 9pt; margin-top:-10px; margin-bottom: -20px">
     <p>
         <a class="text-white">-</a>
@@ -14,7 +14,7 @@
 </div>
 <div class="row justify-content-center">
     <div class="col-sm-8 ">
-        <form action="/anficititate/lupa_kata_sandi" method="POST">
+        <form action="/anficititate/lupa_pin_nya" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
@@ -32,13 +32,13 @@
                 </div>
             </div>
             <div class="form-group mt-1">
-                <label for="password">Kata Sandi Baru</label>
-                <input id="password" class="form-control" type="password" name="new_pass"
+                <label for="password">Kata PIN Baru</label>
+                <input id="password" class="form-control" type="password" name="new_pin"
                     placeholder="Masukin kata sandi barumu disini">
             </div>
             <div class="form-group mt-1">
-                <label for="password">Konfirmasi Kata Sandi Baru</label>
-                <input id="password" class="form-control" type="password" name="confirm_new_pass"
+                <label for="password">Konfirmasi PIN Baru</label>
+                <input id="password" class="form-control" type="password" name="confirm_new_pin"
                     placeholder="Masukin ulang kata sandi barumu">
             </div>
             <div class="text-center mt-3">

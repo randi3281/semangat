@@ -149,23 +149,23 @@ class ACController extends Controller
     }
 
     public function lupa_pin_error($error){
-        $mode = 7;
+        $mode = 8;
         $pesan = "";
         if($error == "kodeerror"){
             $pesan = "Maaf, kode konfirmasi Kamu salah";
         } elseif ($error == "usernamesalah"){
             $pesan = "Maaf, username Kamu tidak ditemukan";
         } elseif ($error == "tidaksama"){
-            $pesan = "Maaf, Konfirmasi kata sandi baru Kamu tidak sama";
+            $pesan = "Maaf, Konfirmasi pin baru Kamu tidak sama";
         } elseif ($error == "selamat"){
-            $pesan = "Selamat, Kata Sandi Kamu berhasil diubah!";
+            $pesan = "Selamat, PIN Kamu berhasil diubah!";
         }
         return view('anficititate.index', ['mode' => $mode, 'pesan' => $pesan]);
     }
 
     public function lupa_pin_nya(Request $request){
         if(isset($request->minkode)){
-            return redirect('https://wa.me/6285314410358?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20kata%20sandi%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
+            return redirect('https://wa.me/6285314410358?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20pin%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
         }
 
         if(isset($request->enter)){
@@ -177,26 +177,26 @@ class ACController extends Controller
                 }
             }
             if($adausername == 0){
-                return redirect('anficititate/lupa_sandi/usernamesalah');
+                return redirect('anficititate/lupa_pin/usernamesalah');
             }else{
 
             }
             $datauser = DB::table('aclogin')->where('username', $request->username)->get();
             foreach($datauser as $data){
                 if($data->minkode == $request->kodekonfir){
-                    if($request->new_pass == $request->confirm_new_pass){
+                    if($request->new_pin == $request->confirm_new_pin){
                         DB::table('aclogin')->where('username', $request->username)->update([
-                            'password' => $request->new_pass,
+                            'pin' => $request->new_pin,
                             'minkode' => null
                         ]);
                     } else{
-                        return redirect('anficititate/lupa_sandi/tidaksama');
+                        return redirect('anficititate/lupa_pin/tidaksama');
                     }
                 }else{
-                    return redirect('anficititate/lupa_sandi/kodeerror');
+                    return redirect('anficititate/lupa_pin/kodeerror');
                 }
             }
-            return redirect("anficititate/ket/sandidiubah");
+            return redirect("anficititate/lupa_pin/selamat");
         }
     }
     // public function cek(Request $request){
