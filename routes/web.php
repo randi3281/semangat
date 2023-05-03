@@ -55,9 +55,9 @@ Route::post('anficititate/lupa_pin_nya', 'ACController@lupa_pin_nya');
 
 Route::post('anficititate/slc_repo', 'ACController@slc_repop');
 Route::get('anficititate/slc_repo', 'ACController@slc_repo');
+Route::get('anficititate/slc_repo_err/{error}', 'ACController@slc_repo_error');
 Route::get('anficititate/del_repo', 'ACController@del_repo');
 Route::get('anficititate/upd_repo', 'ACController@upd_repo');
-Route::post('anficititate/home', 'ACController@home');
 Route::get('anficititate/new_repo_home', 'ACController@new_repo_home');
 Route::get('anficititate/new_repo_home/{ket}', 'ACController@new_repo_home_ket');
 Route::post('anficititate/new_repo', 'ACController@new_repo');
@@ -72,7 +72,8 @@ Route::get('anficititate/upd_repo/{ket}', 'ACController@upd_repo_ket');
 // Route::post('anficititate/kelola', 'ACController@kelola');
 // End Anficititate
 
-Route::get('anficititate/homee', 'FootnoteController@index');
+Route::post('anficititate/home', 'ACController@home');
+Route::get('anficititate/repo_core', 'FootnoteController@index');
 Route::get('anficititate/hapus/{ft}', 'FootnoteController@hapus');
 Route::get('anficititate/dapus/{jenis}/{penulis}', 'FootnoteController@dapus');
 Route::get('anficititate/{jenis}/{penulis}', 'FootnoteController@indexpenulis');

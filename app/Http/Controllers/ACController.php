@@ -252,6 +252,7 @@ class ACController extends Controller
                         return redirect('/anficititate/ket/terancam');
                     }
                     $user = $datalogin->username;
+                    $_SESSION['keslog'] = $datalogin->keslog;
                 }
 
                 $ceksesi = DB::table('acsession')->where('username', $request->username)->get();
@@ -314,6 +315,7 @@ class ACController extends Controller
 
                     $_SESSION['kode'] = $kode;
                     $_SESSION['username'] = $request->username;
+
                     DB::table('acsession')->insert([
                         'sessionlog1' => $kode,
                         'sessionlog2' => 0,
@@ -350,6 +352,37 @@ class ACController extends Controller
         if($bisamasuk == 1){
             $mode = 3;
             return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
+        }else{
+            return redirect('/anficititate');
+        }
+
+    }
+
+    public function slc_repo_error($error){
+        session_start();
+        $acdsession = DB::table('acsession')->get();
+
+
+        $bisamasuk = 0;
+
+        if(!isset($_SESSION['kode'])){
+            return redirect('/anficititate');
+        }
+        $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
+        foreach($acdsession as $datasession){
+            if($_SESSION['kode'] == $datasession->sessionlog1){
+                $bisamasuk = 1;
+            }
+        }
+
+        if($bisamasuk == 1){
+            $mode = 3;
+            $pesan = "";
+            if($error == "pinerror"){
+                $pesan = "Maaf, PIN Kamu salah";
+            }
+
+            return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo, 'pesan' => $pesan]);
         }else{
             return redirect('/anficititate');
         }
@@ -409,21 +442,6 @@ class ACController extends Controller
         $mode = 5;
 
         return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
-    }
-
-    public function home(Request $request){
-        session_start();
-
-        if(isset($request->enter)){
-            if(!isset($_SESSION['kode'])){
-                return redirect('/anficititate');
-            }
-            return redirect('/anficititate/homee');
-        }
-
-        if(isset($request->new)){
-            return redirect('/anficititate/new_repo_home');
-        }
     }
 
     public function new_repo_home(){
@@ -490,7 +508,7 @@ class ACController extends Controller
         session_start();
 
         if(isset($request->new)){
-            $repodata = DB::table('acrepo')->get();
+            $repodata = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
             $logindata = DB::table('aclogin')->where('username', $_SESSION['username'])->get();
 
             $pinbenar = 0;
@@ -646,4 +664,32 @@ class ACController extends Controller
         return view('anficititate.index', ['mode' => $mode, 'pesan' =>$pesan, 'datarepo' =>  $acdrepo]);
     }
     // End Footnote
+
+    public function home(Request $request){
+        session_start();
+
+        if(isset($request->enter)){
+            $datapin = DB::table('aclogin')->where('username', $_SESSION['username'])->get();
+
+            $cekpin = 0;
+
+            foreach($datapin as $pindata){
+                if($request->pin == $pindata->pin){
+                    $cekpin = 1;
+                }else{
+                    $_SESSION['keslog'] -= 1;
+                    DB::table('aclogin')->where('username', $_SESSION['username'])->update([
+                        'keslog' => $_SESSION['keslog']
+                    ]);
+                    return redirect('/anficititate/slc_repo_err/pinerror');
+                }
+            }
+
+            return redirect('/anficititate/repo_core');
+        }
+
+        if(isset($request->new)){
+            return redirect('/anficititate/new_repo_home');
+        }
+    }
 }
