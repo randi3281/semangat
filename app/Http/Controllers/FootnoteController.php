@@ -48,6 +48,7 @@ class FootnoteController extends Controller
         }
         // End Validasi
     }
+
     public function dapus($jenis, $jumlahpenulis){
         $data = DB::table('footnote')->get();
         $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
@@ -56,6 +57,7 @@ class FootnoteController extends Controller
         $dapus = 1;
         return view('anficititate.footnote', ['jenis' => $jenis, 'jumlahpenulis' => $jumlahpenulis, 'dataa' => $data, 'nomor' => $nomo, 'apakahedit' => $apakahedit, 'dapus' => $dapus]);
     }
+
     public function hapus($ft){
         DB::table('footnote')->where('id', $ft)->delete();
         $angka = 0;
@@ -73,6 +75,7 @@ class FootnoteController extends Controller
         }
         return redirect('anficititate/home');
     }
+
     public function tampiledit($jenis, $jumlahpenulis, $ft){
         $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
         $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
@@ -85,6 +88,22 @@ class FootnoteController extends Controller
         $apakahedit = 1;
         return view('anficititate.footnote', ['jenis' => $jenis, 'jumlahpenulis' => $jumlahpenulis, 'data' => $data, 'nomor' => $nomo, 'editan' => $editan, 'apakahedit' => $apakahedit, 'dapus' => $dapus]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function kelola(Request $request){
         if(isset($request->tomboljenis)){
             switch($request->jenis_footnote){
@@ -182,7 +201,9 @@ class FootnoteController extends Controller
                 return redirect('/2/'.$request->jenisf);
             }
 
-        } elseif(isset($request->edit)){
+        }
+
+        if(isset($request->edit)){
             if($request->nourut > $request->idedita){
                 $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
                 $urutan = $request->urut + 1;
@@ -194,6 +215,7 @@ class FootnoteController extends Controller
                         ]);
                     }
                 }
+
                 if($request->jenisf == 1){
                     if(isset($request->penulis_1)&&isset($request->penulis_2)&&isset($request->penulis_3)){
                         DB::table('footnote')->where('id', $request->idedita)->update([
@@ -420,7 +442,9 @@ class FootnoteController extends Controller
                     return redirect('/2/'.$request->jenisf);
                 }
             }
-        } elseif(isset($request->rapi)){
+        }
+
+        if(isset($request->rapi)){
             $angka = 0;
             $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
             for($u = 1; $u <= $nom->id; $u++){
@@ -435,7 +459,9 @@ class FootnoteController extends Controller
                 }
                 return redirect('/1/1');
             }
-        } elseif(isset($request->dapus)){
+        }
+
+        if(isset($request->dapus)){
 
             return redirect('/dapus/1/1');
         }
