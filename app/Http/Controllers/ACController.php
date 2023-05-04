@@ -720,6 +720,7 @@ class ACController extends Controller
                     $_SESSION['jumlahpenulis'] = 1;
                     $_SESSION['apakahedit'] = 0;
                     $_SESSION['jenistabel'] = 0;
+                    $_SESSION['editan'] = 1;
             }
 
             return redirect('/anficititate/repo_core');

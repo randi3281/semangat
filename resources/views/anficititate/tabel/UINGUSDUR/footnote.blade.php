@@ -78,10 +78,11 @@
                 @endphp
             </td>
             <td style=" text-align: center;">
-                <a href="/edit/{{ $ft->jenis }}/{{ $ft->jumlah_penulis }}/{{ $ft->id }}"
+                <input type="hidden" value="">
+                <a href="/anficititate/core_repo_edit/{{ $ft->id }}"
                     style="text-decoration: none; font-weight: bold; color:blue;">EDIT </a>
                 |
-                <a href="/hapus/{{ $ft->id }}" style="text-decoration: none; font-weight: bold; color:red;">
+                <a href="/anficititate/core_repo_hapus/{{ $ft->id }}" style="text-decoration: none; font-weight: bold; color:red;">
                     HAPUS</a>
             </td>
         </tr>

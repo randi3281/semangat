@@ -3,7 +3,7 @@
                         <?php
                         $a = ['hy'];
                         ?>
-                        @foreach ($dataa as $ft)
+                        @foreach ($data as $ft)
                             <?php
                             $izin = 0;
                             $ket = 0;

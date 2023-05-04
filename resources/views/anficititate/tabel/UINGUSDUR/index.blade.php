@@ -2,18 +2,19 @@
     <div class="card mb-3">
         <div class="card-body">
             <div class="row pb-0 justify-content-left">
-                <div class="pb-0 col-lg-5 mb-2 text-center">
+                <div class="pb-0 col-lg-7 mb-2 text-center">
                     <div>
-                        <form action="/kelola" method="POST">
+                        <form action="/anficititate/kelola" method="POST">
                             <input type="hidden" name="urut" value="{{ $nomor }}">
                             {{ csrf_field() }}
-                            <input type="submit" name="rapi" value="Keluar" class="btn btn-secondary">
+                            <input type="submit" name="keluar" value="Logout" class="btn btn-secondary">
+                            <input type="submit" name="select" value="Pilih Repositori" class="btn btn-secondary">
                             <input type="submit" name="rapi" value="Daftar Footnote" class="btn btn-success">
                             <input type="submit" name="dapus" value="Daftar Pustaka" class="btn btn-danger">
                         </form>
                     </div>
                 </div>
-                <div class="pb-0 text-center col-lg-7">
+                <div class="pb-0 text-center col-lg-5">
                     @if (isset($data))
                         {{ $data->links() }}
                     @endif

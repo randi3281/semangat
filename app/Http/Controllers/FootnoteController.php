@@ -42,20 +42,11 @@ class FootnoteController extends Controller
                         $nomo = $nom->id + 1;
                 }
             }
-            return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel']]);
+            return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel'], 'editan' => $_SESSION['editan']]);
         } else {
             return redirect('/anficititate');
         }
         // End Validasi
-    }
-
-    public function dapus($jenis, $jumlahpenulis){
-        $data = DB::table('footnote')->get();
-        $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
-        $nomo = $nom->id + 1;
-        $apakahedit = 0;
-        $dapus = 1;
-        return view('anficititate.footnote', ['jenis' => $jenis, 'jumlahpenulis' => $jumlahpenulis, 'dataa' => $data, 'nomor' => $nomo, 'apakahedit' => $apakahedit, 'dapus' => $dapus]);
     }
 
     public function hapus($ft){
@@ -76,17 +67,20 @@ class FootnoteController extends Controller
         return redirect('anficititate/home');
     }
 
-    public function tampiledit($jenis, $jumlahpenulis, $ft){
-        $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
-        $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
-        $editan = DB::table('footnote')->where('id', $ft)->get();
-        $nomo = 0;
-        $dapus = 0;
-        foreach($editan as $ediit){
-            $nomo = $ediit->id;
-        }
-        $apakahedit = 1;
-        return view('anficititate.footnote', ['jenis' => $jenis, 'jumlahpenulis' => $jumlahpenulis, 'data' => $data, 'nomor' => $nomo, 'editan' => $editan, 'apakahedit' => $apakahedit, 'dapus' => $dapus]);
+    public function core_repo_edit($ft){
+        session_start();
+        $_SESSION['edit_id'] = $ft;
+        return redirect('/anficititate/repo_core');
+        // $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
+        // $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
+        // $editan = DB::table('footnote')->where('id', $ft)->get();
+        // $nomo = 0;
+        // $dapus = 0;
+        // foreach($editan as $ediit){
+        //     $nomo = $ediit->id;
+        // }
+        // $apakahedit = 1;
+        // return view('anficititate.footnote', ['jenis' => $jenis, 'jumlahpenulis' => $jumlahpenulis, 'data' => $data, 'nomor' => $nomo, , 'apakahedit' => $apakahedit, 'dapus' => $dapus]);
     }
 
 
@@ -105,6 +99,7 @@ class FootnoteController extends Controller
 
 
     public function kelola(Request $request){
+        session_start();
         if(isset($request->tomboljenis)){
             switch($request->jenis_footnote){
                 case(1):
@@ -445,25 +440,35 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->rapi)){
-            $angka = 0;
-            $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
-            for($u = 1; $u <= $nom->id; $u++){
-                $datanya = DB::table('footnote')->where('id', $u)->first();
-                if(!isset($datanya)){
-                    $angka = $angka + 1;
-                }else{
-                    $kurang = $datanya->id - $angka;
-                    DB::table('footnote')->where('id', $u)->update([
-                        'id' => $kurang
-                    ]);
-                }
-                return redirect('/1/1');
-            }
+            // $angka = 0;
+            // $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
+            // for($u = 1; $u <= $nom->id; $u++){
+            //     $datanya = DB::table('footnote')->where('id', $u)->first();
+            //     if(!isset($datanya)){
+            //         $angka = $angka + 1;
+            //     }else{
+            //         $kurang = $datanya->id - $angka;
+            //         DB::table('footnote')->where('id', $u)->update([
+            //             'id' => $kurang
+            //         ]);
+            //     }
+            //     return redirect('/1/1');
+            // }
+            $_SESSION['jenistabel'] = 0;
+            return redirect('/anficititate/repo_core');
         }
 
         if(isset($request->dapus)){
+            $_SESSION['jenistabel'] = 1;
+            return redirect('/anficititate/repo_core');
+        }
 
-            return redirect('/dapus/1/1');
+        if(isset($request->keluar)){
+            return redirect('/anficititate/back');
+        }
+
+        if(isset($request->select)){
+            return redirect('/anficititate/slc_repo');
         }
 
     }
