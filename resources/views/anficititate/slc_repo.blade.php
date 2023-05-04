@@ -29,10 +29,15 @@
                     Repositori</a> atau <a href="/anficititate/upd_repo">Perbarui
                     Repositori</a></p>
             <div class="form-group" style="margin-top: -15px">
-                <label for="pin">Format Kampus</label>
+                <label for="pin">Kampus</label>
                 <select name="kampus" id="" class="form-select">
-                    <option value="uingusdur" selected>UIN K.H. Abdurrahman Wahid</option>
-                    <option value="itsnupkl">ITSNU Pekalongan</option>
+                    @foreach ($kampus as $ackampus)
+                        @if ($ackampus->alias == $kampusnya)
+                            <option value="{{ $ackampus->alias }}" selected>{{ $ackampus->nama_kampus }}</option>
+                        @else
+                        <option value="{{ $ackampus->alias }}">{{ $ackampus->nama_kampus }}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
             <div class="form-group mt-1">

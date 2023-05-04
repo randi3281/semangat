@@ -52,8 +52,9 @@ class ACController extends Controller
     }
 
     public function daftar(){
+        $acdkampus =  DB::table('ackampus')->get();
         $mode = 2;
-        return view('anficititate.index', ['mode' => $mode]);
+        return view('anficititate.index', ['mode' => $mode, 'kampus' =>$acdkampus]);
     }
 
     public function login(){
@@ -79,7 +80,8 @@ class ACController extends Controller
                 'username' => $request->username,
                 'password' => $request->password,
                 'pin' => $request->pin,
-                'keslog' => 3
+                'keslog' => 3,
+                'kampus' => $request->kampus
             ]);
             return redirect('anficititate/ket/selamat');
         }else{
@@ -164,6 +166,8 @@ class ACController extends Controller
             $pesan = "Maaf, Konfirmasi pin baru Kamu tidak sama";
         } elseif ($error == "selamat"){
             $pesan = "Selamat, PIN Kamu berhasil diubah!";
+        } else{
+            return redirect('/anficititate');
         }
         return view('anficititate.index', ['mode' => $mode, 'pesan' => $pesan]);
     }
@@ -355,8 +359,14 @@ class ACController extends Controller
         }
 
         if($bisamasuk == 1){
+            $acdkampus =  DB::table('ackampus')->get();
+            $acdkampuslogin =  DB::table('aclogin')->where('username', $_SESSION['username'])->get();
+            $kampusnya = "";
+            foreach($acdkampuslogin as $cekkampus){
+                $kampusnya = $cekkampus->kampus;
+            }
             $mode = 3;
-            return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo]);
+            return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo, 'kampus' => $acdkampus, 'kampusnya' => $kampusnya]);
         }else{
             return redirect('/anficititate');
         }
@@ -504,6 +514,8 @@ class ACController extends Controller
             $pesan = "Selamat, repositori Kamu berhasil dibuat!";
         }elseif($ket == "pinsalah"){
             $pesan = "Pin Kamu salah, ayo ulangi lagi!";
+        }else{
+            return redirect('/anficititate');
         }
 
         return view('anficititate.index', ['mode' => $mode, 'pesan' =>$pesan]);
@@ -664,6 +676,8 @@ class ACController extends Controller
             $pesan = "Selamat, repositori Kamu berhasil diubah!";
         }elseif($ket == "pinsalah"){
             $pesan = "Pin Kamu salah, ayo ulangi lagi!";
+        }else{
+            return redirect('/anficititate');
         }
 
         return view('anficititate.index', ['mode' => $mode, 'pesan' =>$pesan, 'datarepo' =>  $acdrepo]);

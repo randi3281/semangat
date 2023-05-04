@@ -62,12 +62,11 @@
                         @break
 
                     @endswitch
-            </form>
         </div>
     </div>
     <script type="text/javascript">
         function handleselect(elm) {
-            window.location = "/" + {{ $jenis }} + "/" + elm.value;
+            window.location = "/anficititate/repo_core/" + elm.value;
         }
     </script>
 
@@ -75,7 +74,6 @@
     <div class="card" style="height:75px; margin-top:-10px;">
         <div class="card-body">
             <div class="text-center">
-                <form action="/kelola" method="POST">
                     <input type="submit" name="input" value="Input" class="w-25 btn btn-primary" style="margin-left:20px">
                     <input type="submit" name="edit" value="Edit" class="w-25 btn btn-danger"
                         style="margin-left:20px">
