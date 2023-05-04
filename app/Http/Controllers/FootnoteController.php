@@ -101,15 +101,8 @@ class FootnoteController extends Controller
     public function kelola(Request $request){
         session_start();
         if(isset($request->tomboljenis)){
-            switch($request->jenis_footnote){
-                case(1):
-                    return redirect('/1/'.$request->jp);
-                    break;
-                case(2):
-                    return redirect('/2/'.$request->jp);
-                    break;
-            }
-
+            $_SESSION['jenis'] = $request->jenis_footnote;
+            return redirect("/anficititate/repo_core");
         }
 
         if(isset($request->input)){

@@ -7,9 +7,9 @@
             <form action="/anficititate/kelola" method="POST">
                 {{ csrf_field() }}
                 <div class="mt-4 form-group">
-                    <input type="hidden" name="jp" value="{{ $jumlahpenulis }}">
+                    {{-- <input type="hidden" name="jp" value="{{ $jumlahpenulis }}">
                     <input type="hidden" name="jenisf" value="{{ $jenis }}">
-                    <input type="hidden" name="urut" value="{{ $nomor }}">
+                    <input type="hidden" name="urut" value="{{ $nomor }}"> --}}
                     <select name="jenis_footnote" class="form-select-sm">
                         @switch($jenis)
                             @case(1)
