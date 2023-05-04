@@ -439,21 +439,15 @@ class FootnoteController extends Controller
             }
         }
 
+        if(isset($request->keluar)){
+            return redirect('/anficititate/back');
+        }
+
+        if(isset($request->select)){
+            return redirect('/anficititate/slc_repo');
+        }
+
         if(isset($request->rapi)){
-            // $angka = 0;
-            // $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
-            // for($u = 1; $u <= $nom->id; $u++){
-            //     $datanya = DB::table('footnote')->where('id', $u)->first();
-            //     if(!isset($datanya)){
-            //         $angka = $angka + 1;
-            //     }else{
-            //         $kurang = $datanya->id - $angka;
-            //         DB::table('footnote')->where('id', $u)->update([
-            //             'id' => $kurang
-            //         ]);
-            //     }
-            //     return redirect('/1/1');
-            // }
             $_SESSION['jenistabel'] = 0;
             return redirect('/anficititate/repo_core');
         }
@@ -461,14 +455,6 @@ class FootnoteController extends Controller
         if(isset($request->dapus)){
             $_SESSION['jenistabel'] = 1;
             return redirect('/anficititate/repo_core');
-        }
-
-        if(isset($request->keluar)){
-            return redirect('/anficititate/back');
-        }
-
-        if(isset($request->select)){
-            return redirect('/anficititate/slc_repo');
         }
 
     }
