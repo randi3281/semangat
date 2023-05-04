@@ -42,10 +42,10 @@
             </div>
             <p style="font-size: 7pt">Kalau kamu mau ubah PIN, <a href="/anficititate/lupa_pin">Klik Disini</a></p>
             <div class="text-center mt-4">
-                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
+                <input type="submit" style="height: 38px; font-size: 11px; font-weight: bold"
                     class="btn btn-primary w-25" name="enter" value="MASUK">
-                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-secondary w-50" name="new" value="BUAT BARU">
+                <input type="submit" style="height: 38px; font-size: 9px; font-weight: bold"
+                    class="btn btn-secondary w-50"name="new" value="BUAT REPOSITORI BARU">
                 <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="/anficititate/back">Login
                         Kembali Disini</a>
                 </p>
