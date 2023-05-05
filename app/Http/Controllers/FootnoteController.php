@@ -60,11 +60,12 @@ class FootnoteController extends Controller
     }
 
     public function core_repo_hapus($ft){
-        DB::table('footnote')->where('id', $ft)->delete();
+        session_start();
+        DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $ft)->delete();
         $angka = 0;
-        $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
+        $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
         for($u = $ft; $u <= $nom->id; $u++){
-            $datanya = DB::table('footnote')->where('id', $u)->first();
+            $datanya = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $u)->first();
             if(!isset($datanya)){
                 $angka = $angka + 1;
             }else{
@@ -74,7 +75,7 @@ class FootnoteController extends Controller
                 ]);
             }
         }
-        return redirect('anficititate/home');
+        return redirect('/anficititate/repo_core');
     }
 
     public function core_repo_edit($ft){
