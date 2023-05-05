@@ -27,9 +27,13 @@
                     <input type="submit" class="btn btn-success"
                         style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
                         name="tomboljenis">
-
-                    <input type="text" class="form-control-sm" name="nourut" style="margin-right: 11px;width: 50px;"
-                        placeholder="No" value="{{ $nomor }}">
+                    @if ($apakahedit == 1)
+                        <input type="text" class="form-control-sm" name="nourut"
+                            style="margin-right: 11px;width: 50px;" placeholder="No" value="{{ $_SESSION['edit_id'] }}">
+                    @else
+                        <input type="text" class="form-control-sm" name="nourut"
+                            style="margin-right: 11px;width: 50px;" placeholder="No" value="{{ $nomor }}">
+                    @endif
                     @switch($apakahedit)
                         @case(0)
                             {{-- Switch --}}
@@ -62,29 +66,35 @@
                         @break
 
                     @endswitch
+                </div>
         </div>
-    </div>
-    <script type="text/javascript">
-        function handleselect(elm) {
-            window.location = "/anficititate/repo_core/" + elm.value;
-        }
-    </script>
+        <script type="text/javascript">
+            function handleselect(elm) {
+                window.location = "/anficititate/repo_core/" + elm.value;
+            }
+        </script>
 
-    {{-- Tombol Kelola --}}
-    <div class="card" style="height:75px; margin-top:-10px;">
-        <div class="card-body">
-            <div class="text-center">
-                    <input type="submit" name="input" value="Input" class="w-25 btn btn-primary" style="margin-left:20px">
+        {{-- Tombol Kelola --}}
+        <div class="card" style="height:75px; margin-top:-10px;">
+            <div class="card-body">
+                <div class="text-center">
+                    <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"
+                        style="margin-left:20px">
                     <input type="submit" name="edit" value="Edit" class="w-25 btn btn-danger"
                         style="margin-left:20px">
-                </form>
+                    <input type="submit" name="reset" value="Reset" class="w-25 btn btn-secondary"
+                        style="margin-left:20px">
+                    </form>
+                </div>
             </div>
         </div>
+        {{-- End Tombol Kelola --}}
+
+        {{-- End Form Kelola --}}
+
+        <footer>
+            <p class="text-center text-white mt-2" style="font-family: arial; margin-bottom:-20px;">&copy; 2023
+                Anficititate | Created with &hearts; by Anfi</p>
+        </footer>
+
     </div>
-    {{-- End Tombol Kelola --}}
-
-    {{-- End Form Kelola --}}
-
-    <footer><p class="text-center text-white mt-2" style="font-family: arial; margin-bottom:-20px;">&copy; 2023 Anficititate | Created with &hearts; by Anfi</p></footer>
-
-</div>

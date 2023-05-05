@@ -35,6 +35,7 @@ class FootnoteController extends Controller
 
             $data = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->paginate(10);
             $datapus = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->get();
+            $dataEdit = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->get();
             $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
 
             $nomo = 1;
@@ -43,7 +44,9 @@ class FootnoteController extends Controller
                         $nomo = $nom->id + 1;
                 }
             }
-            return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel'], 'editan' => $_SESSION['editan'], 'datapus' =>$datapus]);
+
+
+            return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel'], 'editan' => $dataEdit, 'datapus' =>$datapus]);
         } else {
             return redirect('/anficititate');
         }
@@ -56,7 +59,7 @@ class FootnoteController extends Controller
         return redirect('/anficititate/repo_core');
     }
 
-    public function hapus($ft){
+    public function core_repo_hapus($ft){
         DB::table('footnote')->where('id', $ft)->delete();
         $angka = 0;
         $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
@@ -76,7 +79,13 @@ class FootnoteController extends Controller
 
     public function core_repo_edit($ft){
         session_start();
+        $dataEdit = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->get();
+
+        foreach($dataEdit as $editData){
+            $_SESSION['jumlahpenulis'] = $editData->jumlah_penulis;
+        }
         $_SESSION['edit_id'] = $ft;
+        $_SESSION['apakahedit'] = 1;
         return redirect('/anficititate/repo_core');
         // $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
         // $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
@@ -178,6 +187,7 @@ class FootnoteController extends Controller
                         'username' => $_SESSION['username']
                     ]);
                 }
+                $_SESSION['apakahedit'] = 0;
                 return redirect('/anficititate/repo_core');
             } elseif($_SESSION['jenis']== 2){
                 $urutan = $request->urut + 1;
@@ -201,6 +211,7 @@ class FootnoteController extends Controller
                     'repositori' => $_SESSION['repo'],
                     'username' => $_SESSION['username']
                 ]);
+                $_SESSION['apakahedit'] = 0;
                 return redirect('/anficititate/repo_core');
             }
 
@@ -456,7 +467,27 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->rapi)){
+            $angka = 0;
+            $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
+            for($u = 1; $u <= $nom->id; $u++){
+                $datanya = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $u)->first();
+                if(!isset($datanya)){
+                    $angka = $angka + 1;
+                }else{
+                    $kurang = $datanya->id - $angka;
+                    DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $u)->update([
+                        'id' => $kurang
+                    ]);
+                }
+            }
+
             $_SESSION['jenistabel'] = 0;
+            return redirect('/anficititate/repo_core');
+        }
+
+        if(isset($request->reset)){
+            $_SESSION['apakahedit'] = 0;
+            $_SESSION['jumlahpenulis'] = 0;
             return redirect('/anficititate/repo_core');
         }
 

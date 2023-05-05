@@ -735,6 +735,8 @@ class ACController extends Controller
                     $_SESSION['apakahedit'] = 0;
                     $_SESSION['jenistabel'] = 0;
                     $_SESSION['editan'] = 1;
+                    $_SESSION['kampus'] = $request->kampus;
+
             }
 
             return redirect('/anficititate/repo_core');

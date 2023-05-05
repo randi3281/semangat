@@ -62,7 +62,7 @@
     @endif
 </div>
 
-<div class="form-group  mt-2">
+<div class="form-group mt-2">
     <label for="judul">Judul</label> <br>
     <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30" rows="3"
         placeholder="Tuliskan Judul">{{ $edita->judul }}</textarea>
