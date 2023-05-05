@@ -80,12 +80,12 @@ class FootnoteController extends Controller
 
     public function core_repo_edit($ft){
         session_start();
+        $_SESSION['edit_id'] = $ft;
         $dataEdit = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->get();
 
         foreach($dataEdit as $editData){
             $_SESSION['jumlahpenulis'] = $editData->jumlah_penulis;
         }
-        $_SESSION['edit_id'] = $ft;
         $_SESSION['apakahedit'] = 1;
         return redirect('/anficititate/repo_core');
         // $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
@@ -488,7 +488,7 @@ class FootnoteController extends Controller
 
         if(isset($request->reset)){
             $_SESSION['apakahedit'] = 0;
-            $_SESSION['jumlahpenulis'] = 0;
+            $_SESSION['jumlahpenulis'] = 1;
             return redirect('/anficititate/repo_core');
         }
 
