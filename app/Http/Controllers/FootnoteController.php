@@ -44,7 +44,7 @@ class FootnoteController extends Controller
                         $nomo = $nom->id + 1;
                 }
             }
-
+            $_SESSION['urut_id'] = $nomo;
 
             return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel'], 'editan' => $dataEdit, 'datapus' =>$datapus]);
         } else {
@@ -85,6 +85,7 @@ class FootnoteController extends Controller
 
         foreach($dataEdit as $editData){
             $_SESSION['jumlahpenulis'] = $editData->jumlah_penulis;
+            $_SESSION['jenis'] = $editData->jenis;
         }
         $_SESSION['apakahedit'] = 1;
         return redirect('/anficititate/repo_core');
@@ -124,14 +125,15 @@ class FootnoteController extends Controller
 
         if(isset($request->input)){
             if($_SESSION['jenis'] == 1){
-                $urutan = $request->urut + 1;
-                if($request->nourut !== $request->$urutan){
-                    for($i = $request->urut; $i >= $request->nourut; $i--){
+                $urutan = $_SESSION['urut_id'];
+                if($request->nourut !== $urutan){
+                    for($i = $urutan; $i >= $request->nourut; $i--){
                         $x = $i + 1;
-                        DB::table('footnote')->where('id', $i)->update([
+                        DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $i)->update([
                             'id' => $x
                         ]);
                     }
+
                 }
                 if($_SESSION['jumlahpenulis'] == 3){
                     DB::table('footnote')->insert([
@@ -191,11 +193,11 @@ class FootnoteController extends Controller
                 $_SESSION['apakahedit'] = 0;
                 return redirect('/anficititate/repo_core');
             } elseif($_SESSION['jenis']== 2){
-                $urutan = $request->urut + 1;
-                if($request->nourut !== $request->$urutan){
-                    for($i = $request->urut; $i >= $request->nourut; $i--){
+                $urutan = $_SESSION['urut_id'];
+                if($request->nourut !== $urutan){
+                    for($i = $urutan; $i >= $request->nourut; $i--){
                         $x = $i + 1;
-                        DB::table('footnote')->where('id', $i)->update([
+                        DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $i)->update([
                             'id' => $x
                         ]);
                     }
@@ -219,7 +221,7 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->edit)){
-            if($request->nourut > $request->idedita){
+            if($request->nourut > $_SESSION['edit_id']){
                 $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
                 $urutan = $request->urut + 1;
                 if($request->nourut !== $request->$urutan){
@@ -320,7 +322,7 @@ class FootnoteController extends Controller
                     }
                     return redirect('/2/'.$request->jenisf);
                 }
-            } elseif($request->nourut < $request->idedita){
+            } elseif($request->nourut < $_SESSION['edit_id']){
                 $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
                 $urutan = $request->urut + 1;
                 if($request->nourut !== $request->$urutan){

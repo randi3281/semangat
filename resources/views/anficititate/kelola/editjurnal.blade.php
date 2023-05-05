@@ -1,5 +1,4 @@
 {{-- Form Jurnal --}}
-<input type="hidden" name="idedita" value="{{ $edita->id }}">
 <label for="jumlah">Jumlah Penulis : </label>
 <select class="form-select-sm" name="jumlah_penulis" style=" width: 50px;" onchange="javascript:handleselect(this)">
 
