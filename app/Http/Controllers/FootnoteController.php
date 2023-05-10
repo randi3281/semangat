@@ -223,20 +223,9 @@ class FootnoteController extends Controller
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         if(isset($request->edit)){
             if($request->nourut > $_SESSION['edit_id']){
+
                 $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
                 foreach($nom as $mon){
                     $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
@@ -316,6 +305,7 @@ class FootnoteController extends Controller
                 }
 
             } elseif($request->nourut < $_SESSION['edit_id']){
+
                 $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
                 foreach($nom as $mon){
                     $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
@@ -469,16 +459,6 @@ class FootnoteController extends Controller
 
             }
         }
-
-
-
-
-
-
-
-
-
-
 
         if(isset($request->keluar)){
             return redirect('/anficititate/back');
