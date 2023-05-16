@@ -58,7 +58,7 @@
     <textarea name="sumber" class="form-control"style="font-size : 11px;" id="" cols="30" rows="2"
         placeholder="Sumber"></textarea>
 </div>
-
+                                                           
 <div class="mt-2 form-group">
     <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;" placeholder="Volume">
     <input type="text" class="text-center form-control-sm" name="nomor" style="width:70px;" placeholder="Nomor">

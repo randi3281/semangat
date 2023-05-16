@@ -93,32 +93,7 @@ class FootnoteController extends Controller
         }
         $_SESSION['apakahedit'] = 1;
         return redirect('/anficititate/repo_core');
-        // $data = DB::table('footnote')->orderBy('id', 'DESC')->paginate(10);
-        // $nom = DB::table('footnote')->orderBy('id', 'DESC')->first();
-        // $editan = DB::table('footnote')->where('id', $ft)->get();
-        // $nomo = 0;
-        // $dapus = 0;
-        // foreach($editan as $ediit){
-        //     $nomo = $ediit->id;
-        // }
-        // $apakahedit = 1;
-        // return view('anficititate.footnote', ['jenis' => $jenis, 'jumlahpenulis' => $jumlahpenulis, 'data' => $data, 'nomor' => $nomo, , 'apakahedit' => $apakahedit, 'dapus' => $dapus]);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function kelola(Request $request){
         session_start();
