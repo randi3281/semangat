@@ -1,4 +1,5 @@
 {{-- Form Jurnal --}}
+<br>
 <label for="jumlah">Jumlah Penulis : </label>
 <select class="form-select-sm mb-1" name="jumlah_penulis" onchange="javascript:handleselect(this)">
     {{-- Percabangan --}}
@@ -31,6 +32,18 @@
     @endif
     {{-- End Percabangan --}}
 </select>
+<input type="checkbox" name="asing" id="asing" value="asing">
+<label for="asing">Asing</label>
+<br>
+<input type="radio" name="jenisBuku" id="normal" value="normal">
+<label for="karangan">Normal</label>
+<input type="radio" name="jenisBuku" id="karangan" value="karangan">
+<label for="karangan">Karangan</label>
+<input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
+<label for="tanpaPenulis">Tanpa Penulis</label>
+<input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
+<label for="terjemahan">Terjemahan</label>
+
 </div>
 
 <div class="mt-1 form-group">

@@ -8,26 +8,171 @@
                 {{ csrf_field() }}
                 <div class="mt-4 form-group">
                     {{-- <input type="hidden" name="urut" value="{{ $nomor }}"> --}}
-                    <select name="jenis_footnote" class="form-select-sm">
+                    <select name="jenis_footnote" class="form-select-sm mb-1">
                         @switch($jenis)
                             @case(1)
                                 <option value="1" selected>Jurnal</option>
                                 <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
                             @break
 
                             @case(2)
                                 <option value="1">Jurnal</option>
                                 <option value="2" selected>Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(3)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3" selected>Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(4)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4" selected>Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(5)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5" selected>Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(6)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6" selected>Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(7)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7" selected>Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(8)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8" selected>Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(9)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9" selected>Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(10)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10" selected>Komentar</option>
+                                <option value="11">Ensiklopedia</option>
+                            @break
+
+                            @case(11)
+                                <option value="1">Jurnal</option>
+                                <option value="2">Website</option>
+                                <option value="3">Buku</option>
+                                <option value="4">Terjemahan</option>
+                                <option value="5">Majalah</option>
+                                <option value="6">Surat Kabar</option>
+                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="8">Wawancara</option>
+                                <option value="9">Pidato</option>
+                                <option value="10">Komentar</option>
+                                <option value="11" selected>Ensiklopedia</option>
                             @break
                         @endswitch
                     </select>
-
                     <input type="submit" class="btn btn-success"
-                        style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
-                        name="tomboljenis">
+                    style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
+                    name="tomboljenis">
+                    <label for="nourut">Urutan : </label>
                     @if ($apakahedit == 1)
                         <input type="text" class="form-control-sm" name="nourut"
-                            style="margin-right: 11px;width: 50px;" placeholder="No" value="{{ $_SESSION['edit_id'] }}">
+                            style="margin-right: 11px;width: 50px;" placeholder="No"
+                            value="{{ $_SESSION['edit_id'] }}">
                     @else
                         <input type="text" class="form-control-sm" name="nourut"
                             style="margin-right: 11px;width: 50px;" placeholder="No" value="{{ $nomor }}">
@@ -43,6 +188,42 @@
                                 @case(2)
                                     @include('anficititate.kelola.website')
                                 @break
+
+                                @case(3)
+                                    @include('anficititate.kelola.buku')
+                                @break
+
+                                @case(4)
+                                    @include('anficititate.kelola.terjemahan')
+                                @break
+
+                                @case(5)
+                                    @include('anficititate.kelola.majalah')
+                                @break
+
+                                @case(6)
+                                    @include('anficititate.kelola.suratKabar')
+                                @break
+
+                                @case(7)
+                                    @include('anficititate.kelola.karanganTidakDiterbitkan')
+                                @break
+
+                                @case(8)
+                                    @include('anficititate.kelola.wawancara')
+                                @break
+
+                                @case(9)
+                                    @include('anficititate.kelola.pidato')
+                                @break
+
+                                @case(10)
+                                    @include('anficititate.kelola.komentar')
+                                @break
+
+                                @case(11)
+                                    @include('anficititate.kelola.ensiklopedia')
+                                @break
                             @endswitch
                             {{-- End Switch --}}
                         @break
@@ -52,11 +233,47 @@
                                 {{-- Switch --}}
                                 @switch($edita->jenis)
                                     @case(1)
-                                        @include('anficititate.kelola.editjurnal')
+                                        @include('anficititate.kelola.jurnal')
                                     @break
 
                                     @case(2)
-                                        @include('anficititate.kelola.editwebsite')
+                                        @include('anficititate.kelola.website')
+                                    @break
+
+                                    @case(3)
+                                        @include('anficititate.kelola.buku')
+                                    @break
+
+                                    @case(4)
+                                        @include('anficititate.kelola.terjemahan')
+                                    @break
+
+                                    @case(5)
+                                        @include('anficititate.kelola.majalah')
+                                    @break
+
+                                    @case(6)
+                                        @include('anficititate.kelola.suratKabar')
+                                    @break
+
+                                    @case(7)
+                                        @include('anficititate.kelola.karanganTidakDiterbitkan')
+                                    @break
+
+                                    @case(8)
+                                        @include('anficititate.kelola.wawancara')
+                                    @break
+
+                                    @case(9)
+                                        @include('anficititate.kelola.pidato')
+                                    @break
+
+                                    @case(10)
+                                        @include('anficititate.kelola.komentar')
+                                    @break
+
+                                    @case(11)
+                                        @include('anficititate.kelola.ensiklopedia')
                                     @break
                                 @endswitch
                             @endforeach
