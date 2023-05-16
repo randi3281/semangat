@@ -7,10 +7,10 @@
                         <form action="/anficititate/kelola" method="POST">
                             <input type="hidden" name="urut" value="{{ $nomor }}">
                             {{ csrf_field() }}
-                            <input type="submit" name="keluar" value="Logout" class="btn btn-secondary">
-                            <input type="submit" name="select" value="Pilih Repositori" class="btn btn-secondary">
-                            <input type="submit" name="rapi" value="Daftar Footnote" class="btn btn-success">
-                            <input type="submit" name="dapus" value="Daftar Pustaka" class="btn btn-danger">
+                            <input type="submit" name="keluar" value="Logout" class="btn btn-danger">
+                            <input type="submit" name="select" value="Pilih Repositori" class="btn btn-success">
+                            <input type="submit" name="rapi" value="Daftar Footnote" class="btn btn-primary">
+                            <input type="submit" name="dapus" value="Daftar Pustaka" class="btn btn-primary">
                         </form>
                     </div>
                 </div>

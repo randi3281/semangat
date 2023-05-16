@@ -50,7 +50,7 @@
                 <input type="submit" style="height: 38px; font-size: 11px; font-weight: bold"
                     class="btn btn-primary w-25" name="enter" value="MASUK">
                 <input type="submit" style="height: 38px; font-size: 9px; font-weight: bold"
-                    class="btn btn-secondary w-50"name="new" value="BUAT REPOSITORI BARU">
+                    class="btn btn-danger w-50"name="new" value="BUAT REPOSITORI BARU">
                 <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="/anficititate/back">Login
                         Kembali Disini</a>
                 </p>

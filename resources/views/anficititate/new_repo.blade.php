@@ -29,11 +29,11 @@
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
                     class="btn btn-primary w-25" name="new" value="BUAT">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-secondary w-50" name="enter" value="PILIH REPOSITORI">
+                    class="btn btn-danger w-50" name="enter" value="PILIH REPOSITORI">
                 <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="/anficititate/back">Login
                         Kembali Disini</a>
                 </p>
             </div>
         </form>
-    </div> 
+    </div>
 </div>
