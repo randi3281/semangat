@@ -189,9 +189,8 @@ class FootnoteController extends Controller
                 }
                 DB::table('footnote')->insert([
                     'id' => $request->nourut,
+                    'penulis_1' => $request->penulisArtikel,
                     'judul_web' => $request->judul_web,
-                    'deskripsi_web' => $request->deskripsi_web,
-                    'tahun_web' => $request->tahun_web,
                     'link_web' => $request->link_web,
                     'jenis' => $_SESSION['jenis'],
                     'tanggal_diakses_web' => $request->tanggal_diakses_web,
