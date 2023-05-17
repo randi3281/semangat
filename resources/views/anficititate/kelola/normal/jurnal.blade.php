@@ -31,6 +31,9 @@
     @endif
     {{-- End Percabangan --}}
 </select>
+<input type="checkbox" name="asing" id="asing" value="1">
+<label for="asing">Asing</label>
+<br>
 </div>
 
 <div class="mt-1 form-group">

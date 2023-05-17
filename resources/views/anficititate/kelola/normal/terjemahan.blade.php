@@ -32,7 +32,7 @@
     @endif
     {{-- End Percabangan --}}
 </select>
-<input type="checkbox" name="asing" id="asing" value="asing">
+<input type="checkbox" name="asing" id="asing" value="1">
 <label for="asing">Asing</label>
 <br>
 <input type="radio" name="jenisBuku" id="normal" value="normal">
