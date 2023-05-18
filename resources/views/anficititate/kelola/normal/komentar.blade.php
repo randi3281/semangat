@@ -7,7 +7,7 @@
 <input type="text" class=" form-control" placeholder="Penulis" name="penulis_1">
 
 <div class="form-group  mt-2">
-    <label for="judul">Komentar</label> <br>
+    <label for="komentar">Komentar</label> <br>
     <textarea name="komentar" class="form-control"style="font-size : 11px;" id="" cols="30" rows="3"
         placeholder="Tuliskan Komentar"></textarea>
 </div>

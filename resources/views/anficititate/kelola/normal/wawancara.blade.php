@@ -23,7 +23,7 @@
 </div>
 
 <div class="mt-1 form-group">
-    <textarea name="wawancaraPribadi" class="form-control"style="font-size : 11px;" id="" cols="30"
+    <textarea name="jenisWawancara" class="form-control"style="font-size : 11px;" id="" cols="30"
         rows="2" placeholder="Jenis Wawancara (Contoh: Wawancara Pribadi)"></textarea>
 </div>
 

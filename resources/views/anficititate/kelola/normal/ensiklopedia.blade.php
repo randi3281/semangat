@@ -65,7 +65,7 @@
 </div>
 
 <div class="mt-2 form-group">
-    <input type="text" class="text-center form-control-sm" name="jilid" style="width:70px;" placeholder="Volume"
+    <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;" placeholder="Volume"
     <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun">
     <label for="halaman">Hal: </label>
     <input type="text" class="text-center form-control-sm float-left" style="width:60px;" name="halaman_awal"

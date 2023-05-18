@@ -1,6 +1,6 @@
 {{-- Form Jurnal --}}
 <br>
-<label for="jumlah">Jumlah Penulis : </label>
+<label for="jumlah">Jenis Koran : </label>
 <select class="form-select-sm mb-1" name="jumlah_penulis" onchange="javascript:handleselect(this)">
     {{-- Percabangan --}}
     @if (isset($jumlahpenulis))
@@ -22,7 +22,7 @@
 <div class="mt-1 form-group">
     @if (isset($jumlahpenulis))
         @if ($jumlahpenulis == 1)
-            <input type="text" class=" form-control" placeholder="Penulis 1" name="penulis_1">
+            <input type="text" class=" form-control" placeholder="Penulis" name="penulis_1">
         @endif
     @endif
 </div>

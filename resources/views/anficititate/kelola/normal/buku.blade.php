@@ -35,7 +35,7 @@
 <input type="checkbox" name="asing" id="asing" value="1">
 <label for="asing">Asing</label>
 <br>
-<input type="radio" name="jenisBuku" id="normal" value="normal">
+<input type="radio" name="jenisBuku" id="normal" value="normal" checked>
 <label for="karangan">Normal</label>
 <input type="radio" name="jenisBuku" id="karangan" value="karangan">
 <label for="karangan">Karangan</label>
