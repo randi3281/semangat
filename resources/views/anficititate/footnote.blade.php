@@ -25,7 +25,7 @@
             {{-- End Kelola Footnote --}}
 
             {{-- Tabel Footnote --}}
-            @include('anficititate.tabel.UINGUSDUR.index')
+            @include('anficititate.tabel.index')
             {{-- End Tabel Footnote --}}
         </div>
 </body>
