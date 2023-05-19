@@ -1,3 +1,6 @@
+@php
+    $_SESSION['kalimat'] = "";
+@endphp
 <h4 class="text-center">Daftar Footnote</h4>
 <table class="table table-striped">
     <tr>
@@ -7,76 +10,19 @@
         <th style="width: 120px; text-align: center;">Jenis Footnote</th>
     </tr>
     @foreach ($data as $ft)
-        <?php
-        if ($ft->jenis == 1) {
-            if ($ft->jumlah_penulis == 3) {
-                $kalimat = $ft->penulis_1;
-                $kalimat .= ', ';
-                $kalimat .= $ft->penulis_2;
-                $kalimat .= ', dan ';
-                $kalimat .= $ft->penulis_3;
-                $kalimat .= ', "';
-            } elseif ($ft->jumlah_penulis == 2) {
-                $kalimat = $ft->penulis_1;
-                $kalimat .= ' dan ';
-                $kalimat .= $ft->penulis_2;
-                $kalimat .= ', "';
-            } elseif ($ft->jumlah_penulis == 1) {
-                $kalimat = $ft->penulis_1;
-                $kalimat .= ', "';
-            } else {
-                $kalimat = $ft->penulis_1;
-                $kalimat .= ' dkk, "';
-            }
-            $kalimat .= $ft->judul;
-            $kalimat .= '", ';
-            $kalimat .= $ft->sumber;
-            if (isset($ft->volume)) {
-                $kalimat .= ', Vol. ';
-                $kalimat .= $ft->volume;
-                $kalimat .= ', ';
-            } else {
-                $kalimat .= ', ';
-            }
-            if (isset($ft->nomor)) {
-                $kalimat .= 'No. ';
-                $kalimat .= $ft->nomor;
-                $kalimat .= ' (';
-                $kalimat .= $ft->tahun;
-                $kalimat .= '), hal. ';
-            } else {
-                $kalimat .= $ft->tahun;
-                $kalimat .= ', hal. ';
-            }
-            if (isset($ft->halaman_akhir)) {
-                $kalimat .= $ft->halaman_awal;
-                $kalimat .= '-';
-                $kalimat .= $ft->halaman_akhir;
-            } else {
-                $kalimat .= $ft->halaman_awal;
-            }
-            $kalimat .= '.';
-        } elseif ($ft->jenis) {
-            $kalimat = $ft->judul_web;
-            $kalimat .= ', "';
-            $kalimat .= $ft->deskripsi_web;
-            $kalimat .= '", ';
-            $kalimat .= $ft->tahun_web;
-            $kalimat .= ', ';
-            $kalimat .= $ft->link_web;
-            $kalimat .= '. Diakses pada ';
-            $kalimat .= $ft->tanggal_diakses_web;
-            $kalimat .= '.';
-        }
-        ?>
+        @if ($ft->jenis == 1)
+            @include('anficititate.tabel.UINGUSDUR.footnotenya.jurnal')
+        @elseif ($ft->jenis == 2)
+            @include('anficititate.tabel.UINGUSDUR.footnotenya.website')
+        @endif
+
         <tr>
             <td>{{ $ft->id }}</td>
             <td>
                 @php
-                    if (isset($kalimat)) {
-                        echo $kalimat;
-                    }
+                        echo $_SESSION['kalimat'];
                 @endphp
+
             </td>
             <td style=" text-align: center;">
                 <input type="hidden" value="">
