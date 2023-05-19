@@ -105,15 +105,14 @@ class FootnoteController extends Controller
 
     public function kelola(Request $request){
         session_start();
-
-        $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
-        foreach($nom as $mon){
-            $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
-        }
         if(isset($request->tomboljenis)){
             $_SESSION['jenis'] = $request->jenis_footnote;
             if(isset($_SESSION['lagiNgedit'])){
                 if($_SESSION['lagiNgedit'] == 1){
+                    $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
+                    foreach($nom as $mon){
+                        $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
+                    }
                     DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
                         'jenis' => $_SESSION['jenis']
                     ]);
