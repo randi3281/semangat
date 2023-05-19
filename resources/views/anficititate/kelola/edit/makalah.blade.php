@@ -32,20 +32,36 @@
     @endif
     {{-- End Percabangan --}}
 </select>
-<input type="checkbox" name="asing" id="asing" value="1">
+@if ($edita->asing == 1)
+    <input type="checkbox" name="asing" id="asing" value="1" checked>
+@else
+    <input type="checkbox" name="asing" id="asing" value="1">
+@endif
 <label for="asing">Asing</label>
 
 </div>
 
+
 <div class="mt-1 form-group">
     @if (isset($jumlahpenulis))
         @if ($jumlahpenulis == 4)
-            <input type="text" class=" form-control" placeholder="Penulis 1" name="penulis_1">
-        @else
-            @for ($i = 1; $i <= $jumlahpenulis; $i++)
-                <input type="text" class="form-control" placeholder="Penulis {{ $i }}"
-                    name="penulis_{{ $i }}">
-            @endfor
+            <input type="text" class=" form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
+        @elseif ($jumlahpenulis == 3)
+            <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
+            <input type="text" class="form-control" placeholder="Penulis 2" name="penulis_2"
+                value="{{ $edita->penulis_2 }}">
+            <input type="text" class="form-control" placeholder="Penulis 3" name="penulis_3"
+                value="{{ $edita->penulis_3 }}">
+        @elseif ($jumlahpenulis == 2)
+            <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
+            <input type="text" class="form-control" placeholder="Penulis 2" name="penulis_2"
+                value="{{ $edita->penulis_2 }}">
+        @elseif ($jumlahpenulis == 1)
+            <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
         @endif
     @else
         <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1">
@@ -55,27 +71,27 @@
 <div class="form-group  mt-2">
     <label for="judul">Judul</label> <br>
     <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30" rows="3"
-        placeholder="Tuliskan Judul"></textarea>
+        placeholder="Tuliskan Judul">{{ $edita->judul }}</textarea>
 </div>
 
 <div class="mt-1 form-group">
     <textarea name="acara" class="form-control"style="font-size : 11px;" id="" cols="30" rows="2"
-        placeholder="Acara"></textarea>
+        placeholder="Acara">{{ $edita->acara }}</textarea>
 </div>
 
 <div class="mt-1 form-group">
     <textarea name="judulAcara" class="form-control"style="font-size : 11px;" id="" cols="30" rows="2"
-        placeholder="Judul Acara"></textarea>
+        placeholder="Judul Acara">{{ $edita->judulAcara }}</textarea>
 </div>
 
 <div class="mt-1 form-group">
     <textarea name="penyelenggaraAcara" class="form-control"style="font-size : 11px;" id="" cols="30"
-        rows="2" placeholder="Penyelenggara Acara"></textarea>
+        rows="2" placeholder="Penyelenggara Acara">{{ $edita->penyelenggaraAcara }}</textarea>
 </div>
 
 <div class="mt-2 form-group">
-    <input type="text" class="text-center form-control-sm" name="tanggal" style="width:70px;" placeholder="Tanggal">
-    <input type="text" class="text-center form-control-sm" name="bulan" style="width:70px;" placeholder="Bulan">
-    <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun">
+    <input type="text" class="text-center form-control-sm" name="tanggal" style="width:70px;" placeholder="Tanggal" value="{{ $edita->tanggal }}">
+    <input type="text" class="text-center form-control-sm" name="bulan" style="width:70px;" placeholder="Bulan" value="{{ $edita->bulan }}">
+    <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun" value="{{ $edita->tahun }}">
 </div>
 {{-- End Form Jurnal --}}
