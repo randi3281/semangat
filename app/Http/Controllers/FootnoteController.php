@@ -105,6 +105,7 @@ class FootnoteController extends Controller
 
     public function kelola(Request $request){
         session_start();
+
         if(isset($request->tomboljenis)){
             $_SESSION['jenis'] = $request->jenis_footnote;
             if(isset($_SESSION['lagiNgedit'])){
@@ -2450,6 +2451,7 @@ class FootnoteController extends Controller
             $_SESSION['lagiNgedit'] = 0;
             $_SESSION['apakahedit'] = 0;
             $_SESSION['jumlahpenulis'] = 1;
+            $_SESSION['jenis'] = 1;
             return redirect('/anficititate/repo_core');
         }
 
