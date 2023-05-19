@@ -91,181 +91,49 @@
                 @switch($ft->jenis)
                     @case(1)
                         <option value="1" selected>Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(2)
-                        <option value="1">Jurnal</option>
                         <option value="2" selected>Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(3)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
                         <option value="3" selected>Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(4)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
                         <option value="4" selected>Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(5)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
                         <option value="5" selected>Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(6)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
                         <option value="6" selected>Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(7)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
                         <option value="7" selected>Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(8)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
                         <option value="8" selected>Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(9)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
                         <option value="9" selected>Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(10)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
                         <option value="10" selected>Komentar</option>
-                        <option value="11">Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(11)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
                         <option value="11" selected>Ensiklopedia</option>
-                        <option value="12">Makalah</option>
                     @break
 
                     @case(12)
-                        <option value="1">Jurnal</option>
-                        <option value="2">Website</option>
-                        <option value="3">Buku</option>
-                        <option value="4">Terjemahan</option>
-                        <option value="5">Majalah</option>
-                        <option value="6">Surat Kabar</option>
-                        <option value="7">Karangan Tidak Diterbitkan</option>
-                        <option value="8">Wawancara</option>
-                        <option value="9">Pidato</option>
-                        <option value="10">Komentar</option>
-                        <option value="11">Ensiklopedia</option>
                         <option value="12" selected>Makalah</option>
                     @break
                 @endswitch
