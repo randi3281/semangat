@@ -91,6 +91,7 @@ class FootnoteController extends Controller
 
     public function core_repo_edit($ft){
         session_start();
+        $_SESSION['lagiNgedit'] = 1;
         $_SESSION['edit_id'] = $ft;
         $dataEdit = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->get();
 
@@ -104,12 +105,26 @@ class FootnoteController extends Controller
 
     public function kelola(Request $request){
         session_start();
+
+        $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
+        foreach($nom as $mon){
+            $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
+        }
         if(isset($request->tomboljenis)){
             $_SESSION['jenis'] = $request->jenis_footnote;
+            if(isset($_SESSION['lagiNgedit'])){
+                if($_SESSION['lagiNgedit'] == 1){
+                    DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
+                        'jenis' => $_SESSION['jenis']
+                    ]);
+                }
+            }
+            $_SESSION['lagiNgedit'] = 0;
             return redirect("/anficititate/repo_core");
         }
 
         if(isset($request->input)){
+            $_SESSION['lagiNgedit'] = 0;
             if($_SESSION['jenis'] == 1){
                 $urutan = $_SESSION['urut_id'];
                 if($request->nourut !== $urutan){
@@ -770,7 +785,7 @@ class FootnoteController extends Controller
 
         if(isset($request->edit)){
             if($request->nourut > $_SESSION['edit_id']){
-
+                $_SESSION['lagiNgedit'] = 0;
                 $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
                 foreach($nom as $mon){
                     $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
@@ -1316,7 +1331,7 @@ class FootnoteController extends Controller
                 }
 
             } elseif($request->nourut < $_SESSION['edit_id']){
-
+                $_SESSION['lagiNgedit'] = 0;
                 $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
                 foreach($nom as $mon){
                     $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
@@ -1862,7 +1877,7 @@ class FootnoteController extends Controller
                 }
 
             }else{
-
+                $_SESSION['lagiNgedit'] = 0;
                 $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('id', $_SESSION['edit_id'])->where('repositori', $_SESSION['repo'])->get();
                 foreach($nom as $mon){
                     $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
@@ -2431,6 +2446,8 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->reset)){
+
+            $_SESSION['lagiNgedit'] = 0;
             $_SESSION['apakahedit'] = 0;
             $_SESSION['jumlahpenulis'] = 1;
             return redirect('/anficititate/repo_core');
