@@ -16,7 +16,7 @@
     </style>
 </head>
 
-<body class="bg-dark">
+<body class="bg-primary">
     <div class="container-fluid" style="padding-top: 3px;">
         <div class="row mt-2">
 
