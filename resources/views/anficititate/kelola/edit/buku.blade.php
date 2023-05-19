@@ -32,17 +32,50 @@
     @endif
     {{-- End Percabangan --}}
 </select>
-<input type="checkbox" name="asing" id="asing" value="1">
+@if ($edita->asing == 1)
+    <input type="checkbox" name="asing" id="asing" value="1" checked>
+@else
+    <input type="checkbox" name="asing" id="asing" value="1">
+@endif
 <label for="asing">Asing</label>
 <br>
-<input type="radio" name="jenisBuku" id="normal" value="normal" checked>
-<label for="karangan">Normal</label>
-<input type="radio" name="jenisBuku" id="karangan" value="karangan">
-<label for="karangan">Karangan</label>
-<input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
-<label for="tanpaPenulis">Tanpa Penulis</label>
-<input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
-<label for="terjemahan">Terjemahan</label>
+@if ($edita->jenisBuku == 'normal')
+    <input type="radio" name="jenisBuku" id="normal" value="normal" checked>
+    <label for="karangan">Normal</label>
+    <input type="radio" name="jenisBuku" id="karangan" value="karangan">
+    <label for="karangan">Karangan</label>
+    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
+    <label for="tanpaPenulis">Tanpa Penulis</label>
+    <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
+    <label for="terjemahan">Terjemahan</label>
+@elseif($edita->jenisBuku == 'karangan')
+    <input type="radio" name="jenisBuku" id="normal" value="normal">
+    <label for="karangan">Normal</label>
+    <input type="radio" name="jenisBuku" id="karangan" value="karangan" checked>
+    <label for="karangan">Karangan</label>
+    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
+    <label for="tanpaPenulis">Tanpa Penulis</label>
+    <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
+    <label for="terjemahan">Terjemahan</label>
+@elseif($edita->jenisBuku == 'tanpaPenulis')
+    <input type="radio" name="jenisBuku" id="normal" value="normal">
+    <label for="karangan">Normal</label>
+    <input type="radio" name="jenisBuku" id="karangan" value="karangan">
+    <label for="karangan">Karangan</label>
+    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis" checked>
+    <label for="tanpaPenulis">Tanpa Penulis</label>
+    <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
+    <label for="terjemahan">Terjemahan</label>
+@elseif($edita->jenisBuku == 'terjemahan')
+    <input type="radio" name="jenisBuku" id="normal" value="normal">
+    <label for="karangan">Normal</label>
+    <input type="radio" name="jenisBuku" id="karangan" value="karangan">
+    <label for="karangan">Karangan</label>
+    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
+    <label for="tanpaPenulis">Tanpa Penulis</label>
+    <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan" checked>
+    <label for="terjemahan">Terjemahan</label>
+@endif
 
 </div>
 
@@ -74,28 +107,31 @@
 
 <div class="form-group  mt-2">
     <label for="judul">Judul</label> <br>
-    <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30" rows="3"
-        placeholder="Tuliskan Judul"></textarea>
+    <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30"
+        rows="3" placeholder="Tuliskan Judul">{{ $edita->judul }}</textarea>
 </div>
 
 <div class="mt-1 form-group">
-    <textarea name="sumber" class="form-control"style="font-size : 11px;" id="" cols="30" rows="2"
-        placeholder="Sumber"></textarea>
+    <textarea name="sumber" class="form-control"style="font-size : 11px;" id="" cols="30"
+        rows="2" placeholder="Sumber">{{ $edita->sumber }}</textarea>
 </div>
 
 <div class="mt-2 form-group">
-    <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;" placeholder="Volume">
-    <input type="text" class="text-center form-control-sm" name="nomor" style="width:70px;" placeholder="Nomor">
-    <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun">
+    <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;"
+        placeholder="Volume" value="{{ $edita->volume }}">
+    <input type="text" class="text-center form-control-sm" name="nomor" style="width:70px;"
+        placeholder="Nomor" value="{{ $edita->nomor }}">
+    <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;"
+        placeholder="Tahun" value="{{ $edita->tahun }}">
     <label for="halaman">Hal: </label>
     <input type="text" class="text-center form-control-sm float-left" style="width:60px;" name="halaman_awal"
-        placeholder="Awal">
+        placeholder="Awal" value="{{ $edita->halaman_awal }}">
     -
     <input type="text" class="text-center form-control-sm float-left" style="width:60px;" name="halaman_akhir"
-        placeholder="Akhir">
+        placeholder="Akhir" value="{{ $edita->halaman_akhir }}">
 </div>
 <div class="mt-2 form-group">
-    <input type="text" class="form-control" name="kota" placeholder="Asal Kota">
+    <input type="text" class="form-control" name="kota" placeholder="Asal Kota" value="{{ $edita->kota }}">
 </div>
 
 {{-- End Form Jurnal --}}
