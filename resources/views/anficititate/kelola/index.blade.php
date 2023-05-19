@@ -191,9 +191,24 @@
                             @break
                         @endswitch
                     </select>
-                    <input type="submit" class="btn btn-success"
-                        style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
-                        name="tomboljenis">
+
+                    @if (isset($_SESSION['lagiNgedit']))
+                        @if ($_SESSION['lagiNgedit'] == 1)
+                            <input type="submit" class="btn btn-danger"
+                                style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
+                                name="tomboljenis">
+                        @else
+                            <input type="submit" class="btn btn-success"
+                                style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
+                                name="tomboljenis">
+                        @endif
+                    @else
+                        <input type="submit" class="btn btn-success"
+                            style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
+                            name="tomboljenis">
+                    @endif
+
+
                     <label for="nourut">Urutan : </label>
                     @if ($apakahedit == 1)
                         <input type="text" class="form-control-sm" name="nourut"
@@ -327,12 +342,26 @@
         <div class="card" style="height:75px; margin-top:-10px;">
             <div class="card-body">
                 <div class="text-center">
-                    <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"
-                        style="margin-left:20px">
-                    <input type="submit" name="edit" value="Edit" class="w-25 btn btn-danger"
-                        style="margin-left:20px">
-                    <input type="submit" name="reset" value="Reset" class="w-25 btn btn-secondary"
-                        style="margin-left:20px">
+                    @if (isset($_SESSION['lagiNgedit']))
+                        @if ($_SESSION['lagiNgedit'] == 1)
+                            <input type="submit" name="input" value="Input" class="w-25 btn btn-secondary"
+                                style="margin-left:20px">
+                            <input type="submit" name="edit" value="Edit" class="w-25 btn btn-danger"
+                                style="margin-left:20px">
+                            <input type="submit" name="reset" value="Reset" class="w-25 btn btn-primary"
+                                style="margin-left:20px">
+                        @else
+                            <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"
+                                style="margin-left:20px">
+                            <input type="submit" name="reset" value="Reset" class="w-25 btn btn-secondary"
+                                style="margin-left:20px">
+                        @endif
+                    @else
+                        <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"
+                            style="margin-left:20px">
+                        <input type="submit" name="reset" value="Reset" class="w-25 btn btn-secondary"
+                            style="margin-left:20px">
+                    @endif
                     </form>
                 </div>
             </div>

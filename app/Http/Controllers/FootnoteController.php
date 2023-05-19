@@ -118,7 +118,6 @@ class FootnoteController extends Controller
                     ]);
                 }
             }
-            $_SESSION['lagiNgedit'] = 0;
             return redirect("/anficititate/repo_core");
         }
 
