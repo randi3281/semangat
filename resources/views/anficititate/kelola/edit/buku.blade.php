@@ -49,12 +49,23 @@
 <div class="mt-1 form-group">
     @if (isset($jumlahpenulis))
         @if ($jumlahpenulis == 4)
-            <input type="text" class=" form-control" placeholder="Penulis 1" name="penulis_1">
-        @else
-            @for ($i = 1; $i <= $jumlahpenulis; $i++)
-                <input type="text" class="form-control" placeholder="Penulis {{ $i }}"
-                    name="penulis_{{ $i }}">
-            @endfor
+            <input type="text" class=" form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
+        @elseif ($jumlahpenulis == 3)
+            <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
+            <input type="text" class="form-control" placeholder="Penulis 2" name="penulis_2"
+                value="{{ $edita->penulis_2 }}">
+            <input type="text" class="form-control" placeholder="Penulis 3" name="penulis_3"
+                value="{{ $edita->penulis_3 }}">
+        @elseif ($jumlahpenulis == 2)
+            <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
+            <input type="text" class="form-control" placeholder="Penulis 2" name="penulis_2"
+                value="{{ $edita->penulis_2 }}">
+        @elseif ($jumlahpenulis == 1)
+            <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1"
+                value="{{ $edita->penulis_1 }}">
         @endif
     @else
         <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1">
