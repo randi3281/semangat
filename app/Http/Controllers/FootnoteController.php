@@ -2419,14 +2419,17 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->keluar)){
+            $_SESSION['lagiNgedit'] = 0;
             return redirect('/anficititate/back');
         }
 
         if(isset($request->select)){
+            $_SESSION['lagiNgedit'] = 0;
             return redirect('/anficititate/slc_repo');
         }
 
         if(isset($request->rapi)){
+            $_SESSION['lagiNgedit'] = 0;
             $angka = 0;
             $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
             for($u = 1; $u <= $nom->id; $u++){
@@ -2446,7 +2449,6 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->reset)){
-
             $_SESSION['lagiNgedit'] = 0;
             $_SESSION['apakahedit'] = 0;
             $_SESSION['jumlahpenulis'] = 1;
@@ -2454,6 +2456,7 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->dapus)){
+            $_SESSION['lagiNgedit'] = 0;
             $_SESSION['jenistabel'] = 1;
             return redirect('/anficititate/repo_core');
         }
