@@ -10,6 +10,10 @@
 </div>
 
 <div class="mt-2 form-group">
+    <input type="text" class="form-control" name="tanggal_website" placeholder="Tanggal Website">
+</div>
+
+<div class="mt-2 form-group">
     <input type="text" class="form-control" name="link_web" placeholder="Link">
 </div>
 

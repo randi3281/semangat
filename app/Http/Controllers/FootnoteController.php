@@ -212,6 +212,7 @@ class FootnoteController extends Controller
                     'id' => $request->nourut,
                     'penulis_1' => $request->penulisArtikel,
                     'judul_web' => $request->judul_web,
+                    'tanggal' => $request->tanggal_website,
                     'link_web' => $request->link_web,
                     'jenis' => $_SESSION['jenis'],
                     'tanggal_diakses_web' => $request->tanggal_diakses_web,
@@ -868,13 +869,14 @@ class FootnoteController extends Controller
                 } elseif($_SESSION['jenis'] == 2){
                     DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
                         'id' => $request->nourut,
-                    'penulis_1' => $request->penulisArtikel,
-                    'judul_web' => $request->judul_web,
-                    'link_web' => $request->link_web,
-                    'jenis' => $_SESSION['jenis'],
-                    'tanggal_diakses_web' => $request->tanggal_diakses_web,
-                    'repositori' => $_SESSION['repo'],
-                    'username' => $_SESSION['username']
+                        'penulis_1' => $request->penulisArtikel,
+                        'judul_web' => $request->judul_web,
+                        'tanggal' => $request->tanggal_website,
+                        'link_web' => $request->link_web,
+                        'jenis' => $_SESSION['jenis'],
+                        'tanggal_diakses_web' => $request->tanggal_diakses_web,
+                        'repositori' => $_SESSION['repo'],
+                        'username' => $_SESSION['username']
                     ]);
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
@@ -1431,13 +1433,14 @@ class FootnoteController extends Controller
                 } elseif($_SESSION['jenis'] == 2){
                     DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
                         'id' => $request->nourut,
-                    'penulis_1' => $request->penulisArtikel,
-                    'judul_web' => $request->judul_web,
-                    'link_web' => $request->link_web,
-                    'jenis' => $_SESSION['jenis'],
-                    'tanggal_diakses_web' => $request->tanggal_diakses_web,
-                    'repositori' => $_SESSION['repo'],
-                    'username' => $_SESSION['username']
+                        'penulis_1' => $request->penulisArtikel,
+                        'judul_web' => $request->judul_web,
+                        'tanggal' => $request->tanggal_website,
+                        'link_web' => $request->link_web,
+                        'jenis' => $_SESSION['jenis'],
+                        'tanggal_diakses_web' => $request->tanggal_diakses_web,
+                        'repositori' => $_SESSION['repo'],
+                        'username' => $_SESSION['username']
                     ]);
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
@@ -1989,6 +1992,7 @@ class FootnoteController extends Controller
                         'id' => $request->nourut,
                         'penulis_1' => $request->penulisArtikel,
                         'judul_web' => $request->judul_web,
+                        'tanggal' => $request->tanggal_website,
                         'link_web' => $request->link_web,
                         'jenis' => $_SESSION['jenis'],
                         'tanggal_diakses_web' => $request->tanggal_diakses_web,

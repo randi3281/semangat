@@ -36,11 +36,6 @@
                 @elseif ($ft->jenis == 12)
                     @include('anficititate.tabel.UINGUSDUR.footnotenya.makalah')
                 @endif
-                {{-- @php
-                    echo $_SESSION['kalimat'];
-                    $_SESSION['kalimat'] = '';
-                @endphp --}}
-
             </td>
             <td style=" text-align: center;">
                 <input type="hidden" value="">
