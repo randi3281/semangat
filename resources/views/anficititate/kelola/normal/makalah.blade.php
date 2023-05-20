@@ -70,7 +70,7 @@
 
 <div class="mt-1 form-group">
     <textarea name="penyelenggaraAcara" class="form-control"style="font-size : 11px;" id="" cols="30"
-        rows="2" placeholder="Penyelenggara Acara"></textarea>
+        rows="2" placeholder="Penyelenggara Acara/Kampus/Instansi/Lembaga"></textarea>
 </div>
 
 <div class="mt-2 form-group">

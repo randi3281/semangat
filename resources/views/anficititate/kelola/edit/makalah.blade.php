@@ -86,7 +86,7 @@
 
 <div class="mt-1 form-group">
     <textarea name="penyelenggaraAcara" class="form-control"style="font-size : 11px;" id="" cols="30"
-        rows="2" placeholder="Penyelenggara Acara">{{ $edita->penyelenggaraAcara }}</textarea>
+        rows="2" placeholder="Penyelenggara Acara/Kampus/Instansi/Lembaga">{{ $edita->penyelenggaraAcara }}</textarea>
 </div>
 
 <div class="mt-2 form-group">
