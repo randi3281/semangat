@@ -1,50 +1,45 @@
 @php
     if ($ft->jumlah_penulis == 3) {
-        $kalimat = $ft->penulis_1;
-        $kalimat .= ', ';
-        $kalimat .= $ft->penulis_2;
-        $kalimat .= ', dan ';
-        $kalimat .= $ft->penulis_3;
-        $kalimat .= ', "';
+        $kalimat = $ft->penulis_1 . ', ' . $ft->penulis_2 . ', dan ' . $ft->penulis_3 . ', "';
     } elseif ($ft->jumlah_penulis == 2) {
-        $kalimat = $ft->penulis_1;
-        $kalimat .= ' dan ';
-        $kalimat .= $ft->penulis_2;
-        $kalimat .= ', "';
+        $kalimat = $ft->penulis_1 . ' dan ' . $ft->penulis_2 . ', "';
     } elseif ($ft->jumlah_penulis == 1) {
-        $kalimat = $ft->penulis_1;
-        $kalimat .= ', "';
+        $kalimat = $ft->penulis_1 . ', "';
     } else {
-        $kalimat = $ft->penulis_1;
-        $kalimat .= ' dkk, "';
+        if ($ft->asing == 1) {
+            $kalimat = $ft->penulis_1 . ' et al., "';
+        } else {
+            $kalimat = $ft->penulis_1 . ' dkk., "';
+        }
     }
-    $kalimat .= $ft->judul;
-    $kalimat .= '", ';
-    $kalimat .= $ft->sumber;
-    if (isset($ft->volume)) {
-        $kalimat .= ', Vol. ';
-        $kalimat .= $ft->volume;
-        $kalimat .= ', ';
-    } else {
-        $kalimat .= ', ';
-    }
+    $kalimat .= $ft->judul . '" (' . $ft->kota . ': ';
+
+    $kalimat2 = "";
     if (isset($ft->nomor)) {
-        $kalimat .= 'No. ';
-        $kalimat .= $ft->nomor;
-        $kalimat .= ' (';
-        $kalimat .= $ft->tahun;
-        $kalimat .= '), hal. ';
-    } else {
-        $kalimat .= $ft->tahun;
-        $kalimat .= ', hal. ';
+        $kalimat2 .= ', No. ' . $ft->nomor;
     }
+
+    if (isset($ft->bulan)) {
+        $kalimat2 .= ', ' . $ft->bulan;
+    }
+
+    if (isset($ft->volume)) {
+        $kalimat2 .= ', ' . $ft->volume;
+    }
+
+    if (isset($ft->tahun)) {
+        $kalimat2 .= ', ' . $ft->tahun;
+    }
+
+    $kalimat2 .= '), hlm. ';
+
     if (isset($ft->halaman_akhir)) {
-        $kalimat .= $ft->halaman_awal;
-        $kalimat .= '-';
-        $kalimat .= $ft->halaman_akhir;
+        $kalimat2 .= $ft->halaman_awal;
+        $kalimat2 .= '-';
+        $kalimat2 .= $ft->halaman_akhir;
     } else {
-        $kalimat .= $ft->halaman_awal;
+        $kalimat2 .= $ft->halaman_awal;
     }
-    $kalimat .= '.';
-    $_SESSION['kalimat'] = $kalimat;
+    $kalimat2 .= '.';
 @endphp
+{{ $kalimat }}<i>{{ $ft->sumber }}</i>{{$kalimat2}}

@@ -1,7 +1,6 @@
 {{-- Form Jurnal --}}
 <label for="jumlah">Jumlah Penulis : </label>
-<select class="form-select-sm" name="jumlah_penulis" style=" width: 50px;" onchange="javascript:handleselect(this)">
-
+<select class="form-select-sm mb-1" name="jumlah_penulis" onchange="javascript:handleselect(this)">
     {{-- Percabangan --}}
     @if (isset($jumlahpenulis))
         @if ($jumlahpenulis == 4)
@@ -31,8 +30,14 @@
         <option value="4">Lebih dari 3</option>
     @endif
     {{-- End Percabangan --}}
-
 </select>
+@if ($edita->asing == 1)
+    <input type="checkbox" name="asing" id="asing" value="1" checked>
+@else
+    <input type="checkbox" name="asing" id="asing" value="1">
+@endif
+<label for="asing">Asing</label>
+<br>
 </div>
 
 <div class="mt-1 form-group">
@@ -61,7 +66,7 @@
     @endif
 </div>
 
-<div class="form-group mt-2">
+<div class="form-group  mt-2">
     <label for="judul">Judul</label> <br>
     <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30" rows="3"
         placeholder="Tuliskan Judul">{{ $edita->judul }}</textarea>
@@ -73,28 +78,24 @@
 </div>
 
 <div class="mt-2 form-group">
-    <label for="volume">Volume : </label>
-    <input type="text" class="form-control-sm" name="volume" style="width:70px;" placeholder="Volume"
-        value="{{ $edita->volume }}">
-    <label for="nomor">Nomor : </label>
-    <input type="text" class="form-control-sm" name="nomor" style="width:70px;" placeholder="Nomor"
+    <input type="text" class="text-center form-control-sm" name="nomor" style="width:70px;" placeholder="Nomor"
         value="{{ $edita->nomor }}">
-    <label for="tahun">Tahun : </label>
-    <input type="text" class="form-control-sm" style="width:60px;" name="tahun"
-        placeholder="Tahun"value="{{ $edita->tahun }}">
-</div>
-
-<div class="mt-2 form-group">
-    <label for="halaman">Halaman : </label>
-    <input type="text" class="form-control-sm float-left" style="width:60px;" name="halaman_awal"
+    <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;" placeholder="Volume"
+        value="{{ $edita->volume }}">
+    <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun"
+        value="{{ $edita->tahun }}">
+    <label for="halaman">Hal: </label>
+    <input type="text" class="text-center form-control-sm float-left" style="width:60px;" name="halaman_awal"
         placeholder="Awal" value="{{ $edita->halaman_awal }}">
     -
-    <input type="text" class="form-control-sm float-left" style="width:60px;" name="halaman_akhir"
+    <input type="text" class="text-center form-control-sm float-left" style="width:60px;" name="halaman_akhir"
         placeholder="Akhir" value="{{ $edita->halaman_akhir }}">
 </div>
 <div class="mt-2 form-group">
-    <label for="halaman">Asal Kota : </label>
-    <input type="text" class="form-control-sm" name="kota" placeholder="Asal Kota"
-        value="{{ $edita->kota }}">
+    <input type="text" class="form-control" name="bulan" placeholder="Bulan" value="{{ $edita->bulan }}">
 </div>
+<div class="mt-2 form-group">
+    <input type="text" class="form-control" name="kota" placeholder="Asal Kota" value="{{ $edita->kota }}">
+</div>
+
 {{-- End Form Jurnal --}}

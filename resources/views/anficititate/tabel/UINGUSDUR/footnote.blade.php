@@ -1,6 +1,3 @@
-@php
-    $_SESSION['kalimat'] = "";
-@endphp
 <h4 class="text-center">Daftar Footnote</h4>
 <table class="table table-striped">
     <tr>
@@ -10,18 +7,39 @@
         <th style="width: 120px; text-align: center;">Jenis Footnote</th>
     </tr>
     @foreach ($data as $ft)
-        @if ($ft->jenis == 1)
-            @include('anficititate.tabel.UINGUSDUR.footnotenya.jurnal')
-        @elseif ($ft->jenis == 2)
-            @include('anficititate.tabel.UINGUSDUR.footnotenya.website')
-        @endif
 
-        <tr>
-            <td>{{ $ft->id }}</td>
-            <td>
-                @php
-                        echo $_SESSION['kalimat'];
-                @endphp
+    <tr>
+        <td>{{ $ft->id }}</td>
+        <td>
+                @if ($ft->jenis == 1)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.jurnal')
+                @elseif ($ft->jenis == 2)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.website')
+                @elseif ($ft->jenis == 3)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.buku')
+                @elseif ($ft->jenis == 4)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.terjemahan')
+                @elseif ($ft->jenis == 5)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.majalah')
+                @elseif ($ft->jenis == 6)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.suratKabar')
+                @elseif ($ft->jenis == 7)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.karanganTidakDiterbitkan')
+                @elseif ($ft->jenis == 8)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.wawancara')
+                @elseif ($ft->jenis == 9)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.pidato')
+                @elseif ($ft->jenis == 10)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.komentar')
+                @elseif ($ft->jenis == 11)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.ensiklopedia')
+                @elseif ($ft->jenis == 12)
+                    @include('anficititate.tabel.UINGUSDUR.footnotenya.makalah')
+                @endif
+                {{-- @php
+                    echo $_SESSION['kalimat'];
+                    $_SESSION['kalimat'] = '';
+                @endphp --}}
 
             </td>
             <td style=" text-align: center;">
