@@ -6,13 +6,7 @@
 
 <input type="text" class=" form-control" placeholder="Narasumber" name="penulis_1">
 
-<div class="form-group  mt-2">
-    <label for="judul">Judul</label> <br>
-    <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30" rows="3"
-        placeholder="Tuliskan Judul"></textarea>
-</div>
-
-<div class="mt-1 form-group">
+<div class="mt-2 form-group">
     <textarea name="jabatan" class="form-control"style="font-size : 11px;" id="" cols="30" rows="2"
         placeholder="Jabatan"></textarea>
 </div>

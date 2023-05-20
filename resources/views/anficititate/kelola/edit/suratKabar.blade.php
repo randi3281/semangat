@@ -14,13 +14,6 @@
     @endif
     {{-- End Percabangan --}}
 </select>
-@if ($edita->asing == 1)
-    <input type="checkbox" name="asing" id="asing" value="1" checked>
-@else
-    <input type="checkbox" name="asing" id="asing" value="1">
-@endif
-<label for="asing">Asing</label>
-
 </div>
 
 <div class="mt-1 form-group">
