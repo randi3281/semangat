@@ -14,7 +14,7 @@
                                 <option value="1" selected>Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -29,7 +29,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2" selected>Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -44,7 +44,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3" selected>Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -59,7 +59,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4" selected>Terjemahan</option>
+                                <option value="4" selected>Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -74,7 +74,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5" selected>Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -89,7 +89,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6" selected>Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -104,7 +104,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7" selected>Karangan Tidak Diterbitkan</option>
@@ -119,7 +119,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -134,7 +134,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -149,7 +149,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -164,7 +164,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>
@@ -179,7 +179,7 @@
                                 <option value="1">Jurnal</option>
                                 <option value="2">Website</option>
                                 <option value="3">Buku</option>
-                                <option value="4">Terjemahan</option>
+                                <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
                                 <option value="7">Karangan Tidak Diterbitkan</option>

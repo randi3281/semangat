@@ -39,8 +39,6 @@
 <label for="karangan">Normal</label>
 <input type="radio" name="jenisBuku" id="karangan" value="karangan">
 <label for="karangan">Karangan</label>
-<input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
-<label for="tanpaPenulis">Tanpa Penulis</label>
 <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
 <label for="terjemahan">Terjemahan</label>
 

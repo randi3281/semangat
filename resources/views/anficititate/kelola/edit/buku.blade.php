@@ -44,8 +44,6 @@
     <label for="karangan">Normal</label>
     <input type="radio" name="jenisBuku" id="karangan" value="karangan">
     <label for="karangan">Karangan</label>
-    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
-    <label for="tanpaPenulis">Tanpa Penulis</label>
     <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
     <label for="terjemahan">Terjemahan</label>
 @elseif($edita->jenisBuku == 'karangan')
@@ -53,17 +51,6 @@
     <label for="karangan">Normal</label>
     <input type="radio" name="jenisBuku" id="karangan" value="karangan" checked>
     <label for="karangan">Karangan</label>
-    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
-    <label for="tanpaPenulis">Tanpa Penulis</label>
-    <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
-    <label for="terjemahan">Terjemahan</label>
-@elseif($edita->jenisBuku == 'tanpaPenulis')
-    <input type="radio" name="jenisBuku" id="normal" value="normal">
-    <label for="karangan">Normal</label>
-    <input type="radio" name="jenisBuku" id="karangan" value="karangan">
-    <label for="karangan">Karangan</label>
-    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis" checked>
-    <label for="tanpaPenulis">Tanpa Penulis</label>
     <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan">
     <label for="terjemahan">Terjemahan</label>
 @elseif($edita->jenisBuku == 'terjemahan')
@@ -71,8 +58,6 @@
     <label for="karangan">Normal</label>
     <input type="radio" name="jenisBuku" id="karangan" value="karangan">
     <label for="karangan">Karangan</label>
-    <input type="radio" name="jenisBuku" id="tanpaPenulis" value="tanpaPenulis">
-    <label for="tanpaPenulis">Tanpa Penulis</label>
     <input type="radio" name="jenisBuku" id="terjemahan" value="terjemahan" checked>
     <label for="terjemahan">Terjemahan</label>
 @endif

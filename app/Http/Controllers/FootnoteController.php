@@ -306,20 +306,13 @@ class FootnoteController extends Controller
                     }
 
                 }
-                if($_SESSION['jumlahpenulis'] == 3){
                     DB::table('footnote')->insert([
                         'id' => $request->nourut,
                         'penulis_1' => $request->penulis_1,
-                        'penulis_2' => $request->penulis_2,
-                        'penulis_3' => $request->penulis_3,
-                        'jenisBuku' => $request->jenisBuku,
                         'judul' => $request->judul,
                         'kota' => $request->kota,
                         'sumber' => $request->sumber,
-                        'volume' => $request->volume,
-                        'nomor' => $request->nomor,
                         'tahun' => $request->tahun,
-                        'asing' => $request->asing,
                         'jenis' => $_SESSION['jenis'],
                         'halaman_awal' => $request->halaman_awal,
                         'halaman_akhir' => $request->halaman_akhir,
@@ -327,46 +320,6 @@ class FootnoteController extends Controller
                         'repositori' => $_SESSION['repo'],
                         'username' => $_SESSION['username']
                     ]);
-                } elseif ($_SESSION['jumlahpenulis'] == 2){
-                    DB::table('footnote')->insert([
-                        'id' => $request->nourut,
-                        'penulis_1' => $request->penulis_1,
-                        'penulis_2' => $request->penulis_2,
-                        'jenisBuku' => $request->jenisBuku,
-                        'judul' => $request->judul,
-                        'kota' => $request->kota,
-                        'sumber' => $request->sumber,
-                        'volume' => $request->volume,
-                        'nomor' => $request->nomor,
-                        'tahun' => $request->tahun,
-                        'asing' => $request->asing,
-                        'jenis' => $_SESSION['jenis'],
-                        'halaman_awal' => $request->halaman_awal,
-                        'halaman_akhir' => $request->halaman_akhir,
-                        'jumlah_penulis' => $request->jumlah_penulis,
-                        'repositori' => $_SESSION['repo'],
-                        'username' => $_SESSION['username']
-                    ]);
-                } elseif ($_SESSION['jumlahpenulis'] == 1 || $_SESSION['jumlahpenulis'] == 4){
-                    DB::table('footnote')->insert([
-                        'id' => $request->nourut,
-                        'penulis_1' => $request->penulis_1,
-                        'jenisBuku' => $request->jenisBuku,
-                        'judul' => $request->judul,
-                        'kota' => $request->kota,
-                        'sumber' => $request->sumber,
-                        'volume' => $request->volume,
-                        'nomor' => $request->nomor,
-                        'tahun' => $request->tahun,
-                        'asing' => $request->asing,
-                        'jenis' => $_SESSION['jenis'],
-                        'halaman_awal' => $request->halaman_awal,
-                        'halaman_akhir' => $request->halaman_akhir,
-                        'jumlah_penulis' => $request->jumlah_penulis,
-                        'repositori' => $_SESSION['repo'],
-                        'username' => $_SESSION['username']
-                    ]);
-                }
                 $_SESSION['apakahedit'] = 0;
                 return redirect('/anficititate/repo_core');
             }elseif($_SESSION['jenis'] == 5){
@@ -946,21 +899,13 @@ class FootnoteController extends Controller
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 4){
-
-                    if($_SESSION['jumlahpenulis'] == 3){
                         DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
                             'id' => $request->nourut,
                             'penulis_1' => $request->penulis_1,
-                            'penulis_2' => $request->penulis_2,
-                            'penulis_3' => $request->penulis_3,
-                            'jenisBuku' => $request->jenisBuku,
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
                             'tahun' => $request->tahun,
-                            'asing' => $request->asing,
                             'jenis' => $_SESSION['jenis'],
                             'halaman_awal' => $request->halaman_awal,
                             'halaman_akhir' => $request->halaman_akhir,
@@ -968,48 +913,8 @@ class FootnoteController extends Controller
                             'repositori' => $_SESSION['repo'],
                             'username' => $_SESSION['username']
                         ]);
-                    } elseif ($_SESSION['jumlahpenulis'] == 2){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'penulis_2' => $request->penulis_2,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    } elseif ($_SESSION['jumlahpenulis'] == 1 || $_SESSION['jumlahpenulis'] == 4){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    }
-                    $_SESSION['apakahedit'] = 0;
-                    return redirect('/anficititate/repo_core');
+                        $_SESSION['apakahedit'] = 0;
+                        return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 5){
 
                     if($_SESSION['jumlahpenulis'] == 3){
@@ -1510,68 +1415,20 @@ class FootnoteController extends Controller
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 4){
-
-                    if($_SESSION['jumlahpenulis'] == 3){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'penulis_2' => $request->penulis_2,
-                            'penulis_3' => $request->penulis_3,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    } elseif ($_SESSION['jumlahpenulis'] == 2){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'penulis_2' => $request->penulis_2,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    } elseif ($_SESSION['jumlahpenulis'] == 1 || $_SESSION['jumlahpenulis'] == 4){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    }
+                    DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
+                        'id' => $request->nourut,
+                        'penulis_1' => $request->penulis_1,
+                        'judul' => $request->judul,
+                        'kota' => $request->kota,
+                        'sumber' => $request->sumber,
+                        'tahun' => $request->tahun,
+                        'jenis' => $_SESSION['jenis'],
+                        'halaman_awal' => $request->halaman_awal,
+                        'halaman_akhir' => $request->halaman_akhir,
+                        'jumlah_penulis' => $request->jumlah_penulis,
+                        'repositori' => $_SESSION['repo'],
+                        'username' => $_SESSION['username']
+                    ]);
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 5){
@@ -2067,68 +1924,20 @@ class FootnoteController extends Controller
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 4){
-
-                    if($_SESSION['jumlahpenulis'] == 3){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'penulis_2' => $request->penulis_2,
-                            'penulis_3' => $request->penulis_3,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    } elseif ($_SESSION['jumlahpenulis'] == 2){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'penulis_2' => $request->penulis_2,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    } elseif ($_SESSION['jumlahpenulis'] == 1 || $_SESSION['jumlahpenulis'] == 4){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'jenisBuku' => $request->jenisBuku,
-                            'judul' => $request->judul,
-                            'kota' => $request->kota,
-                            'sumber' => $request->sumber,
-                            'volume' => $request->volume,
-                            'nomor' => $request->nomor,
-                            'tahun' => $request->tahun,
-                            'asing' => $request->asing,
-                            'jenis' => $_SESSION['jenis'],
-                            'halaman_awal' => $request->halaman_awal,
-                            'halaman_akhir' => $request->halaman_akhir,
-                            'jumlah_penulis' => $request->jumlah_penulis,
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
-                    }
+                    DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
+                        'id' => $request->nourut,
+                        'penulis_1' => $request->penulis_1,
+                        'judul' => $request->judul,
+                        'kota' => $request->kota,
+                        'sumber' => $request->sumber,
+                        'tahun' => $request->tahun,
+                        'jenis' => $_SESSION['jenis'],
+                        'halaman_awal' => $request->halaman_awal,
+                        'halaman_akhir' => $request->halaman_akhir,
+                        'jumlah_penulis' => $request->jumlah_penulis,
+                        'repositori' => $_SESSION['repo'],
+                        'username' => $_SESSION['username']
+                    ]);
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 5){

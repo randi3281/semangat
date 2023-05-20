@@ -61,7 +61,7 @@
                     @break
 
                     @case(4)
-                        <option value="4" selected>Terjemahan</option>
+                        <option value="4" selected>Buku Tanpa Penulis</option>
                     @break
 
                     @case(5)
