@@ -11,7 +11,7 @@
     <tr>
         <td>{{ $ft->id }}</td>
 
-        <td>
+        <td style=" text-align: justify;">
                 @if ($ft->jenis == 1)
                     @include('anficititate.tabel.UINGUSDUR.footnotenya.jurnal')
                 @elseif ($ft->jenis == 2)
