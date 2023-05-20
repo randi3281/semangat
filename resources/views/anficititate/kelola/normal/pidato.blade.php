@@ -24,6 +24,6 @@
     <input type="text" class="text-center form-control-sm" name="tanggal" style="width:70px;" placeholder="Tanggal">
     <input type="text" class="text-center form-control-sm" name="bulan" style="width:70px;" placeholder="Bulan">
     <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun">
-    <input type="text" class="text-center form-control-sm" name="pukul" style="width:70px;" placeholder="Pukul">
+    <input type="text" class="text-center form-control-sm" name="waktu" style="width:70px;" placeholder="Pukul">
 </div>
 {{-- End Form Jurnal --}}
