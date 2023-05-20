@@ -115,7 +115,7 @@ class ACController extends Controller
 
     public function lupa_kata_sandi(Request $request){
         if(isset($request->minkode)){
-            return redirect('https://wa.me/6285314410358?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20kata%20sandi%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
+            return redirect('https://wa.me/6287856531788?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20kata%20sandi%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
         }
 
         if(isset($request->enter)){
@@ -174,7 +174,7 @@ class ACController extends Controller
 
     public function lupa_pin_nya(Request $request){
         if(isset($request->minkode)){
-            return redirect('https://wa.me/6285314410358?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20pin%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
+            return redirect('https://wa.me/6287856531788?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20pin%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
         }
 
         if(isset($request->enter)){
