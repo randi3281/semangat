@@ -52,6 +52,7 @@
         <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1">
     @endif
 </div>
+<input type="text" class="form-control" placeholder="Editor" name="penerjemah">
 
 <div class="form-group  mt-2">
     <label for="judul">Judul</label> <br>
@@ -65,8 +66,9 @@
 </div>
 
 <div class="mt-2 form-group">
-    <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;" placeholder="Volume"
-    <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun">
+    <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;" placeholder="Jilid">
+        <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;"
+        placeholder="Tahun">
     <label for="halaman">Hal: </label>
     <input type="text" class="text-center form-control-sm float-left" style="width:60px;" name="halaman_awal"
         placeholder="Awal">
@@ -78,7 +80,7 @@
     <input type="text" class="form-control" name="kota" placeholder="Asal Kota">
 </div>
 <div class="mt-2 form-group">
-    <input type="text" class="form-control" name="kota" placeholder="Penerbit">
+    <input type="text" class="form-control" name="penerbit" placeholder="Penerbit">
 </div>
 
 {{-- End Form Jurnal --}}

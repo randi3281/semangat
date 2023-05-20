@@ -66,7 +66,7 @@
         <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1">
     @endif
 </div>
-
+<input type="text" class="form-control" placeholder="Editor" name="penerjemah" value="{{ $edita->penerjemah }}">
 <div class="form-group  mt-2">
     <label for="judul">Judul</label> <br>
     <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30" rows="3"
@@ -80,6 +80,8 @@
 
 
 <div class="mt-2 form-group">
+    <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;" placeholder="Jilid"
+    value="{{ $edita->volume }}">
     <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;" placeholder="Tahun"
         value="{{ $edita->tahun }}">
     <label for="halaman">Hal: </label>
@@ -93,7 +95,8 @@
     <input type="text" class="form-control" name="kota" placeholder="Asal Kota" value="{{ $edita->kota }}">
 </div>
 <div class="mt-2 form-group">
-    <input type="text" class="form-control" name="penerbit" placeholder="Penerbit" value="{{ $edita->penerbit }}">
+    <input type="text" class="form-control" name="penerbit" placeholder="Penerbit"
+        value="{{ $edita->penerbit }}">
 </div>
 
 {{-- End Form Jurnal --}}
