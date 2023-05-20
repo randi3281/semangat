@@ -113,14 +113,14 @@
 
 <div class="mt-1 form-group">
     <textarea name="sumber" class="form-control"style="font-size : 11px;" id="" cols="30"
-        rows="2" placeholder="Sumber">{{ $edita->sumber }}</textarea>
+        rows="2" placeholder="Penerbit">{{ $edita->sumber }}</textarea>
 </div>
 
 <div class="mt-2 form-group">
     <input type="text" class="text-center form-control-sm" name="volume" style="width:70px;"
-        placeholder="Volume" value="{{ $edita->volume }}">
+        placeholder="Cetakan" value="{{ $edita->volume }}">
     <input type="text" class="text-center form-control-sm" name="nomor" style="width:70px;"
-        placeholder="Nomor" value="{{ $edita->nomor }}">
+        placeholder="Jilid" value="{{ $edita->nomor }}">
     <input type="text" class="text-center form-control-sm" name="tahun" style="width:70px;"
         placeholder="Tahun" value="{{ $edita->tahun }}">
     <label for="halaman">Hal: </label>
