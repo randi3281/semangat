@@ -90,6 +90,8 @@
     @endif
 </div>
 
+<input type="text" class="form-control" placeholder="Penerjemah (Jika Ada)" name="penerjemah"
+    value="{{ $edita->penerjemah }}">
 <div class="form-group  mt-2">
     <label for="judul">Judul</label> <br>
     <textarea name="judul" class="form-control"style="font-size : 11px;" id="" cols="30"

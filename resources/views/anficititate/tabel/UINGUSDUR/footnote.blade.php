@@ -3,13 +3,14 @@
     <tr>
         <th style="width: 35px;">No</th>
         <th>Footnote</th>
+        <th style="text-align: center;">Jenis Footnote</th>
         <th style="width: 120px; text-align: center;">Keterangan</th>
-        <th style="width: 120px; text-align: center;">Jenis Footnote</th>
     </tr>
     @foreach ($data as $ft)
 
     <tr>
         <td>{{ $ft->id }}</td>
+
         <td>
                 @if ($ft->jenis == 1)
                     @include('anficititate.tabel.UINGUSDUR.footnotenya.jurnal')
@@ -36,15 +37,6 @@
                 @elseif ($ft->jenis == 12)
                     @include('anficititate.tabel.UINGUSDUR.footnotenya.makalah')
                 @endif
-            </td>
-            <td style=" text-align: center;">
-                <input type="hidden" value="">
-                <a href="/anficititate/core_repo_edit/{{ $ft->id }}"
-                    style="text-decoration: none; font-weight: bold; color:blue;">EDIT </a>
-                |
-                <a href="/anficititate/core_repo_hapus/{{ $ft->id }}"
-                    style="text-decoration: none; font-weight: bold; color:red;">
-                    HAPUS</a>
             </td>
             <td style=" text-align: center;">
                 @switch($ft->jenis)
@@ -97,6 +89,16 @@
                     @break
                 @endswitch
             </td>
+            <td style=" text-align: center;">
+                <input type="hidden" value="">
+                <a href="/anficititate/core_repo_edit/{{ $ft->id }}"
+                    style="text-decoration: none; font-weight: bold; color:blue;">EDIT </a>
+                |
+                <a href="/anficititate/core_repo_hapus/{{ $ft->id }}"
+                    style="text-decoration: none; font-weight: bold; color:red;">
+                    HAPUS</a>
+            </td>
+
         </tr>
     @endforeach
 </table>
