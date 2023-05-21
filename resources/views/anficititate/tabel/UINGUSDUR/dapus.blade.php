@@ -26,7 +26,7 @@
                     }
                     if ($ket == 1) {
                         $izin = 0;
-                        array_push($a, 'hy');
+                        array_push($a, 'hz');
                     } else {
                         $izin = 1;
                         array_push($a, $ft->judul);
