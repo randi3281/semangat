@@ -40,6 +40,7 @@ class FootnoteController extends Controller
             $dataEdit = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->get();}else{
                 $dataEdit = "";
             }
+
             $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
 
             $nomo = 1;
