@@ -34,7 +34,7 @@ class FootnoteController extends Controller
 
 
             $data = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->paginate(10);
-            $datapus = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->get();
+            $datapus = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'ASC')->get();
 
             if(isset($_SESSION['edit_id'])){
             $dataEdit = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->get();}else{
