@@ -68,8 +68,7 @@
                     <input type="submit" style="height: 38px; font-size: 9px; font-weight: bold"
                         class="btn btn-outline-primary w-50"name="new" value="BUAT REPOSITORI BARU">
                 @endif
-                <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="/anficititate/back">Login
-                        Kembali Disini</a>
+                <p class="mt-2" style="font-size: 7pt">Ingin Logout? <a href="/anficititate/back" class="text-danger">logoutKlik Disini</a>
                 </p>
             </div>
         </form>
