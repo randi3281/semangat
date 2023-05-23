@@ -42,9 +42,10 @@
                     placeholder="Masukin ulang kata sandi barumu" minlength="8">
             </div>
             <div class="text-center mt-3">
-                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-primary w-50" value="MASUK" name="enter">
-                <p class="mt-2" style="font-size: 7pt">Mau Login? <a href="/anficititate">Klik Disini</a></p>
+                <input type="submit" style="height: 38px; font-size: 10px; font-weight: bold"
+                    class="btn btn-danger w-25" value="GANTI" name="enter">
+                    <input type="submit" style="height: 38px; font-size: 10px; font-weight: bold"
+                        class="btn btn-outline-primary w-50" name="kembali" value="KEMBALI">
             </div>
         </form>
     </div>

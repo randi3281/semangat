@@ -119,6 +119,10 @@ class ACController extends Controller
             return redirect('https://wa.me/6287856531788?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20kata%20sandi%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
         }
 
+        if(isset($request->kembali)){
+            return redirect("/anficititate/slc_repo");
+        }
+
         if(isset($request->enter)){
             $datausern = DB::table('aclogin')->get();
             $adausername = 0;
@@ -395,14 +399,23 @@ class ACController extends Controller
             }
         }
 
+
         if($bisamasuk == 1){
             $mode = 3;
             $pesan = "";
+            $acdkampus =  DB::table('ackampus')->get();
+            $acdkampuslogin =  DB::table('aclogin')->where('username', $_SESSION['username'])->get();
+            $kampusnya = "";
+            foreach($acdkampuslogin as $cekkampus){
+                $kampusnya = $cekkampus->kampus;
+            }
             if($error == "pinerror"){
                 $pesan = "Maaf, PIN Kamu salah";
+            }elseif($error == "berhasil"){
+                $pesan = "Selamat, repositori Kamu berhasil dibuat!";
             }
 
-            return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo, 'pesan' => $pesan]);
+            return view('anficititate.index', ['mode' => $mode, 'datarepo' =>  $acdrepo, 'pesan' => $pesan, 'kampus' => $acdkampus, 'kampusnya' => $kampusnya]);
         }else{
             return redirect('/anficititate');
         }
@@ -558,7 +571,7 @@ class ACController extends Controller
                     'repositori' => $request->nama_repo,
                     'username' => $_SESSION['username']
                 ]);
-                return redirect('/anficititate/new_repo_home/berhasil');
+                return redirect('/anficititate/slc_repo_err/berhasil');
             }
 
             return redirect('/anficititate/new_repo_home/pinsalah');
