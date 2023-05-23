@@ -46,7 +46,10 @@
         $kali = explode(' ', $kal);
         $lika = end($kali);
         $kalimat = $lika;
-        $kalimat .= ', ';
+        if ($lika == $ft->penulis_1) {
+        } else {
+            $kalimat .= ', ';
+        }
         foreach ($kali as $kila) {
             if ($kila == $lika) {
             } else {
@@ -59,18 +62,18 @@
             $kalimat .= $ft->penulis_2;
             $kalimat .= ', dan ';
             $kalimat .= $ft->penulis_3;
-            $kalimat .= '. ';
+            $kalimat .= '. (';
         } elseif ($ft->jumlah_penulis == 2) {
             $kalimat .= ', ';
             $kalimat .= $ft->penulis_2;
-            $kalimat .= '. ';
+            $kalimat .= '. (';
         } elseif ($ft->jumlah_penulis == 1) {
-            $kalimat .= '. ';
+            $kalimat .= '. (';
         } else {
-            $kalimat .= ' dkk. ';
+            $kalimat .= ' dkk. (';
         }
         $kalimat .= $ft->tahun;
-        $kalimat .= '. ';
+        $kalimat .= '). ';
         $kalimat .= $ft->judul;
         $kalimat .= '. ';
         $kalimat .= $ft->kota;
