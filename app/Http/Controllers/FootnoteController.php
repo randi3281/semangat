@@ -2336,6 +2336,7 @@ class FootnoteController extends Controller
             $_SESSION['lagiNgedit'] = 0;
             $angka = 0;
             $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
+            if(isset($nom)){
             for($u = 1; $u <= $nom->id; $u++){
                 $datanya = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $u)->first();
                 if(!isset($datanya)){
@@ -2346,7 +2347,7 @@ class FootnoteController extends Controller
                         'id' => $kurang
                     ]);
                 }
-            }
+            }}
 
             $_SESSION['jenistabel'] = 0;
             return redirect('/anficititate/repo_core');
