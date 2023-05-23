@@ -22,20 +22,22 @@
                 {{-- <input id="my-input" class="form-control" type="text" name=""> --}}
                 <select class="form-select" name="repository">
                     @foreach ($datarepo as $repodata)
-                        <option value="{{$repodata->repositori}}">{{$repodata->repositori}}</option>
+                        <option value="{{ $repodata->repositori }}">{{ $repodata->repositori }}</option>
                     @endforeach
                 </select>
             </div>
-            <p style="font-size: 7pt">Atau ingin untuk <a href="/anficititate/slc_repo">Pilih Repository</a> atau <a class="text-danger" href="/anficititate/upd_repo">Perbarui
-                    Repositori</a></p>
             <div class="form-group mt-3" style="margin-bottom: -0px">
                 <label for="pin">PIN</label>
-                <input id="pin" class="form-control" type="password" maxlength="6" minlength="6" name="pin" autofocus required placeholder="Masukin PIN kamu disini ya">
+                <input id="pin" class="form-control" type="password" maxlength="6" minlength="6" name="pin"
+                    autofocus  placeholder="Masukin PIN kamu disini ya">
             </div>
             <div class="text-center mt-5">
-                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-danger w-50" name="delete" value="HAPUS">
-                <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="login">Login Kembali Disini</a>
+                <input type="submit" style="height: 38px; font-size: 10px; font-weight: bold"
+                    class="btn btn-danger w-25" name="delete" value="HAPUS">
+                <input type="submit" style="height: 38px; font-size: 10px; font-weight: bold"
+                    class="btn btn-outline-primary w-50" name="enter" value="KEMBALI">
+                <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="login">Login Kembali
+                        Disini</a>
                 </p>
             </div>
         </form>

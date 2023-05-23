@@ -26,10 +26,10 @@
                 <input id="pin" class="form-control" type="password" maxlength="6" name="pin" minlength="6" placeholder="Masukin PIN kamu disini ya">
             </div>
             <div class="text-center mt-5">
-                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-primary w-25" name="new" value="BUAT">
-                <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
-                    class="btn btn-danger w-50" name="enter" value="PILIH REPOSITORI">
+                <input type="submit" style="height: 38px; font-size: 10px; font-weight: bold"
+                    class="btn btn-primary w-50" name="new" value="BUAT REPOSITORI">
+                <input type="submit" style="height: 38px; font-size: 10px; font-weight: bold"
+                    class="btn btn-danger w-25" name="enter" value="KEMBALI">
                 <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="/anficititate/back">Login
                         Kembali Disini</a>
                 </p>

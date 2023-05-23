@@ -178,6 +178,10 @@ class ACController extends Controller
             return redirect('https://wa.me/6287856531788?text=Halo,%20mau%20minta%20kode%20konfirmasi%20lupa%20pin%20kak,%20ini%20username%20saya:%20....%20(isi%20username%20kamu%20disini)');
         }
 
+        if(isset($request->kembali)){
+            return redirect("/anficititate/slc_repo");
+        }
+
         if(isset($request->enter)){
             $datausern = DB::table('aclogin')->get();
             $adausername = 0;
@@ -454,6 +458,7 @@ class ACController extends Controller
             }
         }
 
+
         $acdrepo = DB::table('acrepo')->where('username', $_SESSION['username'])->get();
         $mode = 5;
 
@@ -579,12 +584,17 @@ class ACController extends Controller
                 }
             }
 
+
             if($pinbenar == 1){
                 DB::table('acrepo')->where('repositori', $request->repository)->delete();
                 return redirect('/anficititate/del_repo/berhasil');
             }
 
             return redirect('/anficititate/del_repo/pinsalah');
+        }
+
+        if(isset($request->enter)){
+            return redirect("/anficititate/slc_repo");
         }
 
     }
@@ -643,7 +653,13 @@ class ACController extends Controller
                 return redirect('/anficititate/upd_repo/berhasil');
             }
 
+
+
             return redirect('/anficititate/upd_repo/pinsalah');
+        }
+
+        if(isset($request->kembali)){
+            return redirect("/anficititate/slc_repo");
         }
 
     }
