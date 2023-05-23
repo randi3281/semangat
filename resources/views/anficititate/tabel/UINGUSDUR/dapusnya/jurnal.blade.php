@@ -30,16 +30,18 @@
     //     }
     // }
 
-    // for ($i = 0; $i < count($_SESSION['cekjudul']); $i++) {
-    //     if ($ft->judul == $_SESSION['cekjudul'][$i]) {
-    //         $izin = 1;
-    //     } else {
-    //         $izin = 1;
-    //         array_push($_SESSION['cekjudul'], $ft->judul);
-    //     }
-    // }
+    for ($i = 0; $i <= count($_SESSION['cekjudul']) - 1; $i++) {
+        if ($ft->judul == $_SESSION['cekjudul'][$i]) {
+            $izin = 0;
+            break;
+        } else {
+            $izin = 1;
+            // break;
+        }
+    }
 
-    // if ($izin == 1) {
+    if ($izin == 1) {
+        array_push($_SESSION['cekjudul'], $ft->judul);
         $kal = $ft->penulis_1;
         $kali = explode(' ', $kal);
         $lika = end($kali);
@@ -76,5 +78,5 @@
         $kalimat .= $ft->sumber;
         $kalimat .= '.';
         echo $kalimat . '<br/> <br/>';
-    // }
+    }
 @endphp
