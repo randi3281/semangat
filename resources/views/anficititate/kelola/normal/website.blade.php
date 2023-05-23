@@ -6,7 +6,11 @@
 <div class="form-group  mt-3">
     <label for="judul_web">Judul Web</label> <br>
     <textarea name="judul_web" class="form-control" style="font-size : 11px;" cols="30" rows="3"
-        placeholder="Tuliskan Judul"></textarea>
+        placeholder="Nama Web"></textarea>
+</div>
+<div class="form-group  mt-3">
+    <textarea name="judulArtikel" class="form-control" style="font-size : 11px;" cols="30" rows="3"
+        placeholder="Judul Artikel"></textarea>
 </div>
 
 <div class="mt-2 form-group">

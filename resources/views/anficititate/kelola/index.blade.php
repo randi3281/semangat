@@ -195,16 +195,16 @@
                     @if (isset($_SESSION['lagiNgedit']))
                         @if ($_SESSION['lagiNgedit'] == 1)
                             <input type="submit" class="btn btn-danger"
-                                style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
+                                style="margin-right: 4px;height: 28px; font-size:8pt; font-weight: bold; margin-top: -2px" value="GANTI"
                                 name="tomboljenis">
                         @else
-                            <input type="submit" class="btn btn-success"
-                                style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
+                            <input type="submit" class="btn btn-success bold"
+                                style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px; font-weight: bold;" value="GANTI"
                                 name="tomboljenis">
                         @endif
                     @else
-                        <input type="submit" class="btn btn-success"
-                            style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px" value="ENTER"
+                        <input type="submit" class="btn btn-success bold"
+                            style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px; font-weight: bold;" value="GANTI"
                             name="tomboljenis">
                     @endif
 
@@ -353,13 +353,13 @@
                         @else
                             <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"
                                 style="margin-left:20px">
-                            <input type="submit" name="reset" value="Reset" class="w-25 btn btn-secondary"
+                            <input type="submit" name="reset" value="Reset" class="w-25 btn btn-outline-secondary"
                                 style="margin-left:20px">
                         @endif
                     @else
                         <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"
                             style="margin-left:20px">
-                        <input type="submit" name="reset" value="Reset" class="w-25 btn btn-secondary"
+                        <input type="submit" name="reset" value="Reset" class="w-25 btn btn-outline-secondary"
                             style="margin-left:20px">
                     @endif
                     </form>
@@ -371,7 +371,7 @@
         {{-- End Form Kelola --}}
 
         <footer>
-            <p class="text-center text-white mt-2" style="font-family: arial; margin-bottom:-20px;">&copy; 2023
+            <p class="text-center text-white mt-2 mb-1" style="font-family: arial; margin-bottom:-20px;">&copy; 2023
                 Anficititate | Created with &hearts; by Anfi</p>
         </footer>
 

@@ -1,24 +1,39 @@
 <div class="col-lg-8 mb-3">
     <div class="card mb-3">
         <div class="card-body">
-            <div class="row pb-0 justify-content-left">
-                <div class="pb-0 col-lg-8 mb-2 text-left">
+            <div class="row pb-0 justify-content-center">
+                <div class="pb-0 col-lg-4 text-center mb-3">
                     <div>
                         <form action="/anficititate/kelola" method="POST">
                             <input type="hidden" name="urut" value="{{ $nomor }}">
                             {{ csrf_field() }}
                             <input type="submit" name="keluar" value="Logout" class="btn btn-danger  mb-1">
                             <input type="submit" name="select" value="Pilih Repositori" class="btn btn-success mb-1">
-                            <input type="submit" name="rapi" value="Daftar Footnote" class="btn btn-primary mb-1">
-                            <input type="submit" name="dapus" value="Daftar Pustaka" class="btn btn-primary mb-1">
-                        </form>
                     </div>
                 </div>
-                <div class="pb-0 text-center col-lg-4">
+                <div class="col-lg-4">
                     @if (isset($data))
                         {{ $data->links() }}
                     @endif
                 </div>
+                <div class="col-lg-4 text-center">
+                    @if (isset($_SESSION['jenisTabel']))
+
+                        @if ($_SESSION['jenisTabel'] == 'daftarPustaka')
+                            <input type="submit" name="rapi" value="Footnote" class="btn btn-outline-primary mb-1">
+                            <input type="submit" name="dapus" value="Daftar Pustaka" class="btn btn-primary mb-1">
+                        @else
+                            <input type="submit" name="rapi" value="Footnote" class="btn btn-primary mb-1">
+                            <input type="submit" name="dapus" value="Daftar Pustaka"
+                                class="btn btn-outline-primary mb-1">
+                        @endif
+                    @else
+                        <input type="submit" name="rapi" value="Footnote" class="btn btn-primary mb-1">
+                        <input type="submit" name="dapus" value="Daftar Pustaka"
+                            class="btn btn-outline-primary mb-1">
+                    @endif
+                </div>
+                </form>
             </div>
         </div>
     </div>

@@ -58,6 +58,7 @@ class FootnoteController extends Controller
                 }
             }
 
+
             return view('anficititate.footnote', ['jenis' => $_SESSION['jenis'], 'jumlahpenulis' => $_SESSION['jumlahpenulis'], 'data' => $data, 'nomor' => $nomo, 'apakahedit' => $_SESSION['apakahedit'], 'dapus' => $_SESSION['jenistabel'], 'editan' => $dataEdit, 'datapus' =>$datapus]);
         } else {
             return redirect('/anficititate');
@@ -213,6 +214,7 @@ class FootnoteController extends Controller
                     'id' => $request->nourut,
                     'penulis_1' => $request->penulisArtikel,
                     'judul_web' => $request->judul_web,
+                    'deskripsi_web' => $request->judulArtikel,
                     'tanggal' => $request->tanggal_website,
                     'link_web' => $request->link_web,
                     'jenis' => $_SESSION['jenis'],
@@ -833,6 +835,7 @@ class FootnoteController extends Controller
                         'id' => $request->nourut,
                         'penulis_1' => $request->penulisArtikel,
                         'judul_web' => $request->judul_web,
+                    'deskripsi_web' => $request->judulArtikel,
                         'tanggal' => $request->tanggal_website,
                         'link_web' => $request->link_web,
                         'jenis' => $_SESSION['jenis'],
@@ -1357,6 +1360,7 @@ class FootnoteController extends Controller
                         'id' => $request->nourut,
                         'penulis_1' => $request->penulisArtikel,
                         'judul_web' => $request->judul_web,
+                    'deskripsi_web' => $request->judulArtikel,
                         'tanggal' => $request->tanggal_website,
                         'link_web' => $request->link_web,
                         'jenis' => $_SESSION['jenis'],
@@ -1874,6 +1878,7 @@ class FootnoteController extends Controller
                         'id' => $request->nourut,
                         'penulis_1' => $request->penulisArtikel,
                         'judul_web' => $request->judul_web,
+                    'deskripsi_web' => $request->judulArtikel,
                         'tanggal' => $request->tanggal_website,
                         'link_web' => $request->link_web,
                         'jenis' => $_SESSION['jenis'],
@@ -2316,15 +2321,18 @@ class FootnoteController extends Controller
 
         if(isset($request->keluar)){
             $_SESSION['lagiNgedit'] = 0;
+            $_SESSION['jenisTabel'] = "footnote";
             return redirect('/anficititate/back');
         }
 
         if(isset($request->select)){
             $_SESSION['lagiNgedit'] = 0;
+            $_SESSION['jenisTabel'] = "footnote";
             return redirect('/anficititate/slc_repo');
         }
 
         if(isset($request->rapi)){
+            $_SESSION['jenisTabel'] = "footnote";
             $_SESSION['lagiNgedit'] = 0;
             $angka = 0;
             $nom = DB::table('footnote')->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->orderBy('id', 'DESC')->first();
@@ -2353,6 +2361,7 @@ class FootnoteController extends Controller
         }
 
         if(isset($request->dapus)){
+            $_SESSION['jenisTabel'] = "daftarPustaka";
             $_SESSION['lagiNgedit'] = 0;
             $_SESSION['jenistabel'] = 1;
             return redirect('/anficititate/repo_core');

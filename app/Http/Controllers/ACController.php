@@ -29,6 +29,7 @@ class ACController extends Controller
     public function back(){
         session_start();
         $_SESSION['kode'] = "";
+        $_SESSION['jenisTabel'] = "footnote";
         return redirect('/anficititate');
     }
     // Start Login
