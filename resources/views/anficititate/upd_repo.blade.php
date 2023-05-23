@@ -46,8 +46,6 @@
                     class="btn btn-danger w-25" value="GANTI">
                 <input type="submit" style="height: 38px; font-size: 10px; font-weight: bold"
                     class="btn btn-outline-primary w-50" name="kembali" value="KEMBALI">
-                <p class="mt-2" style="font-size: 7pt">Ingin Mengganti Akun? <a href="login">Login Kembali
-                        Disini</a>
                 </p>
             </div>
         </form>
