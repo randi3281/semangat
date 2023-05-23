@@ -663,6 +663,9 @@ class ACController extends Controller
                 DB::table('acrepo')->where('repositori', $request->repository)->update([
                     'repositori' => $request->namabaru
                 ]);
+                DB::table('footnote')->where('repositori', $request->repository)->where('username', $_SESSION['username'])->update([
+                    'repositori' => $request->namabaru
+                ]);
                 return redirect('/anficititate/upd_repo/berhasil');
             }
 
