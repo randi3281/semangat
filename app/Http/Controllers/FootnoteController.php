@@ -104,7 +104,6 @@ class FootnoteController extends Controller
         $_SESSION['apakahedit'] = 1;
         return redirect('/anficititate/repo_core');
     }
-
     public function kelola(Request $request){
         session_start();
 
@@ -137,6 +136,11 @@ class FootnoteController extends Controller
                     }
 
                 }
+                if(filter_var($request->volume, FILTER_VALIDATE_INT) === false){
+                    $volumeJurnal = $request->volume;
+                }else{
+                    $volumeJurnal = ConverToRoman($request->volume);
+                }
                 if($_SESSION['jumlahpenulis'] == 3){
                     DB::table('footnote')->insert([
                         'id' => $request->nourut,
@@ -146,7 +150,7 @@ class FootnoteController extends Controller
                         'judul' => $request->judul,
                         'kota' => $request->kota,
                         'sumber' => $request->sumber,
-                        'volume' => $request->volume,
+                        'volume' => $volumeJurnal,
                         'nomor' => $request->nomor,
                         'bulan' => $request->bulan,
                         'tahun' => $request->tahun,
@@ -166,7 +170,7 @@ class FootnoteController extends Controller
                         'judul' => $request->judul,
                         'kota' => $request->kota,
                         'sumber' => $request->sumber,
-                        'volume' => $request->volume,
+                        'volume' => $volumeJurnal,
                         'nomor' => $request->nomor,
                         'bulan' => $request->bulan,
                         'tahun' => $request->tahun,
@@ -185,7 +189,7 @@ class FootnoteController extends Controller
                         'judul' => $request->judul,
                         'kota' => $request->kota,
                         'sumber' => $request->sumber,
-                        'volume' => $request->volume,
+                        'volume' => $volumeJurnal,
                         'nomor' => $request->nomor,
                         'bulan' => $request->bulan,
                         'tahun' => $request->tahun,
@@ -761,7 +765,11 @@ class FootnoteController extends Controller
                         'id' => $x
                     ]);
                 }
-
+                if(filter_var($request->volume, FILTER_VALIDATE_INT) === false){
+                    $volumeJurnal = $request->volume;
+                }else{
+                    $volumeJurnal = ConverToRoman($request->volume);
+                }
                 if($_SESSION['jenis'] == 1){
                     if($_SESSION['jumlahpenulis'] == 3){
                         DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
@@ -772,7 +780,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -794,7 +802,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -815,7 +823,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -1287,7 +1295,11 @@ class FootnoteController extends Controller
                         'id' => $x
                     ]);
                 }
-
+                if(filter_var($request->volume, FILTER_VALIDATE_INT) === false){
+                    $volumeJurnal = $request->volume;
+                }else{
+                    $volumeJurnal = ConverToRoman($request->volume);
+                }
                 if($_SESSION['jenis'] == 1){
                     if($_SESSION['jumlahpenulis'] == 3){
                         DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
@@ -1298,7 +1310,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -1320,7 +1332,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -1341,7 +1353,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -1807,6 +1819,11 @@ class FootnoteController extends Controller
                 foreach($nom as $mon){
                     $jumlahfootnoteyangada = $mon->jumlahfootnoteyangada;
                 }
+                if(filter_var($request->volume, FILTER_VALIDATE_INT) === false){
+                    $volumeJurnal = $request->volume;
+                }else{
+                    $volumeJurnal = ConverToRoman($request->volume);
+                }
                 if($_SESSION['jenis'] == 1){
                     if($_SESSION['jumlahpenulis'] == 3){
                         DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
@@ -1817,7 +1834,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -1839,7 +1856,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,
@@ -1860,7 +1877,7 @@ class FootnoteController extends Controller
                             'judul' => $request->judul,
                             'kota' => $request->kota,
                             'sumber' => $request->sumber,
-                            'volume' => $request->volume,
+                            'volume' => $volumeJurnal,
                             'nomor' => $request->nomor,
                             'bulan' => $request->bulan,
                             'tahun' => $request->tahun,

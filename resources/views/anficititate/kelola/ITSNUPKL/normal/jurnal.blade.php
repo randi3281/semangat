@@ -74,7 +74,7 @@
         placeholder="Akhir">
 </div>
 <div class="mt-2 form-group">
-    <input type="text" class="form-control" name="bulan" placeholder="Bulan">
+    <input type="text" class="form-control" name="bulan" placeholder="Bulan (Jika Ada)">
 </div>
 <div class="mt-2 form-group">
     <input type="text" class="form-control" name="kota" placeholder="Asal Kota">

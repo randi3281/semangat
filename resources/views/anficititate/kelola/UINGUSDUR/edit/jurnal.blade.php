@@ -92,7 +92,7 @@
         placeholder="Akhir" value="{{ $edita->halaman_akhir }}">
 </div>
 <div class="mt-2 form-group">
-    <input type="text" class="form-control" name="bulan" placeholder="Bulan" value="{{ $edita->bulan }}">
+    <input type="text" class="form-control" name="bulan" placeholder="Bulan (Jika Ada)" value="{{ $edita->bulan }}">
 </div>
 <div class="mt-2 form-group">
     <input type="text" class="form-control" name="kota" placeholder="Asal Kota" value="{{ $edita->kota }}">
