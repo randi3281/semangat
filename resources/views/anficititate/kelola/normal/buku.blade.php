@@ -58,7 +58,7 @@
         <input type="text" class="form-control" placeholder="Penulis 1" name="penulis_1">
     @endif
 </div>
-<input type="text" class="form-control" placeholder="Penerjemah (Jika Ada)" name="penerjemah">
+<input type="text" class="form-control" placeholder="Editor/Penerjemah (Jika Ada)" name="penerjemah">
 
 <div class="form-group  mt-2">
     <label for="judul">Judul</label> <br>
