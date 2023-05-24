@@ -30,7 +30,7 @@
                 }
             }
 
-            $kalimat .= '. (' . $ft->tahun . ', ' . $ft->bulan . ' ' . $ft->tanggal . '). ';
+            $kalimat .= '. (' . $ft->tahun . ', ' . $ft->bulan . ' ' . $ft->tanggal . '). '.$ft->sumber.'. ';
             $kalimat2 .= ', h.';
 
             if (isset($ft->halaman_akhir)) {
@@ -42,7 +42,17 @@
             }
             $kalimat2 .= '.';
         } else {
-            $kalimat2 .= '. ' . $ft->sumber . '.';
+            $kalimat .= $ft->sumber. '. (' . $ft->tahun . ', ' . $ft->bulan . ' ' . $ft->tanggal . '). ';
+            $kalimat2 .= ', h.';
+
+            if (isset($ft->halaman_akhir)) {
+                $kalimat2 .= $ft->halaman_awal;
+                $kalimat2 .= '-';
+                $kalimat2 .= $ft->halaman_akhir;
+            } else {
+                $kalimat2 .= $ft->halaman_awal;
+            }
+            $kalimat2 .= '.';
         }
     }
 @endphp
