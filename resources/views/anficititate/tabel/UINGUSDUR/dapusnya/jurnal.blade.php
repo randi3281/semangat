@@ -11,7 +11,7 @@
             // break;
         }
     }
-    
+
     if ($izin == 1) {
         array_push($_SESSION['cekjudul'], $ft->judul);
         $kal = $ft->penulis_1;
@@ -55,7 +55,7 @@
         $kalimat2 .= ' (';
         $kalimat2 .= $ft->nomor;
         $kalimat2 .= '), ';
-    
+
         if (isset($ft->halaman_akhir)) {
             $kalimat2 .= $ft->halaman_awal;
             $kalimat2 .= '-';
@@ -66,8 +66,8 @@
         $kalimat2 .= '.';
     }
 @endphp
-<a style="text-align: justify">
+<p style="text-align: justify">
     @if ($izin == 1)
-        {{ $kalimat }}<i>{{ $ft->sumber }}</i>, <i>{{ $ft->volume }}</i>{{ $kalimat2 }}<br />
+        {{ $kalimat }}<i>{{ $ft->sumber }}</i>, <i>{{ $ft->volume }}</i>{{ $kalimat2 }}
     @endif
-</a>
+</p>

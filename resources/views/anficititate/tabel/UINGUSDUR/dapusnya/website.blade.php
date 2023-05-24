@@ -31,8 +31,8 @@
         // echo $kalimat . '<br/> <br/>';
     }
 @endphp
-<a style="text-align: justify">
+<p style="text-align: justify">
     @if ($izin == 1)
-        {{ $kalimat }}<br />
+        {{ $kalimat }}
     @endif
-</a>
+</p>

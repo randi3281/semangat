@@ -11,7 +11,7 @@
             // break;
         }
     }
-    
+
     if ($izin == 1) {
         array_push($_SESSION['cekjudul'], $ft->judul);
         $kali = explode(' ', $ft->penulis_1);
@@ -105,8 +105,8 @@
         }
     }
 @endphp
-<a style="text-align: justify">
+<p style="text-align: justify">
     @if ($izin == 1)
-        {{ $kalimat }}<i>{{ $ft->judul }}</i>{{ $kalimat2 }}<br />
+        {{ $kalimat }}<i>{{ $ft->judul }}</i>{{ $kalimat2 }}
     @endif
-</a>
+</p>
