@@ -5,6 +5,7 @@
 </div>
 
 <input type="text" class=" form-control" placeholder="Narasumber" name="penulis_1" value="{{ $edita->penulis_1 }}">
+<input type="text" class=" form-control" placeholder="Pewawancara" name="penulis_2" value="{{ $edita->penulis_2 }}">
 
 <div class="mt-1 form-group">
     <textarea name="jabatan" class="form-control"style="font-size : 11px;" id="" cols="30" rows="2"

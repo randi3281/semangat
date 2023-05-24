@@ -533,6 +533,7 @@ class FootnoteController extends Controller
                     DB::table('footnote')->insert([
                         'id' => $request->nourut,
                         'penulis_1' => $request->penulis_1,
+                        'penulis_2' => $request->penulis_2,
                         'jabatan' => $request->jabatan,
                         'sumber' => $request->sumber,
                         'jenisWawancara' => $request->jenisWawancara,
@@ -1099,6 +1100,7 @@ class FootnoteController extends Controller
                         DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
                             'id' => $request->nourut,
                             'penulis_1' => $request->penulis_1,
+                            'penulis_2' => $request->penulis_2,
                             'jabatan' => $request->jabatan,
                             'sumber' => $request->sumber,
                             'jenisWawancara' => $request->jenisWawancara,
@@ -1624,6 +1626,7 @@ class FootnoteController extends Controller
                         DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
                             'id' => $request->nourut,
                             'penulis_1' => $request->penulis_1,
+                            'penulis_2' => $request->penulis_2,
                             'jabatan' => $request->jabatan,
                             'sumber' => $request->sumber,
                             'jenisWawancara' => $request->jenisWawancara,
@@ -2142,6 +2145,7 @@ class FootnoteController extends Controller
                         DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
                             'id' => $request->nourut,
                             'penulis_1' => $request->penulis_1,
+                            'penulis_2' => $request->penulis_2,
                             'jabatan' => $request->jabatan,
                             'sumber' => $request->sumber,
                             'jenisWawancara' => $request->jenisWawancara,
