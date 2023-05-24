@@ -11,7 +11,7 @@
             // break;
         }
     }
-    
+
     if ($izin == 1) {
         array_push($_SESSION['cekjudul'], $ft->judul);
         $kal = $ft->penulis_1;
@@ -50,8 +50,8 @@
         }
         $kalimat .= $ft->tahun;
         $kalimat .= '). ';
-    
-        $kalimat2 .= ' [' . $ft->sumber . '], ' . $ft->penerbit . '.';
+
+        $kalimat2 .= '. (' . $ft->sumber . ', ' . $ft->penerbit . ').';
     }
 @endphp
 <p style="text-align: justify">
