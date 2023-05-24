@@ -14,8 +14,7 @@
     
     if ($izin == 1) {
         array_push($_SESSION['cekjudul'], $ft->judul);
-        $kal = $ft->penulis_1;
-        $kali = explode(' ', $kal);
+        $kali = explode(' ', $ft->penulis_1);
         $lika = end($kali);
         $kalimat = $lika;
         if ($lika == $ft->penulis_1) {
@@ -83,19 +82,27 @@
         }
         $kalimat .= $ft->tahun;
         $kalimat .= '). ';
-    
-        $kalimat2 .= ' (';
-        $kalimat2 .= $ft->nomor;
-        $kalimat2 .= '), ';
-    
-        if (isset($ft->halaman_akhir)) {
-            $kalimat2 .= $ft->halaman_awal;
-            $kalimat2 .= '-';
-            $kalimat2 .= $ft->halaman_akhir;
+        if ($ft->jenisBuku == 'terjemahan') {
+            $kalimat2 .= ' (';
+            $pemecah = explode(' ', $ft->penerjemah);
+            $ambilTerakhir = end($pemecah);
+            $kalimat2 .= $ambilTerakhir;
+            if ($ambilTerakhir == $ft->penerjemah) {
+            } else {
+                $kalimat2 .= ', ';
+            }
+            foreach ($pemecah as $pecahan) {
+                if ($pecahan == $ambilTerakhir) {
+                } else {
+                    $kalimat2 .= ' ';
+                    $kalimat2 .= $pecahan;
+                }
+            }
+            // $kalimat2 .= $ft->;
+            $kalimat2 .= ', Penerjemah). ' . $ft->sumber . '.';
         } else {
-            $kalimat2 .= $ft->halaman_awal;
+            $kalimat2 .= '. ' . $ft->sumber . '.';
         }
-        $kalimat2 .= '.';
     }
 @endphp
 <a style="text-align: justify">
