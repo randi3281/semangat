@@ -195,17 +195,17 @@
                     @if (isset($_SESSION['lagiNgedit']))
                         @if ($_SESSION['lagiNgedit'] == 1)
                             <input type="submit" class="btn btn-danger"
-                                style="margin-right: 4px;height: 28px; font-size:8pt; font-weight: bold; margin-top: -2px" value="GANTI"
-                                name="tomboljenis">
+                                style="margin-right: 4px;height: 28px; font-size:8pt; font-weight: bold; margin-top: -2px"
+                                value="GANTI" name="tomboljenis">
                         @else
                             <input type="submit" class="btn btn-success bold"
-                                style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px; font-weight: bold;" value="GANTI"
-                                name="tomboljenis">
+                                style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px; font-weight: bold;"
+                                value="GANTI" name="tomboljenis">
                         @endif
                     @else
                         <input type="submit" class="btn btn-success bold"
-                            style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px; font-weight: bold;" value="GANTI"
-                            name="tomboljenis">
+                            style="margin-right: 4px;height: 28px; font-size:8pt; margin-top: -2px; font-weight: bold;"
+                            value="GANTI" name="tomboljenis">
                     @endif
 
 
@@ -218,118 +218,40 @@
                         <input type="text" class="form-control-sm" name="nourut"
                             style="margin-right: 11px;width: 50px;" placeholder="No" value="{{ $nomor }}">
                     @endif
-                    @switch($apakahedit)
-                        @case(0)
-                            {{-- Switch --}}
-                            @switch($jenis)
-                                @case(1)
-                                    @include('anficititate.kelola.normal.jurnal')
-                                @break
 
-                                @case(2)
-                                    @include('anficititate.kelola.normal.website')
-                                @break
-
-                                @case(3)
-                                    @include('anficititate.kelola.normal.buku')
-                                @break
-
-                                @case(4)
-                                    @include('anficititate.kelola.normal.terjemahan')
-                                @break
-
-                                @case(5)
-                                    @include('anficititate.kelola.normal.majalah')
-                                @break
-
-                                @case(6)
-                                    @include('anficititate.kelola.normal.suratKabar')
-                                @break
-
-                                @case(7)
-                                    @include('anficititate.kelola.normal.karanganTidakDiterbitkan')
-                                @break
-
-                                @case(8)
-                                    @include('anficititate.kelola.normal.wawancara')
-                                @break
-
-                                @case(9)
-                                    @include('anficititate.kelola.normal.pidato')
-                                @break
-
-                                @case(10)
-                                    @include('anficititate.kelola.normal.komentar')
-                                @break
-
-                                @case(11)
-                                    @include('anficititate.kelola.normal.ensiklopedia')
-                                @break
-
-                                @case(12)
-                                    @include('anficititate.kelola.normal.makalah')
-                                @break
-                            @endswitch
-                            {{-- End Switch --}}
-                        @break
-
-                        @case(1)
-                            @foreach ($editan as $edita)
+                    @if ($_SESSION['jenisKampus'] == 'uingusdur')
+                        @switch($apakahedit)
+                            @case(0)
                                 {{-- Switch --}}
-                                @switch($edita->jenis)
-                                    @case(1)
-                                        @include('anficititate.kelola.edit.jurnal')
-                                    @break
+                                @include('anficititate.kelola.UINGUSDUR.normal')
+                                {{-- End Switch --}}
+                            @break
 
-                                    @case(2)
-                                        @include('anficititate.kelola.edit.website')
-                                    @break
+                            @case(1)
+                                {{-- Switch --}}
+                                @include('anficititate.kelola.UINGUSDUR.edit')
+                                {{-- End Switch --}}
+                            @break
+                        @endswitch
+                    @elseif($_SESSION['jenisKampus'] == 'itsnupkl')
+                        @switch($apakahedit)
+                            @case(0)
+                                {{-- Switch --}}
+                                @include('anficititate.kelola.ITSNUPKL.normal')
+                                {{-- End Switch --}}
+                            @break
 
-                                    @case(3)
-                                        @include('anficititate.kelola.edit.buku')
-                                    @break
+                            @case(1)
+                                {{-- Switch --}}
+                                @include('anficititate.kelola.ITSNUPKL.edit')
+                                {{-- End Switch --}}
+                            @break
 
-                                    @case(4)
-                                        @include('anficititate.kelola.edit.terjemahan')
-                                    @break
+                            @default
+                        @endswitch
+                    @endif
 
-                                    @case(5)
-                                        @include('anficititate.kelola.edit.majalah')
-                                    @break
 
-                                    @case(6)
-                                        @include('anficititate.kelola.edit.suratKabar')
-                                    @break
-
-                                    @case(7)
-                                        @include('anficititate.kelola.edit.karanganTidakDiterbitkan')
-                                    @break
-
-                                    @case(8)
-                                        @include('anficititate.kelola.edit.wawancara')
-                                    @break
-
-                                    @case(9)
-                                        @include('anficititate.kelola.edit.pidato')
-                                    @break
-
-                                    @case(10)
-                                        @include('anficititate.kelola.edit.komentar')
-                                    @break
-
-                                    @case(11)
-                                        @include('anficititate.kelola.edit.ensiklopedia')
-                                    @break
-
-                                    @case(12)
-                                        @include('anficititate.kelola.edit.makalah')
-                                    @break
-                                @endswitch
-                            @endforeach
-                            {{-- End Switch --}}
-                        @break
-
-                    @endswitch
                 </div>
         </div>
         <script type="text/javascript">
@@ -353,8 +275,8 @@
                         @else
                             <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"
                                 style="margin-left:20px">
-                            <input type="submit" name="reset" value="Reset" class="w-25 btn btn-outline-secondary"
-                                style="margin-left:20px">
+                            <input type="submit" name="reset" value="Reset"
+                                class="w-25 btn btn-outline-secondary" style="margin-left:20px">
                         @endif
                     @else
                         <input type="submit" name="input" value="Input" class="w-25 btn btn-primary"

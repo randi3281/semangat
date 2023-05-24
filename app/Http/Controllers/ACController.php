@@ -767,6 +767,7 @@ class ACController extends Controller
                     $_SESSION['jumlahpenulis'] = 1;
                     $_SESSION['apakahedit'] = 0;
                     $_SESSION['jenistabel'] = 0;
+                    $_SESSION['jenisKampus'] = $request->kampus;
                     $_SESSION['editan'] = 1;
                     $_SESSION['kampus'] = $request->kampus;
 

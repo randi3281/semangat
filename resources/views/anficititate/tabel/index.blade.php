@@ -39,15 +39,28 @@
     </div>
     <div class="card">
         <div class="card-body">
-            @switch($dapus)
-                @case(0)
-                    @include('anficititate.tabel.UINGUSDUR.footnote')
-                @break
+            @if ($_SESSION['jenisKampus'] == 'uingusdur')
+                @switch($dapus)
+                    @case(0)
+                        @include('anficititate.tabel.UINGUSDUR.footnote')
+                    @break
 
-                @case(1)
-                    @include('anficititate.tabel.UINGUSDUR.dapus')
-                @break
-            @endswitch
+                    @case(1)
+                        @include('anficititate.tabel.UINGUSDUR.dapus')
+                    @break
+                @endswitch
+            @elseif($_SESSION['jenisKampus'] == 'itsnupkl')
+                @switch($dapus)
+                    @case(0)
+                        @include('anficititate.tabel.ITSNUPKL.footnote')
+                    @break
+
+                    @case(1)
+                        @include('anficititate.tabel.ITSNUPKL.dapus')
+                    @break
+                @endswitch
+            @endif
+
         </div>
     </div>
 </div>
