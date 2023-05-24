@@ -11,7 +11,7 @@
             // break;
         }
     }
-
+    
     if ($izin == 1) {
         array_push($_SESSION['cekjudul'], $ft->judul);
         $kal = $ft->penulis_1;
@@ -42,7 +42,11 @@
         } elseif ($ft->jumlah_penulis == 1) {
             $kalimat .= '. (';
         } else {
-            $kalimat .= ' dkk. (';
+            if ($ft->asing == 1) {
+                $kalimat .= ' et al.. ("';
+            } else {
+                $kalimat .= ' dkk.. (';
+            }
         }
         $kalimat .= $ft->tahun;
         $kalimat .= '). ';
@@ -51,7 +55,7 @@
         $kalimat2 .= ' (';
         $kalimat2 .= $ft->nomor;
         $kalimat2 .= '), ';
-
+    
         if (isset($ft->halaman_akhir)) {
             $kalimat2 .= $ft->halaman_awal;
             $kalimat2 .= '-';

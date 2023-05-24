@@ -11,7 +11,7 @@
             // break;
         }
     }
-
+    
     if ($izin == 1) {
         array_push($_SESSION['cekjudul'], $ft->judul);
         $kal = $ft->penulis_1;
@@ -32,26 +32,62 @@
         if ($ft->jumlah_penulis == 3) {
             $kalimat .= ', ';
             $kalimat .= $ft->penulis_2;
-            $kalimat .= ', dan ';
-            $kalimat .= $ft->penulis_3;
-            $kalimat .= '. (';
+            if ($ft->jenisBuku == 'karangan') {
+                $kalimat .= ', ';
+                $kalimat .= $ft->penulis_3;
+                $kalimat .= ', dan ';
+                $kalimat .= $ft->penerjemah;
+                $kalimat .= ' (Ed.). (';
+            } else {
+                $kalimat .= ', dan ';
+                $kalimat .= $ft->penulis_3;
+                $kalimat .= '. (';
+            }
         } elseif ($ft->jumlah_penulis == 2) {
-            $kalimat .= ', ';
-            $kalimat .= $ft->penulis_2;
-            $kalimat .= '. (';
+            if ($ft->jenisBuku == 'karangan') {
+                $kalimat .= ', ';
+                $kalimat .= $ft->penulis_2;
+                $kalimat .= ', dan ';
+                $kalimat .= $ft->penerjemah;
+                $kalimat .= ' (Ed.). (';
+            } else {
+                $kalimat .= ' dan ';
+                $kalimat .= $ft->penulis_2;
+                $kalimat .= '. (';
+            }
         } elseif ($ft->jumlah_penulis == 1) {
-            $kalimat .= '. (';
+            if ($ft->jenisBuku == 'karangan') {
+                $kalimat .= ' dan ';
+                $kalimat .= $ft->penerjemah;
+                $kalimat .= ' (Ed.). (';
+            } else {
+                $kalimat .= '. (';
+            }
         } else {
-            $kalimat .= ' dkk. (';
+            if ($ft->jenisBuku == 'karangan') {
+                if ($ft->asing == 1) {
+                    $kalimat .= ' et al."';
+                } else {
+                    $kalimat .= ' dkk.';
+                    $kalimat .= ' dan ';
+                    $kalimat .= $ft->penerjemah;
+                    $kalimat .= '(Ed.). (';
+                }
+            } else {
+                if ($ft->asing == 1) {
+                    $kalimat .= ' et al.. ("';
+                } else {
+                    $kalimat .= ' dkk.. (';
+                }
+            }
         }
         $kalimat .= $ft->tahun;
         $kalimat .= '). ';
-        $kalimat .= $ft->judul;
-        $kalimat .= '. ';
+    
         $kalimat2 .= ' (';
         $kalimat2 .= $ft->nomor;
         $kalimat2 .= '), ';
-
+    
         if (isset($ft->halaman_akhir)) {
             $kalimat2 .= $ft->halaman_awal;
             $kalimat2 .= '-';
@@ -64,6 +100,6 @@
 @endphp
 <a style="text-align: justify">
     @if ($izin == 1)
-        {{ $kalimat }}<i>{{ $ft->sumber }}</i>, <i>{{ $ft->volume }}</i>{{ $kalimat2 }}<br />
+        {{ $kalimat }}<i>{{ $ft->judul }}</i>{{ $kalimat2 }}<br />
     @endif
 </a>
