@@ -52,9 +52,12 @@
         $kalimat .= '). ';
         $kalimat .= $ft->judul;
         $kalimat .= '. ';
-        $kalimat2 .= ' (';
-        $kalimat2 .= $ft->nomor;
-        $kalimat2 .= '), ';
+        if (isset($ft->nomor)) {
+            $kalimat2 .= ' (';
+            $kalimat2 .= $ft->nomor;
+            $kalimat2 .= '), ';
+        }
+        $kalimat2 .= ', ';
 
         if (isset($ft->halaman_akhir)) {
             $kalimat2 .= $ft->halaman_awal;
