@@ -11,7 +11,7 @@
             // break;
         }
     }
-
+    
     if ($izin == 1) {
         array_push($_SESSION['cekjudul'], $ft->judul);
         $kal = $ft->penulis_1;
@@ -59,7 +59,7 @@
         } else {
             $kalimat2 .= ', ';
         }
-
+    
         if (isset($ft->halaman_akhir)) {
             $kalimat2 .= $ft->halaman_awal;
             $kalimat2 .= '-';
