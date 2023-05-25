@@ -19,7 +19,10 @@
         $lika = end($kali);
         $kalimat = $ft->judul_web . '. (';
         $kalimat .= $lika;
-        $kalimat .= ', ';
+        if ($lika == $ft->tanggal) {
+        } else {
+            $kalimat .= ', ';
+        }
         foreach ($kali as $kila) {
             if ($kila == $lika) {
             } else {
