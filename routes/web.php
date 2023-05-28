@@ -52,7 +52,6 @@ Route::post('anficititate/lupa_kata_sandi', 'ACController@lupa_kata_sandi');
 Route::get('anficititate/lupa_pin', 'ACController@lupa_pin');
 Route::get('anficititate/lupa_pin/{error}', 'ACController@lupa_pin_error');
 Route::post('anficititate/lupa_pin_nya', 'ACController@lupa_pin_nya');
-
 Route::post('anficititate/slc_repo', 'ACController@slc_repop');
 Route::get('anficititate/slc_repo', 'ACController@slc_repo');
 Route::get('anficititate/slc_repo_err/{error}', 'ACController@slc_repo_error');
@@ -66,15 +65,13 @@ Route::get('anficititate/del_repo/{ket}', 'ACController@del_repo_ket');
 Route::post('anficititate/upd_repo', 'ACController@update_repo');
 Route::get('anficititate/upd_repo/{ket}', 'ACController@upd_repo_ket');
 Route::post('anficititate/home', 'ACController@home');
-// Route::get('anficititate/{jenis}/{penulis}', 'ACController@indexpenulis');
-// Route::get('anficititate/hapus/{ft}', 'ACController@hapus');
-// Route::get('anficititate/dapus/{jenis}/{penulis}', 'ACController@dapus');
-// Route::get('anficititate/edit/{jenis}/{penulis}/{ft}', 'ACController@tampiledit');
-// Route::post('anficititate/kelola', 'ACController@kelola');
-// End Anficititate
-
 Route::get('anficititate/repo_core', 'FootnoteController@index');
 Route::get('anficititate/repo_core/{jumlahpenulis}', 'FootnoteController@indexpenulis');
 Route::get('anficititate/core_repo_edit/{ft}', 'FootnoteController@core_repo_edit');
 Route::get('anficititate/core_repo_hapus/{ft}', 'FootnoteController@core_repo_hapus');
 Route::post('anficititate/kelola', 'FootnoteController@kelola');
+// End Anficititate
+
+// Belajar Mulai dari eps 20 malasngoding.com
+Route::get('eloquent', 'Belajar20Controller@eloquent');
+// End Belajar Mulai dari eps 20 malasngoding.com
