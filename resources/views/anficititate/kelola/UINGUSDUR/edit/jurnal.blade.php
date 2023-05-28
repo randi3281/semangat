@@ -74,7 +74,7 @@
 
 <div class="mt-1 form-group">
     <textarea name="sumber" class="form-control"style="font-size : 11px;" id="" cols="30" rows="2"
-        placeholder="Sumber">{{ $edita->sumber }}</textarea>
+        placeholder="Nama Jurnal">{{ $edita->sumber }}</textarea>
 </div>
 
 <div class="mt-2 form-group">
