@@ -22,7 +22,25 @@
                 <td>{{ $karyawan->alamat }}</td>
             </tr>
         @endforeach
-    </table>
+    </table><br>
+    Karyawan pertama adalah {{ $pegawaiPertama->nama }} <br>
+    Karyawan kedua adalah {{ $pegawaiKedua->nama }} <br>
+    @foreach ($pegawaiKetiga as $pegawaiFirst)
+        Alamat Dadap Wibowo adalah {{ $pegawaiFirst->alamat }} <br>
+    @endforeach
+    @foreach ($pegawaiKeempat as $pegawaiFirst)
+        Alamat Dadap Wibowo adalah {{ $pegawaiFirst->alamat }} <br>
+    @endforeach
+    @foreach ($pegawaiKelima as $pegawaiFirst)
+        Alamatnya adalah {{ $pegawaiFirst->alamat }} <br>
+    @endforeach
+    @foreach ($pegawaiKeenam as $pegawaiFirst)
+        Namanya adalah {{ $pegawaiFirst->nama }} <br>
+    @endforeach
+    @foreach ($pegawaiKetujuh as $pegawaiFirst)
+        Nama adalah {{ $pegawaiFirst->nama }} <br>
+    @endforeach
+    {{$pegawaiKetujuh->links()}}
 </body>
 
 </html>
