@@ -70,7 +70,6 @@ Route::get('anficititate/repo_core/{jumlahpenulis}', 'FootnoteController@indexpe
 Route::get('anficititate/core_repo_edit/{ft}', 'FootnoteController@core_repo_edit');
 Route::get('anficititate/core_repo_hapus/{ft}', 'FootnoteController@core_repo_hapus');
 Route::post('anficititate/kelola', 'FootnoteController@kelola');
-Route::post('anficititate/kelola', 'FootnoteController@kelola');
 // End Anficititate
 
 // Belajar Mulai dari eps 20 malasngoding.com
