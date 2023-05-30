@@ -17,7 +17,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -32,7 +32,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -47,7 +47,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -62,7 +62,7 @@
                                 <option value="4" selected>Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -77,7 +77,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5" selected>Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -92,7 +92,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6" selected>Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -107,7 +107,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7" selected>Karangan Tidak Diterbitkan</option>
+                                <option value="7" selected>Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -122,7 +122,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8" selected>Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -137,7 +137,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9" selected>Pidato</option>
                                 <option value="10">Komentar</option>
@@ -152,7 +152,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10" selected>Komentar</option>
@@ -167,7 +167,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
@@ -182,7 +182,7 @@
                                 <option value="4">Buku Tanpa Penulis</option>
                                 <option value="5">Majalah</option>
                                 <option value="6">Surat Kabar</option>
-                                <option value="7">Karangan Tidak Diterbitkan</option>
+                                <option value="7">Skripsi/Tesis/Desertasi</option>
                                 <option value="8">Wawancara</option>
                                 <option value="9">Pidato</option>
                                 <option value="10">Komentar</option>
