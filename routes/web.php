@@ -75,4 +75,7 @@ Route::post('anficititate/kelola', 'FootnoteController@kelola');
 // Belajar Mulai dari eps 20 malasngoding.com
 Route::get('eloquent', 'Belajar20Controller@eloquent');
 Route::get('belajareloquent', 'Belajar20Controller@belajareloquent');
+Route::get('kepegawaian', 'Belajar20Controller@kepegawaian');
+Route::get('kepegawaian/tambah', 'Belajar20Controller@kepegawaianTambah');
+Route::post('kepegawaian/store', 'Belajar20Controller@Store');
 // End Belajar Mulai dari eps 20 malasngoding.com
