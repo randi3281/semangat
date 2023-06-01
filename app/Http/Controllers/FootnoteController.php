@@ -2179,20 +2179,29 @@ class FootnoteController extends Controller
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 9){
-                        DB::table('footnote')->where('jumlahfootnoteyangada', $jumlahfootnoteyangada)->where('username', $_SESSION['username'])->where('repositori', $_SESSION['repo'])->where('id', $_SESSION['edit_id'])->update([
-                            'id' => $request->nourut,
-                            'penulis_1' => $request->penulis_1,
-                            'judul' => $request->judul,
-                            'sumber' => $request->sumber,
-                            'hari' => $request->hari,
-                            'tanggal' => $request->tanggal,
-                            'bulan' => $request->bulan,
-                            'tahun' => $request->tahun,
-                            'waktu' => $request->waktu,
-                            'jenis' => $_SESSION['jenis'],
-                            'repositori' => $_SESSION['repo'],
-                            'username' => $_SESSION['username']
-                        ]);
+
+                        DB::table('footnote')->where(
+                            'jumlahfootnoteyangada', $jumlahfootnoteyangada
+                            )->where(
+                                'username', $_SESSION['username']
+                                )->where(
+                                    'repositori', $_SESSION['repo']
+                                    )->where(
+                                        'id', $_SESSION['edit_id']
+                                        )->update([
+                                            'id' => $request->nourut,
+                                            'penulis_1' => $request->penulis_1,
+                                            'judul' => $request->judul,
+                                            'sumber' => $request->sumber,
+                                            'hari' => $request->hari,
+                                            'tanggal' => $request->tanggal,
+                                            'bulan' => $request->bulan,
+                                            'tahun' => $request->tahun,
+                                            'waktu' => $request->waktu,
+                                            'jenis' => $_SESSION['jenis'],
+                                            'repositori' => $_SESSION['repo'],
+                                            'username' => $_SESSION['username']
+                                         ]);
                     $_SESSION['apakahedit'] = 0;
                     return redirect('/anficititate/repo_core');
                 }elseif($_SESSION['jenis'] == 10){
