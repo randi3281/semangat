@@ -79,3 +79,9 @@ Route::get('kepegawaian', 'Belajar20Controller@kepegawaian');
 Route::get('kepegawaian/tambah', 'Belajar20Controller@kepegawaianTambah');
 Route::post('kepegawaian/store', 'Belajar20Controller@Store');
 // End Belajar Mulai dari eps 20 malasngoding.com
+
+Route::get('kota', 'kotaController@index');
+
+// Perpustakaan SDN 1 Planjan
+Route::get('perpussd1planjan', 'perpusSd1PlanjanController@index');
+// End Perpustakaan SDN 1 Planjan
