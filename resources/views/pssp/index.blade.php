@@ -50,8 +50,7 @@
                                     </div>
                                     <p style="font-size: 7pt">Kalau kamu mau ubah kata sandinya, <a
                                             href="/anficititate/lupa_sandi">Klik Disini</a></p>
-                                    <div class="form-group mt-3">
-                                        <label style="margin-right: 12px">Captcha</label>
+                                    <div class="form-group mt-3 text-center">
                                         <img src="/captcha/captcha.php" alt="gambar">
                                     </div>
                                     <div class="form-group mt-3">
