@@ -41,12 +41,12 @@
                                     <div class="form-group">
                                         <label for="username">Username</label>
                                         <input id="username" class="form-control" type="text" name="username"
-                                            autofocus required placeholder="Masukkan username Anda disini">
+                                            autofocus required placeholder="Masukkan username">
                                     </div>
                                     <div class="form-group mt-1">
                                         <label for="password">Kata Sandi</label>
                                         <input id="password" class="form-control" type="password" name="password"
-                                            required placeholder="Masukkan kata sandi Anda disini" minlength="8">
+                                            required placeholder="Masukkan kata sandi" minlength="8">
                                     </div>
                                     <p style="font-size: 7pt">Kalau kamu mau ubah kata sandinya, <a
                                             href="/anficititate/lupa_sandi">Klik Disini</a></p>
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <input id="captcha" class="form-control" type="text" name="captcha"
-                                            placeholder="Masukin captcha di atas disini" maxlength="6"
+                                            placeholder="Masukkan captcha" maxlength="6"
                                             value="" minlength="6" required>
                                     </div>
                                     <div class="text-center mt-4">
