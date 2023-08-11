@@ -11,8 +11,8 @@
 </head>
 
 <body class="bg-primary">
-    <div class="container-fluid">
-        <div class="row justify-content-center" style="margin-top: 50px;">
+    <div class="container">
+        <div class="row justify-content-between" style="margin-top: 50px;">
             <div class="col-lg-4">
                 <div class="card" style=" height:550px;">
                     <div class="card-body">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-8">
                 <div class="row justify-content-center">
                     <div class="card" style="height:550px;">
                         <div class="card-body justify-content-center d-flex">
