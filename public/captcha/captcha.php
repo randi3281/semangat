@@ -9,7 +9,7 @@ $gbr = imagecreate(200, 50);
 imagecolorallocate($gbr, 69, 179, 157);
 
 $color = imagecolorallocate($gbr, 253, 252, 252);
-$font = "Allura-Regular.otf";
+$font = "./Allura-Regular.otf";
 $ukuran_font = 20;
 $posisi = 32;
 // $angka2 = "";
