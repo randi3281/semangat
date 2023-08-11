@@ -19,20 +19,24 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" class="form-control" type="text" name="username" autofocus required placeholder="Masukin username kamu disini">
+                <input id="username" class="form-control" type="text" name="username" autofocus required
+                    placeholder="Masukin username kamu disini">
             </div>
             <div class="form-group mt-1">
                 <label for="password">Kata Sandi</label>
-                <input id="password" class="form-control" type="password" name="password" required placeholder="Inget kan kata sandinya?" minlength="8">
+                <input id="password" class="form-control" type="password" name="password" required
+                    placeholder="Inget kan kata sandinya?" minlength="8">
             </div>
-            <p style="font-size: 7pt">Kalau kamu mau ubah kata sandinya, <a href="/anficititate/lupa_sandi">Klik Disini</a></p>
+            <p style="font-size: 7pt">Kalau kamu mau ubah kata sandinya, <a href="/anficititate/lupa_sandi">Klik
+                    Disini</a></p>
             <div class="form-group mt-3">
                 <label style="margin-right: 12px">Captcha</label>
-                <img src="/captcha/anficititate/captcha.php" alt="gambar">
+                <img src="/captcha/captcha.php" alt="gambar">
             </div>
             <div class="form-group mt-3">
-                <input id="captcha" class="form-control" type="text" name="captcha" placeholder="Masukin captcha di atas kesini ...."
-                    maxlength="6" value="" minlength="6" required>
+                <input id="captcha" class="form-control" type="text" name="captcha"
+                    placeholder="Masukin captcha di atas kesini ...." maxlength="6" value="" minlength="6"
+                    required>
             </div>
             <div class="text-center mt-3">
                 <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
