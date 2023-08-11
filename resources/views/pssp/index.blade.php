@@ -17,7 +17,7 @@
                 <div class="card" style=" height:550px;">
                     <div class="card-body">
                         <h1 class="text-center fs-3 mt-5 pt-4 mb-2" style="font-family: 'Times New Roman', Times, serif">
-                            LOGIN
+                            - LOGIN -
                         </h1>
                         <div class="row text-center justify-content-center"
                             style="font-size: 9pt; margin-top:-10px; margin-bottom: 10px">
@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <label for="username">Username</label>
                                         <input id="username" class="form-control" type="text" name="username"
-                                            autofocus required placeholder="Masukin username Anda disini">
+                                            autofocus required placeholder="Masukkan username Anda disini">
                                     </div>
                                     <div class="form-group mt-1">
                                         <label for="password">Kata Sandi</label>
@@ -62,9 +62,6 @@
                                     <div class="text-center mt-4">
                                         <input type="submit" style="height: 38px; font-size: 12px; font-weight: bold"
                                             class="btn btn-primary w-50" value="MASUK">
-                                        <p class="mt-2" style="font-size: 7pt">Belum punya akun? <a
-                                                href="/anficititate/daftar">Ayo Daftar
-                                                Disini</a></p>
                                     </div>
                                 </form>
                             </div>
