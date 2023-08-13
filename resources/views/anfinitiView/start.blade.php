@@ -17,8 +17,8 @@
                 <img src="/anfinitiPublic/logo.png" style="width: 384px; height: 109px;" alt="">
             </div>
             <div class="col-md-4 d-flex justify-content-center align-items-center" style="height: 650px">
-                <div class="card" style="height: 562px">
-                    <div class="card-body">
+                <div class="card">
+                    <div class="card-body" style="height: 562px">
                         @switch($mode)
                             @case(1)
                                 @include('anfinitiView.login')
