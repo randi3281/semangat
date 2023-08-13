@@ -29,7 +29,7 @@
                             value="" minlength="6">
                     </div>
                     <div class="tombol text-center mt-4">
-                        <button type="submit" class="btn btn-dark btn-block w-75">Daftar</button>
+                        <button type="submit" class="btn btn-dark text-light btn-block w-75">Daftar</button>
                         <button type="submit" class="btn btn-outline-dark btn-block">Masuk</button>
                     </div>
                 </div>
