@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class anfinitiController extends Controller
 {
     public function index(){
+        $mode = 1;
+
         return view("anfinitiView.index");
     }
 
@@ -15,9 +17,13 @@ class anfinitiController extends Controller
     }
 
     public function login(){
-        return view("anfinitiView.login");
+        $mode = 1;
+
+        return view("anfinitiView.start", ["mode" => $mode]);
     }
     public function daftar(){
-        return view("anfinitiView.daftar");
+        $mode = 2;
+
+        return view("anfinitiView.start", ["mode" => $mode]);
     }
 }
