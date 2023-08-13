@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="/anfiniti/aa.png" type="image/x-icon">
+    <link rel="icon" href="/anfinitiPublic/aa.png" type="image/x-icon">
     <title>nfiniti - / An . fi . ni . ti /</title>
     @vite('resources/sass/app.scss')
 </head>
@@ -14,12 +14,12 @@
     <div class="container-fluid">
         <div class="row justify-content-between">
             <div class="col-md-6">
-                <img src="/anfiniti/logo.png" style="width: 384px; height: 109px; margin-left: 100px" class="mt-5"
+                <img src="/anfinitiPublic/logo.png" style="width: 384px; height: 109px; margin-left: 100px" class="mt-5"
                     alt="">
             </div>
             <div class="col-md-6 d-flex justify-content-end align-items-center">
-                <a href="" style=" margin-right: 120px">
-                    <img src="/anfiniti/daftar.png" style="width: 150px;" class="mt-5" alt="">
+                <a href="/" style=" margin-right: 120px">
+                    <img src="/anfinitiPublic/keluar.png" style="width: 150px;" class="mt-5" alt="">
                 </a>
             </div>
         </div>
@@ -33,7 +33,7 @@
                         <div class="row justify-content-center" style="margin-top:-10px">
                             <div class="col-md-1 d-flex justify-content-center align-items-center mb-4 mx-3">
                                 <div class="col justify-content-center d-flex">
-                                    <img src="/anfiniti/chatgpt.png" class="card-img-top"
+                                    <img src="/anfinitiPublic/chatgpt.png" class="card-img-top"
                                         style="width: 70px; height: 70px" alt="Image">
                                 </div>
                             </div>
@@ -45,10 +45,10 @@
                             <div class="row justify-content-center" style="margin-top: -4px">
                                 <div class="col justify-content-between d-flex align-items-center">
                                     <a href="">
-                                        <img src="/anfiniti/edit.png" alt="">
+                                        <img src="/anfinitiPublic/edit.png" alt="">
                                     </a>
                                     <a href="">
-                                        <img src="/anfiniti/delete.png" alt="">
+                                        <img src="/anfinitiPublic/delete.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -63,9 +63,9 @@
                 @endif
             @endfor
 
-            {{-- Contoh --}}
+            {{-- Input --}}
 
-            {{-- EndContoh --}}
+            {{-- EndInput --}}
         </div>
     </div>
 </body>

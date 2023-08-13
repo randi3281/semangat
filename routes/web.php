@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Anfiniti
+Route::get('/', 'anfinitiController@index');
+Route::get('/anfiniti', 'anfinitiController@anfiniti');
+Route::get('/anfiniti/login', 'anfinitiController@login');
+Route::get('/anfiniti/daftar', 'anfinitiController@daftar');
+// End Anfiniti
+
+
 // Belajar
-Route::get('/', function () {
-    return view('portofolio.portofolio');
-});
 Route::get('/semangat', 'SemangatController@index');
 Route::get('/belajar4', 'SemangatController@belajar4');
 Route::get('/belajar42', 'SemangatController@belajar42');
