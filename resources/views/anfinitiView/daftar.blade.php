@@ -2,12 +2,12 @@
     <div class="col-auto d-flex justify-content-center align-items-center" style="height:500px">
         <form action="/anfiniti/daftarproses" style="width: 350px;" method="POST">
             {{ csrf_field() }}
-            <h2 class="text-center">- Daftar -</h2>
             @if (session('success'))
-                <div class="alert alert-success">
+                <p class="alert alert-success">
                     {{ session('success') }}
-                </div>
+                </p>
             @endif
+            <h2 class="text-center">- Daftar -</h2>
             <div class="row justify-content-center mt-4">
                 <div class="col-auto">
                     <div class="form-group">
