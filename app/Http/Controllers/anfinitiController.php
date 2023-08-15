@@ -28,6 +28,34 @@ class anfinitiController extends Controller
         return view("anfinitiView.start");
     }
 
+    public function daftar(){
+        $mode = 2;
+
+        return view("anfinitiView.start", ["mode" => $mode]);
+    }
+
+    public function daftarproses(Request $request){
+        $mode = 2;
+        if(isset($request->tombolDaftar)){
+            $validatedData = $request->validate([
+                'username' => 'required|string|max:255',
+                'password' => 'required|string',
+            ]);
+
+            $anfinitiLogin = new anfiniti_login();
+            $anfinitiLogin->username = $validatedData['username'];
+            $anfinitiLogin->password = $validatedData['password'];
+            $anfinitiLogin->save();
+
+            
+            return redirect()->back()->with('success', 'Anfiniti login created successfully');
+        };
+        
+        if(isset($request->tombolMasuk)){
+            return redirect("/anfiniti/login");
+        }
+    }
+
     public function loginProsesGagal($ket){
         $mode = 1;
         $errornya = "";
@@ -44,11 +72,6 @@ class anfinitiController extends Controller
         return view("anfinitiView.start", ["mode" => $mode, "errornya" => $errornya]);
     }
     
-    public function daftar(){
-        $mode = 2;
-
-        return view("anfinitiView.start", ["mode" => $mode]);
-    }
 
     public function input(){
         $mode = 1;

@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class anfiniti_session extends Model
 {
-    use HasFactory;
+    protected $table = 'anfiniti_session';
+
+    public function login()
+    {
+        return $this->belongsTo(AnfinitiLogin::class, 'login_id');
+    }
 }

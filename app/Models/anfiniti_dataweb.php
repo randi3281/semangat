@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class anfiniti_dataweb extends Model
 {
-    use HasFactory;
+    protected $table = 'anfiniti_dataweb';
+
+    public function login()
+    {
+        return $this->belongsTo(AnfinitiLogin::class, 'login_id');
+    }
 }
