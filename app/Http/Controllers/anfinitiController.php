@@ -23,9 +23,28 @@ class anfinitiController extends Controller
     }
 
     public function loginproses(Request $request){
-        $login = anfiniti_login::all();
+        $mode = 1;
+        if(isset($request->tombolMasuk)){
+            $validatedData = $request->validate([
+                'username' => 'required|string|max:255',
+                'password' => 'required|string',
+            ]);
 
-        return view("anfinitiView.start");
+            $anfinitiLogin = anfiniti_login::where("username", $validatedData['username'])->first();
+            if($anfinitiLogin){
+                if($anfinitiLogin->password == $validatedData['password']){
+                    return redirect("/anfiniti/input");
+                }else{
+                    return redirect("/anfiniti/login/gagal/1");
+                }
+            }else{
+                return redirect("/anfiniti/login/gagal/1");
+            }
+        };
+
+        if(isset($request->tombolDaftar)){
+            return redirect("/anfiniti/daftar");
+        }
     }
 
     public function daftar(){
@@ -35,25 +54,46 @@ class anfinitiController extends Controller
     }
 
     public function daftarproses(Request $request){
+        // buatlah agar daftarprosess menginput ke database anfiniti_login dengan syarat captcha benar dan password yang kedua terkonfirmasi benar
         $mode = 2;
         if(isset($request->tombolDaftar)){
             $validatedData = $request->validate([
                 'username' => 'required|string|max:255',
                 'password' => 'required|string',
+                'password2' => 'required|string',
+                'captcha' => 'required|string',
             ]);
 
-            $anfinitiLogin = new anfiniti_login();
-            $anfinitiLogin->username = $validatedData['username'];
-            $anfinitiLogin->password = $validatedData['password'];
-            $anfinitiLogin->save();
-
-            
-            return redirect()->back()->with('success', 'Anfiniti login created successfully');
-        };
-        
-        if(isset($request->tombolMasuk)){
-            return redirect("/anfiniti/login");
+            if($validatedData['password'] == $validatedData['password2']){
+                if($validatedData['captcha'] == $_SESSION['captcha']){
+                    $anfinitiLogin = new anfiniti_login;
+                    $anfinitiLogin->username = $validatedData['username'];
+                    $anfinitiLogin->password = $validatedData['password'];
+                    $anfinitiLogin->save();
+                    return redirect("/anfiniti/login");
+                }else{
+                    return redirect("/anfiniti/daftar/gagal/2");
+                }
+            }else{
+                return redirect("/anfiniti/daftar/gagal/1");
+            }
         }
+    }
+
+    public function daftarprosesgagal($ket){
+        $mode = 2;
+        $errornya = "";
+        switch ($ket) {
+            case 1:
+                $errornya = "Maaf, Password Anda salah";
+                break;
+            case 2:
+                $errornya = "Maaf, Captcha Anda salah";
+                break;
+            
+        }
+
+        return view("anfinitiView.start", ["mode" => $mode, "errornya" => $errornya]);
     }
 
     public function loginProsesGagal($ket){

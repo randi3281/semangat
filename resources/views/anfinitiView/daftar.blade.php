@@ -8,6 +8,9 @@
                 </p>
             @endif
             <h2 class="text-center">- Daftar -</h2>
+            @if (isset($errornya))
+                <p class="text-center" style="font-size: 8px">{{ $errornya }}</p>
+            @endif
             <div class="row justify-content-center mt-4">
                 <div class="col-auto">
                     <div class="form-group">
