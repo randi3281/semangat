@@ -96,3 +96,6 @@ Route::get('kota', 'kotaController@index');
 // Perpustakaan SDN 1 Planjan
 Route::get('perpussd1planjan', 'perpusSd1PlanjanController@index');
 // End Perpustakaan SDN 1 Planjan
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
