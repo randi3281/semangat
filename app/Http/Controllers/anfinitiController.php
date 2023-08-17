@@ -65,7 +65,7 @@ class anfinitiController extends Controller
             ]);
 
             if($validatedData['password'] == $validatedData['password2']){
-                if($validatedData['captcha'] == $_SESSION['captcha']){
+                if($validatedData['captcha'] == session('captcha')){
                     $anfinitiLogin = new anfiniti_login;
                     $anfinitiLogin->username = $validatedData['username'];
                     $anfinitiLogin->password = $validatedData['password'];
